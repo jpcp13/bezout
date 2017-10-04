@@ -1,0 +1,35 @@
+\documentclass[]{article}
+%\linespread{1.6}
+\usepackage{standalone}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage[linktoc=all]{hyperref}
+\usepackage[]{algorithm2e}
+\usepackage{graphicx}
+\usepackage{multirow}
+
+\theoremstyle{plain}
+\newtheorem{prop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{exmp}{Example}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+
+\title{Solving zero-dimensional polynomial systems:\\ a practical method using Bezout matrices}
+\author{Jean-Paul Cardinal}
+
+\begin{document}
+\maketitle
+\input{abstract}
+\tableofcontents
+
+\input{introduction}
+\input{univariate}
+\input{multivariate}
+\input{barnett_formula}
+\input{roots}
+\input{bibliography}
+
+\end{document}

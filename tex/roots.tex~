@@ -1,0 +1,40 @@
+\documentclass{standalone}
+
+% Preamble
+\begin{document}
+
+  \subsection{Numerical experiment}
+
+\begin{figure}[h]
+    \caption{Histogram of errors}
+  \label{fig:roots}
+  \includegraphics[scale=0.5]{txt/histo_roots.eps}
+\end{figure}
+
+In this experiment, we solve the polynomial system $f =\\ 
+\input{txt/P.txt}$.\\
+The size of the Bezout matrix $B(1)$ is $\input{txt/Dx.txt}$; this is the maximum number of solutions that a system of multidegree \input{txt/multideg.txt} can have. To initiate the reduction process, the rank of $B(1)$ is needed; as the matrix has integer coefficients, we use the Sage function matrix.kernel() to calculate its rank. All the subsequent computations are done in floating-point arithmetic.
+After the reduction process has been completed, we find that the dimension of the quotient $A$ is $\input{txt/bezout_dim.txt}$.
+Since the computations have been done numerically, the Bezout matrices and the companion matrices are numerical matrices and the eigenvalues of the companion matrices $X_j = B(x_j)B(1)^{-1}$ are numerical approximations of the roots of the polynomial system $f$.
+To check the quality of the numerical roots $\alpha$, we compute the errors $f(\alpha)$.
+These errors are shown in an histogram (Figure \ref{fig:roots}).
+\iffalse
+On constate (Table \ref{tab:timings}) que le temps de calcul en arithmétique flottante est plus court mais au prix d'une dégradation sensible de la qualité des résultats. On peut noter aussi que le calcul de la dimension du quotient, effectué par la méthode des bases de Grobner (fonction vector\_space\_dimension() de Sage), demande un temps beaucoup plus long que lorsqu'on utilise les matrices de Bezout. Il semble de plus que ce temps de calcul (bases de Grobner) augmente considérablement avec la taille des coefficients entiers du système polynomial, ce qui explique notre choix de restreindre ces coefficients entre $t=-3$ et $t=3$ dans notre expérience.
+
+\begin{table}[h]
+    \caption{timings}
+\label{tab:timings}
+\begin{tabular}{llllr}
+  Arithmétique & Méthode & Processus & Software & Timing \\ \hline
+  \multirow{4}{*}{flottante} & \multirow{4}{*}{Bezout} & Construction matrices de Bezout & NumPy & $\input{txt/construction_B_time.txt}$ ms \\ %\hline
+  & & Noyau de $B(1)$ & Octave & $\input{txt/octave_triang_time.txt}$ ms \\
+  & & Réduction matrices & Octave & $\input{txt/octave_reduct_time.txt}$ ms \\ %\hline
+  & & Valeurs propres & SciPy & $\input{txt/eigenstructure_time.txt}$ ms \\ \hline \hline
+  \multirow{2}{*}{exacte} & Bezout & Réduction matrices & Sage & $\input{txt/sage_reduct_time.txt}$ ms \\ %\hline
+  & Grobner & Vérification dimension Algèbre & Sage & $\input{txt/sage_dimension_time.txt}$ ms
+\end{tabular}
+\end{table}
+
+\fi
+
+\end{document}

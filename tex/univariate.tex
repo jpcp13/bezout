@@ -1,0 +1,425 @@
+\documentclass{standalone}
+% Preamble
+\begin{document}
+
+
+
+\section{Univariate case}
+\label{univariate}
+Let's begin by recalling some well-known facts about univariate polynomials. In this section we consider a polynomial $f = a_0x^d + \dots + a_{d-1}x + a_d \in \mathbb{Q}[x]$, and $A = \mathbb{Q}[x]/\langle f \rangle$ the quotient algebra of $\mathbb{Q}[x]$ by $\langle f \rangle$, the ideal associated to $f$.
+Let $x$ denote indifferently the variable $x$, its projection on the quotient $A$ and the multiplication operator $h\mapsto xh$ defined on $A$. The vector space $A$ has the particular basis $\bold{x} = (1, x,\cdots, x^{d-1})$; it is called the {\bf monomial basis}.
+
+\subsection{Mutiplication operators}
+The multiplication operator
+$x : \left\vert
+\begin{array}{c}
+h \mapsto xh
+\end{array}
+\right.$
+is an endomorphism of $A$, which, written in the monomial basis, has a matrix $X$ called the {\bf companion matrix} of $f$. The matrix $X$ is Hessenberg and writes in the simple form
+\begin{equation}
+\label{compan}
+X =
+\begin{bmatrix}
+	0 & \cdots & 0 & -a_d/a_0 \\
+	1 & 0 & \cdots & -a_{d-1}/a_0 \\
+	\vdots  & \ddots  & \ddots & \vdots  \\
+	0 & \cdots & 1 & -a_1/a_0
+\end{bmatrix}
+\end{equation}
+\begin{prop}
+\label{compan2roots}
+The characteristic polynomial of $X$ is $f$.
+\end{prop}
+
+\begin{rem}
+We deduce from Proposition \ref{compan2roots} that the eigenvalues of $X$ are the roots of $f$, counted with the same multiplicities. Moreover, we can see that the matrix $X$ is Hessenberg; we can use reliable techniques, like the QR algorithm, to compute its eigenvalues. This gives an efficient and fast method to compute numerical approximations of the roots of $f$. 
+\end{rem}
+
+\begin{rem}
+\label{g_1=g_2}
+Suppose $g_1, g_2$ are two polynomials of $\mathbb{Q}[x]$ such that $g_1 = g_2$ modulo $f$. Since $g_1-g_2$ is a multiple of $f$ and since, by Proposition \ref{compan2roots}, $f(X) = 0$, then $g_1(X) = g_2(X)$.
+\end{rem}
+
+\begin{prop}
+Let $g$ be an element of $A$ and let $g$ be any representative - a polynomial, element of $\mathbb{Q}[x]$ - of the element $g$ of $A$. Then, $g(X)$ is a matrix that does not depend on the choice of the representative of $g$, and it is the matrix of the endomorphism
+$g:\left\vert
+\begin{array}{c}
+h \mapsto gh
+\end{array}
+\right.$,
+written in the monomial basis.
+\end{prop}
+
+
+\subsection{Bezout polynomials and Bezout matrices}
+
+\begin{defn}
+\label{def_bez}
+The companion matrix is useful for the calculation of the roots of a univariate polynomial. Moreover, it can be naturally extended to zero-dimensional multivariate systems; if we have $n$ polynomials $f_1, \ldots, f_n$ in the variables $x_1, \ldots, x_n$, then we simply define the companion matrices as the matrices of the multiplication operators by the variables $x_1, \ldots, x_n$ in the quotient space $ A = \mathbb{Q}[x_1, \ldots, x_n]/ \langle f_1, \ldots, f_n\rangle$.
+$x_j : \left\vert
+\begin{array}{c}
+h \mapsto x_jh
+\end{array}
+\right.$
+The difficulty, in the multivariate case, is that the companion matrices are not as easy to calculate as in the univariate case; they don't have a direct and simple form like the form \ref{compan}. However, there is a family of matrices, called Bezout matrices, that can be be calculated easily, even in the multivariate case and that we can use as intermediate matrices to get the companion matrices.
+
+Let's introduce the Bezout matrices, for univariate polynomials. To that purpose, we need a new variable $y$. Let $f \in \mathbb{Q}[x]$ be a fixed polynomial and let $g$ be another polynomial. The {\bf Bezout polynomial} $\delta(g)$, or {\bf Bezoutian},
+is defined as the polynomial in the variables $x, y$
+$$
+\delta(g) = \dfrac{f(x)g(y)-f(y)g(x)}{x-y}
+$$
+This polynomial is of degree $m-1$ in both variables $x, y$, where $m$ is the maximum of the degrees of $f$ and $g$. The {\bf Bezout matrix} $B(g) = [b_{\alpha\beta}]$ is then defined as the matrix of the coefficients of $\delta(g)$ expressed on the monomials $(x^\alpha y^\beta)_{0 \le \alpha,\beta}$
+\begin{equation}
+\delta(g) = \sum_{\alpha,\beta = 0, \cdots, m-1} b_{\alpha\beta} x^\alpha y^\beta
+\end{equation}
+\end{defn}
+
+\begin{rem}
+The size of a Bezout matrix may be loosely defined; when working with several Bezout matrices, it may be desirable to pad some of them with extra columns or lines of zeros to get compatible sizes.
+\end{rem}
+
+\begin{exmp}
+\label{exmp_1}
+Let $f = x^2 - 3x + 2$ be the fixed polynomial. We examine the two cases $g=1$ and $g = x^3$. The Bezout polynomials are $\delta(1) = -3 + x + y$ and $\delta(x^3) = -2x^2 - 2xy -2y^2 + 3x^2y + 3xy^2 -x^2y^2$. The Bezout matrices $B(1)$ et $B(x^3)$ appear when we write  $\delta(1)$ and  $\delta(x^3)$ as double-entry arrays indexed by the monomials $1, x, x^2$ and $1, y, y^2$.
+$$
+\begin{array}{c|ccc}
+\delta(1) & 1 & y & y^2\\
+\hline
+1 & -3 & 1 & 0\\
+x & 1 & 0 & 0\\
+x^2 & 0 & 0 & 0
+\end{array}
+\hspace{1cm}
+\begin{array}{c|ccc}
+\delta(x^3) & 1 & y & y^2\\
+\hline
+1 & 0 & 0 & -2\\
+x & 0 & -2 & 3\\
+x^2 & -2 & 3 & -1
+\end{array}
+$$
+\end{exmp}
+\begin{rem}
+The Bezout poynomial $\delta(g)$ may be seen as a bilinear form whose matrix is the Bezout matrix $B(g)$
+\begin{equation}
+	\label{xBg}
+	\delta(g) = \bold{x} B(g) \bold{y}^T
+\end{equation}
+with $\bold{x} = (1, x,\cdots, x^{m-1}) \in \mathbb{Q}[x]^m$ and $\bold{y} = (1, y,\cdots, y^{m-1}) \in \mathbb{Q}[y]^m$ are two vectors of monomials.
+\end{rem}
+From Equality (\ref{xBg}), we may regard $\delta(g)$ as an element of $\mathbb{Q}[x][y]$, a polynomial in the variable $y$ with coefficients in $\mathbb{Q}[x]$; specifically, the coefficient of the monomial $y^j$ in $\delta(g)$ is just the $j$-th entry of the vector-matrix product $\bold{x} B(g)$.
+
+
+
+
+\begin{prop}
+\label{relations_prop}
+Let $f$ be a fixed polynomial and $g$ be another polynomial; we denote by $m$ the maximum of the degrees of $f$ and $g$ and we put $\bold{x} = (1, x,\cdots, x^{m-1})$. We have
+\begin{equation}
+\label{relations}
+	\bold{x}B(1)g = \bold{x}B(g)
+\end{equation}
+where each componentwise equality must be understood modulo $f$.
+\end{prop}
+\begin{proof}
+We rewrite $\delta(g)$ as
+\begin{align*} \nonumber
+	\delta(g) & = & g(x)\dfrac{f(x)-f(y)}{x-y} - f(x)\dfrac{g(x)-g(y)}{x-y} \\ \nonumber
+	\delta(g) & = & g(x)\delta(1) - f(x)\dfrac{g(x)-g(y)}{x-y}
+\end{align*}
+This is an equality between elements of $\mathbb{Q}[x][y]$. If $h\in \mathbb{Q}[x][y]$ and $\beta\in\mathbb{N}$, let's denote by $h_\beta$, an element of $\mathbb{Q}[x]$ the coefficient of $y^\beta$ in the polynomial $h$. Thus, we have
+$$\delta(g)_\beta = g(x)\delta(1)_\beta - f(x)\left(\dfrac{g(x)-g(y)}{x-y}\right)_\beta$$
+which is an equality between elements of $\mathbb{Q}[x]$. Mapping on $A$, we get
+$\delta(g)_\beta = g(x)\delta(1)_\beta$,
+and, as this is true for all $\beta\in\mathbb{N}$, we get the relation (\ref{relations}).
+\end{proof}
+
+\begin{rem}
+
+Each column of a Bezout matrix, when left-multiplied by $\bold{x}$, is a polynomial in the variable $x$; when this does not bring to confusion, we will think of columns of a Bezout matrix as elements of $\mathbb{Q}[x]$ - and lines as elements of $\mathbb{Q}[y]$.
+To say Proposition \ref{relations_prop} differently, each column of $B(1)$, when multiplied by $g$, equals, modulo $f$, the column of same index of $B(g)$.
+\end{rem}
+
+\begin{exmp}
+Applied to Example \ref{exmp_1}, Proposition \ref{relations_prop} says
+\begin{align*} \nonumber
+ (-3 + x)x^3 &= -2x^2, \\
+ (1)x^3 &= -2x + 3x^2, \\
+ (0)x^3 &= -2 + 3x - x^2,
+\end{align*}
+three equalities in $\mathbb{Q}[x]/\langle f \rangle$ that can be easily checked.
+\end{exmp}
+
+\begin{rem}
+If, in the Bezoutians $\delta(1), \delta(g)$, instead of working with columns, we work with lines, then we get the formula 
+$gB(1)\bold{y}^T = B(g)\bold{y}^T$, that provides equalities in $\mathbb{Q}[y]/\langle f \rangle$.
+\end{rem}
+
+
+\subsection{Connection between Bezout matrices and the companion matrix}
+\label{Bar}
+Given a fixed polynomial $f$, of degree $d$, the two Bezout matrices $B(1)$ et $B(x)$ have simple forms
+\begin{equation}
+	\begin{array}{c|cccc}
+		\delta(1) & 1 & y & \dots & y^{d-1} \\
+		\hline
+		1 & a_{d-1} & \ldots & \dots & a_0 \\
+		x & a_{d-2} & \dots & a_0 & 0 \\
+		\vdots & \vdots & \vdots & \vdots & \vdots \\
+		x_{d-1} & a_0 & 0 & \ldots & 0 \\
+	\end{array}
+	\hspace{1.5cm}
+	\begin{array}{c|cccc}
+		\delta(x) & 1 & y & \dots & y^{d-1} \\
+		\hline
+		1 & -a_{d} & 0 & \dots & 0 \\
+		x & 0 & a_{d-2} & \ldots & a_0 \\
+		\vdots & \vdots & \vdots & \vdots & \vdots \\
+		x_{d-1} & 0 & a_0 & \ldots & 0 \\
+	\end{array}
+\end{equation}
+The matrix $B(1)$ is clearly invertible. These two particular matrices are specially important due to the following proposition:
+\begin{prop}
+\label{Barnett}
+The compagnon matrix $X$ and the Bezout matrices $B(x), B(1)$ are related by the {\bf Barnett decomposition} formula
+\cite{Barnett}
+\begin{equation}
+	X = B(x)B(1)^{-1}
+\end{equation}
+\end{prop}
+\begin{proof}
+We consider the two families of elements of the quotient algebra $A$
+\begin{equation}
+	\begin{array}{lll}
+		\bold{x}B(1) & = & (a_{d-1} + a_{d-2}x + \cdots + a_0x^{d-1}, \cdots, a_1 + a_0x,  a_0).\\
+		\bold{x}B(x) & = & (-a_d, a_{d-2}x + \cdots + a_0x^{d-1}, \cdots, a_0x)
+	\end{array}
+\end{equation}
+and put $\hat{\bold{x}} = \bold{x}B(1)$.
+As $B(1)$ is invertible, the family $\hat{\bold{x}}$ is a basis of $A$ called {\bf Horner basis}.
+From Proposition \ref{relations_prop}, we have $\hat{\bold{x}}x = \bold{x}B(1)$. By construction, the families $\hat{\bold{x}}$ et $\hat{\bold{x}}x$ are expressed in the monomial basis $\bold{x}$ by the matrices $B(1)$ et $B(x)$, respectively.
+The family $\hat{\bold{x}}x$ is thus expressed in the Horner basis $\hat{\bold{x}}$ by the matrix $B(1)^{-1}B(x)$; this means that the multiplication map
+$x : \left\vert
+\begin{array}{c}
+h \mapsto xh
+\end{array}
+\right.$ is represented in the basis $\hat{\bold{x}}$ by the matrix $B(1)^{-1}B(x)$
+and, thus, is represented in the basis $\bold{x}$ by the matrix $B(1)(B(1)^{-1}B(x))B(1)^{-1} = B(x)B(1)^{-1}$.
+\end{proof}
+
+
+
+\subsection{General Barnett decomposition formula}
+\label{Bar_gen}
+The Barnett decomposition formula relates the companion matrix to the Bezout matrices of the polynomials $1$ et $x$.
+This can be naturally extended; let $g \in \mathbb{Q}[x]$ be any polynomial.
+The Bezout matrices $B(1)$ et $B(g)$ are related to the matrix $g(X)$ by the following {\bf general Barnett decomposition formula}
+\begin{equation}
+	\label{BG}
+	B(g)B(1)^{-1} = g(X)
+\end{equation}
+This is easy to prove formula~(\ref{BG}) when the degree of $g$ is smaller or equal to $d$, the degree of $f$, i.e when $B(1)$ and $B(g)$ both are of size $d$. For example, when $f = x^2 - 3x + 2$, we have
+$$
+\begin{array}{c|cc}
+	\delta(1) & 1 & y \\
+	\hline
+	1 & -3 & 1 \\
+	x & 1 & 0
+\end{array}
+\hspace{1cm}
+\begin{array}{c|cc}
+	\delta(x) & 1 & y \\
+	\hline
+	1 & -2 & 1 \\
+	x & 1 & 0
+\end{array}
+\hspace{1cm}
+\begin{array}{c|cc}
+	\delta(x^2) & 1 & y \\
+	\hline
+	1 & 0 & -2 \\
+	x & -2 & 3
+\end{array}
+$$
+and
+\begin{equation}
+	B(x)B(1)^{-1} =
+	\begin{bmatrix}
+		0 & -2 \\
+		1 & 3
+	\end{bmatrix}
+	= X
+	\hspace{1cm}
+	B(x^2)B(1)^{-1} =
+	\begin{bmatrix}
+		-3 & -6 \\
+		2 & 7
+	\end{bmatrix}
+	= X^2
+\end{equation}
+whichs is consistent to formula~(\ref{BG}).
+On the other hand, if the degree $m$ of $g$ is strictly larger than $d$, then the sizes of $B(g)$ and $B(1)$ differ, and the product $B(g)B(1)^{-1}$ no longer makes sense. This can be fixed by indexing the Bezout matrices by the same monomials, namely
+$\bold{x} = (1, x,\cdots, x^{m-1})$ and $\bold{y} = (1, y,\cdots, y^{m-1})$. For example, with $f$ as above and $g = x^3$, we have
+$$
+\begin{array}{c|ccc}
+\delta(1) & 1 & y & y^2\\
+\hline
+1 & -3 & 1 & 0\\
+x & 1 & 0 & 0\\
+x^2 & 0 & 0 & 0
+\end{array}
+\hspace{1cm}
+\begin{array}{c|ccc}
+\delta(x^3) & 1 & y & y^2\\
+\hline
+1 & 0 & 0 & -2\\
+x & 0 & -2 & 3\\
+x^2 & -2 & 3 & -1
+\end{array}
+$$
+In doing so, $B(1)$ is no longer invertible. 
+The key to obtaining in the same time matrices of equal size and $B(1)$ invertible, is to map the bezoutians onto the quotient space $\mathbb{Q}[x]/\langle f \rangle \otimes \mathbb{Q}[y]/\langle f \rangle$. Let's illustrate this process on the previous example, and write
+\begin{align} \nonumber %%%%%%%%%%%%%%
+	\delta(x^3) &=
+	\begin{bmatrix}
+			1 & x & x^2
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 & 0 & -2 \\
+		0 & -2 & 3 \\
+		-2 & 3 & -1
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 \\
+		y \\
+		y^2
+	\end{bmatrix} \\ \nonumber %%%%%%%%%%%%%%
+	\delta(x^3) &=
+	\begin{bmatrix}
+		1 & x & x^2
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 0 & 2 \\
+		0 & 1 & -3 \\
+		0 & 0 & 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 0 & -2 \\
+		0 & 1 & 3 \\
+		0 & 0 & 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		0 & 0 & -2 \\
+		0 & -2 & 3 \\
+		-2 & 3 & -1
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 \\
+		y \\
+		y^2
+	\end{bmatrix} \\ \nonumber %%%%%%%%%%%%%%%
+	\delta(x^3) &=
+	\begin{bmatrix}
+			1 & x & 2 - 3x + x^2
+	\end{bmatrix}
+	\begin{bmatrix}
+		4 & -6 & 0 \\
+		-6 & 7 & 0 \\
+		-2 & 3 & -1
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 \\
+		y \\
+		y^2
+	\end{bmatrix} \\ \nonumber %%%%%%%%%%%%%%
+\end{align}
+
+%Nous allons cependant montrer, grâce aux relations~(\ref{relations}), que si on projette les deux polynômes de Bezout sur le quotient $A$ alors les matrices $B(g)$ et $B(1)$ sont redimensionnées à la même taille, $B(1)$ est inversible et la formule~(\ref{BG}) s'applique. Illustrons le procédé sur l'exemple ci-dessus. Puisque $B(1)$ n'est pas inversible, on peut trouver une combinaison linéaire de colonnes qui s'annule, ici c'est la troisième colonne qui est nulle. En la multipliant par $x^3$, et en appliquant les relations~(\ref{relations}), on obtient que la troisième colonne de $B(x^3)$ est aussi nulle. Mais cette colonne vaut $-2 + 3x - x^2$ ce qui entraine que, dans le quotient,$-2 + 3x - x^2 = 0$ (ce n'est pas une surprise car ce dernier polynôme n'est autre que $-f$; ceci est dû au fait que l'exemple choisi est particulièrement simple, mais nous verrons dans le cas multivariable que les relations nulles dans le quotient ainsi générées sont loin d'être triviales). En vue d'automatiser les calculs, traduisons le procédé précédent en termes d'algèbre matricielle. Toujours sur le même exemple
+
+To sum up, we have post-multiplied the row vector
+$\begin{bmatrix}
+	1 & x & x^2
+\end{bmatrix}$ by the Gauss transform
+$$P =
+\begin{bmatrix}
+	1 & 0 & 2 \\
+	0 & 1 & -3 \\
+	0 & 0 & 1
+\end{bmatrix}$$
+and pre-multiplied the two Bezout matrices $B(1)$ and $B(g)$ by $P^{-1}$. The bezoutians now write
+$$
+\begin{array}{c|ccc}
+	\delta(1) & 1 & y & y^2\\
+	\hline
+	1 & -3 & 1 & 0\\
+	x & 1 & 0 & 0\\
+	2 - 3x + x^2 & 0 & 0 & 0
+\end{array}
+\hspace{1cm}
+\begin{array}{c|ccc}
+	\delta(x^3) & 1 & y & y^2\\
+	\hline
+	1 & 4 & -6 & 0 \\
+	x & -6 & 7 & 0 \\
+	2 - 3x + x^2 & -2 & 3 & -1
+\end{array}
+$$
+According to the relations~(\ref{relations}) the third column of $\delta(x^3)$,  $-2 + 3x - x^2$, is zero modulo $f$; we recognize the simple fact $-f = 0$. Thus,
+\begin{align} \nonumber %%%%%%%%%%%%%%
+\delta(1) &= \begin{bmatrix}
+	1 & x
+\end{bmatrix}
+\begin{bmatrix}
+	-3 & 1 \\
+	1 & 0
+\end{bmatrix} \nonumber %%%%%%%%%%%%%%
+\begin{bmatrix}
+	1 \\
+	y
+\end{bmatrix}\\
+\delta(x^3) &= \begin{bmatrix}
+	1 & x
+\end{bmatrix}
+\begin{bmatrix}
+	4 & -6 \\
+	-6 & 7
+\end{bmatrix} \nonumber %%%%%%%%%%%%%%
+\begin{bmatrix}
+	1 \\
+	y
+\end{bmatrix} + (2 - 3x + x^2)(-2 + 3y - y^2)
+\end{align}
+These bezoutians, when mapped to $\mathbb{Q}[x]/\langle f \rangle \otimes \mathbb{Q}[y]/\langle f \rangle$, write
+$$
+\begin{array}{c|cc}
+	\delta(1) & 1 & y \\
+	\hline
+	1 & -3 & 1 \\
+	x & 1 & 0
+\end{array}
+\hspace{1cm}
+\begin{array}{c|cc}
+	\delta(x^3) & 1 & y \\
+	\hline
+	1 & 4 & -6  \\
+	x & -6 & 7
+\end{array}
+$$
+Thus, we have obtained two Bezout matrices of equal size, with $B(1)$ invertible. The, we compute the matrix ratio
+\begin{equation}
+	B(x^3)B(1)^{-1} =
+	\begin{bmatrix}
+		-6 & -14 \\
+		7 & 15
+	\end{bmatrix}
+	= X^3
+\end{equation}
+which is consistent with the general Barnett decomposition formula.
+
+\begin{rem}
+Instead of a Gauss matrix, we may use any matrix that can map a given column vector to a column vector containing just one non-zero entry, such as, for example, a Householder orthogonal matrix. This is the choice made in the implementation of the practical method given in \cite{jp_code}.
+
+\end{rem}
+
+\end{document}
