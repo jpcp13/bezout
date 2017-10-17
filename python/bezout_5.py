@@ -304,26 +304,25 @@ def bz2txt(n, directory, BB):
         m = BB[k]
         mat2txt(m, directory+'/BB/bb'+str(k))
 
-def dims2txt(directory, BB, bezout_dim, groebner_dim, Dx, deg):
-    with open(directory+'/rank_B0.txt', 'w') as f:
-        f.write(str(rank(BB[0])))
-    with open(directory+'/bezout_dim.txt', 'w') as f:
-        f.write(str(bezout_dim))
-    with open(directory+'/groebner_dim.txt', 'w') as f:
-        f.write(str(groebner_dim))
-    with open(directory+'/Dx.txt', 'w') as f:
-        f.write(str(Dx))
-    with open(directory+'/deg.txt', 'w') as f:
-        f.write(str(deg))
+#~ def dims2txt(directory, r0, bezout_dim, grobner_dim, Dx, deg):
+    #~ with open(directory+'/rank_B0.txt', 'w') as f:
+        #~ f.write(str(r0))
+    #~ with open(directory+'/bezout_dim.txt', 'w') as f:
+        #~ f.write(str(bezout_dim))
+    #~ with open(directory+'/grobner_dim.txt', 'w') as f:
+        #~ f.write(str(grobner_dim))
+    #~ with open(directory+'/Dx.txt', 'w') as f:
+        #~ f.write(str(Dx))
+    #~ with open(directory+'/deg.txt', 'w') as f:
+        #~ f.write(str(deg))
 
-def time2txt(directory, bezout_reductions_time, groebner_basis_time):
+def time2txt(directory, bezout_reductions_time, grobner_basis_time):
     with open(directory+'/bezout_time.txt', 'w') as f:
         f.write(str(bezout_reductions_time))
     with open(directory+'/bezout_time.txt', 'w') as f:
-        f.write(str(groebner_basis_time)+'\n')
+        f.write(str(grobner_basis_time)+'\n')
 
 def gb2txt(directory, GB):
-	#~ os.mkdir(directory+'/GB')
 	for k in range(len(GB)):
 		p = GB[k]
 		mat2txt(p, directory+'/GB/gb'+str(k))
@@ -426,15 +425,11 @@ def roots_plot(directory, test_r):
 	plt.savefig(directory+'/histo_roots.png')
 
 
-def compute_groebner(R, P, n):
+def compute_grobner(R, P, n):
     I = R.ideal(P[:n])
     GB = I.groebner_basis()
-    I = R.ideal(P[:n])
-    t = time.clock()
-    GB = I.groebner_basis()
-    groebner_time = time.clock() - t
-    groebner_dim = I.vector_space_dimension()
-    return GB, groebner_time, groebner_dim
+    grobner_dim = I.vector_space_dimension()
+    return GB, grobner_dim
 
 def X2m(XX, v, m):
     n = len(XX)
