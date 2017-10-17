@@ -14,7 +14,7 @@ Since the computations have been done numerically, the Bezout matrices and the c
 
 \subsubsection{Quality of the results}
 To check the quality of the numerical roots $\alpha$, we compute the errors $f(\alpha)$.
-These errors are shown in 
+These errors are shown in Table \ref{tab:histo}.
 
 \iffalse
 an histogram (Figure \ref{fig:roots}).
@@ -25,23 +25,36 @@ an histogram (Figure \ref{fig:roots}).
 \end{figure}
 \fi
 
-a table
+
+\begin{table}[p]
+\begin{center}
+\begin{tabular}{c|c}
+ log10 of errors & nb of roots \\ 
+ \hline
+ \input{txt/histogram.txt}
+\end{tabular}
+\end{center}
+\caption{histogram of errors}
+\label{tab:histo}
+\end{table}
 
 \subsubsection{Timings}
 Table \ref{tab:timings} shows the timings of the Bezout computations as compared to the timings of the  Groebner computations.
 \begin{table}[p]
-    \caption{timings}
-\label{tab:timings}
+\begin{center}
 \begin{tabular}{llllr}
  Méthode & Computation & Software & Arithmetic & Timing \\ \hline
    \multirow{4}{*}{Bezout} & Bezout matrices & NumPy & floating point & $\input{txt/construction_B_time.txt}$ s \\
-   & rank of $B(1)$ via rref()  & Sage & integer & $\input{txt/b0_rref_time.txt}$ s \\
+   & rank of $B(1)$ via rref()  & Sage & integer & $\input{txt/rank_b0_time.txt}$ s \\
    & matrices reduction & Numpy & floating point & $\input{txt/reductions_time.txt}$ s \\
    & eigenvalues & SciPy & floating point & $\input{txt/compute_roots_time.txt}$ s \\ 
    \hline
    \hline
    Groebner & Groebner basis computation & Sage & integer & $\input{txt/groebner_time.txt}$ s
 \end{tabular}
+\end{center}
+\caption{timings}
+\label{tab:timings}
 \end{table}
 
 
