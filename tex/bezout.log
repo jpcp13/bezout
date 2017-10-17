@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  17 OCT 2017 10:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  17 OCT 2017 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -558,42 +558,25 @@ Overfull \hbox (39.85974pt too wide) detected at line 176
 
 [13] [14]) (./roots.tex (./txt/P.txt) (./txt/Dx.txt) (./txt/deg.txt)
 (./txt/bezout_dim.txt)
-Package epstopdf Info: Source file: <txt/histo_roots.eps>
-(epstopdf)                    date: 2017-09-20 09:13:57
-(epstopdf)                    size: 20712 bytes
-(epstopdf)             Output file: <txt/histo_roots-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-09-19 16:15:53
-(epstopdf)                    size: 11801 bytes
-(epstopdf)             Command: <repstopdf --outfile=txt/histo_roots-eps-conver
-ted-to.pdf txt/histo_roots.eps>
-(epstopdf)             \includegraphics on input line 21.
-runsystem(repstopdf --outfile=txt/histo_roots-eps-converted-to.pdf txt/histo_ro
-ots.eps)...executed safely (allowed).
-
-Package epstopdf Info: Result file: <txt/histo_roots-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-10-17 10:14:57
-(epstopdf)                    size: 12442 bytes.
-
-<txt/histo_roots-eps-converted-to.pdf, id=300, 578.16pt x 433.62pt>
-File: txt/histo_roots-eps-converted-to.pdf Graphic file (type pdf)
-
-<use txt/histo_roots-eps-converted-to.pdf>
-Package pdftex.def Info: txt/histo_roots-eps-converted-to.pdf used on input lin
-e 21.
-(pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
  (./txt/construction_B_time.txt)
-(./txt/b0_rref_time.txt) (./txt/reductions_time.txt)
-(./txt/compute_roots_time.txt) (./txt/groebner_time.txt)
-Overfull \hbox (11.27849pt too wide) in paragraph at lines 29--39
+
+! LaTeX Error: File `txt/b0_rref_time.txt' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: txt)
+
+Enter file name: 
+(./txt/reductions_time.txt) (./txt/compute_roots_time.txt)
+(./txt/groebner_time.txt)
+Overfull \hbox (11.27849pt too wide) in paragraph at lines 35--45
 [][] 
  []
 
-) (./bibliography.tex
+[15]) (./bibliography.tex
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
- [15] [16 <./txt/histo_roots-eps-converted-to.pdf>]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no Ã in font cmr10!
@@ -612,8 +595,7 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 35.
-
-[17]
+ [16] [17]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
  (./bezout.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
@@ -627,10 +609,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
  ) 
 Here is how much of TeX's memory you used:
- 8196 strings out of 493029
- 122944 string characters out of 6136234
+ 8186 strings out of 493029
+ 122706 string characters out of 6136234
  244313 words of memory out of 5000000
- 11429 multiletter control sequences out of 15000+600000
+ 11424 multiletter control sequences out of 15000+600000
  15392 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,14n,38p,1167b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -656,10 +638,10 @@ st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts
 ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on bezout.pdf (17 pages, 314086 bytes).
+Output written on bezout.pdf (17 pages, 304078 bytes).
 PDF statistics:
- 440 PDF objects out of 1000 (max. 8388607)
- 374 compressed objects within 4 object streams
- 102 named destinations out of 1000 (max. 500000)
- 150 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 414 PDF objects out of 1000 (max. 8388607)
+ 368 compressed objects within 4 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 

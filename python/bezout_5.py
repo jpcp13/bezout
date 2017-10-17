@@ -260,13 +260,12 @@ def iteration(bb, r0, epsi):
     return bb_out, r0_out, nb_relations
 
 def mat2txt(mat, mat_name):
-    f = open(mat_name+".txt", "w")
-    mat_dict = mat.dict()
-    for ij in mat_dict:
-        c = mat_dict[ij]
-        #~ if c != 1:
-        f.write(str(c)+'\n')
-    f.close()
+    with open(mat_name+".txt", "w") as f:
+        mat_dict = mat.dict()
+        for ij in mat_dict:
+            c = mat_dict[ij]
+            #~ if c != 1:
+            f.write(str(c)+'\n')
 
 def pol2tex(n, P, P_filename):
     sp = str(P[:n])
@@ -301,13 +300,9 @@ def P2txt(n, deg, P, directory):
                 f.write(str(key) + ', ' + str(val) + '\n')
 
 def bz2txt(n, directory, BB):
-    #~ os.mkdir(directory+'/BB')
     for k in range(n+1):
         m = BB[k]
         mat2txt(m, directory+'/BB/bb'+str(k))
-    #~ mat2txt(ker, directory+'/BB/ker')
-    #~ mat2txt(ker_ortho, directory+'/BB/ker_ortho')
-    #~ mat2txt(relations, directory+'/BB/relations')
 
 def dims2txt(directory, BB, bezout_dim, groebner_dim, Dx, deg):
     with open(directory+'/rank_B0.txt', 'w') as f:
