@@ -273,38 +273,32 @@ def pol2tex(n, P, P_filename):
     sp = sp.replace('[', '')
     sp = sp.replace(']', '')
     sp = sp.replace('x', "x_")
-    #~ sp = sp.replace('-', "-~")
-    #~ sp = sp.replace('+', "+~")
     sp = sp.replace('*', '')
     sp = sp.replace(',', ",\\\\")
     with open(P_filename+".txt", 'w') as f:
         f.write(sp)
 	
 def pol2text(n, P, P_filename):
-	f = open(P_filename+".text", 'w')
-	for i in range(n):
-		sp = str(P[i])
-		f.write(sp + '\n')
-	f.close()
+    with open(P_filename+".text", 'w') as f:
+        for i in range(n):
+            sp = str(P[i])
+            f.write(sp + '\n')
 
-def P2txt(n, deg, P):
-	deg_str = ''.join(str(e) for e in deg)
-	directory = 'P_'+deg_str
-	if directory in os.listdir('.'):
-		shutil.rmtree(directory)
-	os.mkdir(directory)	
-	os.mkdir(directory+'/P')
-	save(P, directory+'/P/P')
-	pol2text(n, P, directory+'/P/P')
-	pol2tex(n, P, directory+'/P/P')
-	for i in range(n):
-		p = P[i]
-		pdict = p.dict()
-		f = open(directory+'/P/p_'+str(i)+'.txt', 'w')
-		for key, val in pdict.items():
-			f.write(str(key) + ', ' + str(val) + '\n')
-		f.close()
-	return directory
+def P2txt(n, deg, P, directory):
+    deg_str = ''.join(str(e) for e in deg)
+    local_dir = directory+'/P_'+deg_str
+    if 'P_'+deg_str in os.listdir(directory):
+        shutil.rmtree(local_dir)
+    os.mkdir(local_dir)	
+    save(P, local_dir+'/P')
+    pol2text(n, P, local_dir+'/P')
+    pol2tex(n, P, local_dir+'/P')
+    for i in range(n):
+        p = P[i]
+        pdict = p.dict()
+        with open(local_dir+'/p_'+str(i)+'.txt', 'w') as f:
+            for key, val in pdict.items():
+                f.write(str(key) + ', ' + str(val) + '\n')
 
 def bz2txt(n, directory, BB):
     #~ os.mkdir(directory+'/BB')
