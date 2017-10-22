@@ -289,9 +289,9 @@ def P2txt(n, deg, P, directory):
     if 'P_'+deg_str in os.listdir(directory):
         shutil.rmtree(local_dir)
     os.mkdir(local_dir)	
-    save(P, local_dir+'/P')
-    pol2text(n, P, local_dir+'/P')
-    pol2tex(n, P, local_dir+'/P')
+    #~ save(P, local_dir+'/P')
+    pol2text(n, P, directory+'/P')
+    pol2tex(n, P, directory+'/P')
     for i in range(n):
         p = P[i]
         pdict = p.dict()

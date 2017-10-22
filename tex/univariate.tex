@@ -6,17 +6,11 @@
 
 \section{Univariate case}
 \label{univariate}
-Let's begin by recalling some well-known facts about univariate polynomials. In this section we consider a polynomial $f = a_0x^d + \dots + a_{d-1}x + a_d \in \mathbb{Q}[x]$, and $A = \mathbb{Q}[x]/\langle f \rangle$ the quotient algebra of $\mathbb{Q}[x]$ by $\langle f \rangle$, the ideal associated to $f$.
-Let $x$ denote indifferently the variable $x$, its projection on the quotient $A$ and the multiplication operator $h\mapsto xh$ defined on $A$. The vector space $A$ has the particular basis $\bold{x} = (1, x,\cdots, x^{d-1})$; it is called the {\bf monomial basis}.
+Let's recall some well-known facts about univariate polynomials. In this section we consider a polynomial $f = a_0x^d + \dots + a_{d-1}x + a_d \in \mathbb{Q}[x]$ in one variable $x$, with rational coefficients, and let $A = \mathbb{Q}[x]/\langle f \rangle$ be the quotient algebra of $\mathbb{Q}[x]$ by the ideal $\langle f \rangle$.
+Let $x$ denote indifferently the variable $x$, its projection on the quotient algebra $A$ and the multiplication map $x : \left\vert h \mapsto xh \right.$ defined on $A$. The vector space $A$ has the particular basis $\bold{x} = (1, x,\cdots, x^{d-1})$; it is called the {\bf monomial basis}.
 
 \subsection{Mutiplication operators}
-The multiplication operator
-$x : \left\vert
-\begin{array}{c}
-h \mapsto xh
-\end{array}
-\right.$
-is an endomorphism of $A$, which, written in the monomial basis, has a matrix $X$ called the {\bf companion matrix} of $f$. The matrix $X$ is Hessenberg and writes in the simple form
+The multiplication map $x : \left\vert h \mapsto xh \right.$ is an endomorphism of $A$ which, when written in the monomial basis, has a matrix $X$ called the {\bf companion matrix} of $f$. The matrix $X$ is Hessenberg and writes simply
 \begin{equation}
 \label{compan}
 X =
@@ -33,7 +27,7 @@ The characteristic polynomial of $X$ is $f$.
 \end{prop}
 
 \begin{rem}
-We deduce from Proposition \ref{compan2roots} that the eigenvalues of $X$ are the roots of $f$, counted with the same multiplicities. Moreover, we can see that the matrix $X$ is Hessenberg; we can use reliable techniques, like the QR algorithm, to compute its eigenvalues. This gives an efficient and fast method to compute numerical approximations of the roots of $f$. 
+We deduce from Proposition \ref{compan2roots} that the eigenvalues of $X$ are the roots of $f$, taking account the multiplicities. Moreover, as the matrix $X$ is Hessenberg, we can use reliable techniques, like the QR algorithm, to compute its eigenvalues. This gives a practical and fast method to compute numerical approximations of the roots of $f$. 
 \end{rem}
 
 \begin{rem}
@@ -41,14 +35,8 @@ We deduce from Proposition \ref{compan2roots} that the eigenvalues of $X$ are th
 Suppose $g_1, g_2$ are two polynomials of $\mathbb{Q}[x]$ such that $g_1 = g_2$ modulo $f$. Since $g_1-g_2$ is a multiple of $f$ and since, by Proposition \ref{compan2roots}, $f(X) = 0$, then $g_1(X) = g_2(X)$.
 \end{rem}
 
-\begin{prop}
-Let $g$ be an element of $A$ and let $g$ be any representative - a polynomial, element of $\mathbb{Q}[x]$ - of the element $g$ of $A$. Then, $g(X)$ is a matrix that does not depend on the choice of the representative of $g$, and it is the matrix of the endomorphism
-$g:\left\vert
-\begin{array}{c}
-h \mapsto gh
-\end{array}
-\right.$,
-written in the monomial basis.
+\begin{rem}
+Let $g$ be an element of $A$ and let us denote again by $g$ any of its representative - that is to say an element of $\mathbb{Q}[x]$ whose projection on $A$ is $g$. Then, $g(X)$ is a matrix that does not depend on the choice of the representative of $g$, and it is the matrix of the endomorphism $g:\left\vert h \mapsto gh \right.$, written in the monomial basis.
 \end{prop}
 
 
@@ -423,3 +411,8 @@ Instead of a Gauss matrix, we may use any matrix that can map a given column vec
 \end{rem}
 
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "bezout"
+%%% End:
