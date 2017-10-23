@@ -17,5 +17,5 @@
     "Bar"
     "Barnett"
     "Bar_gen"
-    "BG")))
+    "GBG")))
 

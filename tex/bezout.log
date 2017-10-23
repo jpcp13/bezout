@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  23 OCT 2017 10:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  23 OCT 2017 15:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -476,20 +476,20 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  (./univariate.tex
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 10.
+d on input line 12.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
-./univariate.tex:40: LaTeX Error: \begin{rem} on input line 38 ended by \end{pr
+./univariate.tex:47: LaTeX Error: \begin{rem} on input line 44 ended by \end{pr
 op}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.40 \end{prop}
+l.47 \end{prop}
                
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -517,7 +517,7 @@ Overfull \hbox (14.14609pt too wide) in paragraph at lines 84--87
 []x[]\OT1/cmr/m/n/10 )$
  []
 
-[8]
+[8] [9]
 Overfull \hbox (8.31644pt too wide) in paragraph at lines 136--138
 \OT1/cmr/m/n/10 eval-u-ate de $\OML/cmm/m/it/10 ^^N\OT1/cmr/m/n/10 (\OML/cmm/m/
 it/10 x[]\OT1/cmr/m/n/10 )$. Sup-pose the poly-no-mial sys-tem $\OML/cmm/m/it/1
@@ -525,7 +525,6 @@ it/10 x[]\OT1/cmr/m/n/10 )$. Sup-pose the poly-no-mial sys-tem $\OML/cmm/m/it/1
 /m/n/10 )$,
  []
 
-[9]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `htbp') on input line 140.
@@ -609,7 +608,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 35.
 Package rerunfilecheck Info: File `bezout.out' has not changed.
-(rerunfilecheck)             Checksum: 7BDB09C0371D5CD5A127483D91786B8F;1493.
+(rerunfilecheck)             Checksum: D1E8C5034B6CCCABB9935EA50335B7C2;1495.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -618,12 +617,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
  ) 
 Here is how much of TeX's memory you used:
  8187 strings out of 493029
- 122731 string characters out of 6136234
- 240307 words of memory out of 5000000
+ 122732 string characters out of 6136234
+ 244309 words of memory out of 5000000
  11423 multiletter control sequences out of 15000+600000
  15392 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,14n,38p,1174b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,14n,38p,1058b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -646,10 +645,10 @@ st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts
 ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on bezout.pdf (17 pages, 303027 bytes).
+Output written on bezout.pdf (17 pages, 303049 bytes).
 PDF statistics:
- 409 PDF objects out of 1000 (max. 8388607)
- 363 compressed objects within 4 object streams
+ 410 PDF objects out of 1000 (max. 8388607)
+ 364 compressed objects within 4 object streams
  101 named destinations out of 1000 (max. 500000)
  137 words of extra memory for PDF output out of 10000 (max. 10000000)
 
