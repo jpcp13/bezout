@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  23 OCT 2017 15:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  23 OCT 2017 15:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -495,7 +495,15 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[2] [3] [4] [5] [6]) (./multivariate.tex
+[2]
+Overfull \hbox (2.23346pt too wide) in paragraph at lines 118--119
+\OT1/cmr/m/it/10 de-note by $\OML/cmm/m/it/10 m$ \OT1/cmr/m/it/10 the max-i-mum
+ of the de-grees of $\OML/cmm/m/it/10 f$ \OT1/cmr/m/it/10 and $\OML/cmm/m/it/10
+ g$ \OT1/cmr/m/it/10 and put $\OT1/cmr/bx/n/10 x \OT1/cmr/m/n/10 = (1\OML/cmm/m
+/it/10 ; x; []  ; x[]\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 ,
+ []
+
+[3] [4] [5] [6]) (./multivariate.tex
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
@@ -645,7 +653,7 @@ st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts
 ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on bezout.pdf (17 pages, 303049 bytes).
+Output written on bezout.pdf (17 pages, 303199 bytes).
 PDF statistics:
  410 PDF objects out of 1000 (max. 8388607)
  364 compressed objects within 4 object streams
