@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  22 OCT 2017 18:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  23 OCT 2017 10:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -609,7 +609,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 35.
 Package rerunfilecheck Info: File `bezout.out' has not changed.
-(rerunfilecheck)             Checksum: 97ADA097FF6A0B2F7D22390E53A91CAB;1498.
+(rerunfilecheck)             Checksum: 7BDB09C0371D5CD5A127483D91786B8F;1493.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -619,7 +619,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
 Here is how much of TeX's memory you used:
  8187 strings out of 493029
  122731 string characters out of 6136234
- 240312 words of memory out of 5000000
+ 240307 words of memory out of 5000000
  11423 multiletter control sequences out of 15000+600000
  15392 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -646,10 +646,10 @@ st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts
 ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on bezout.pdf (17 pages, 303003 bytes).
+Output written on bezout.pdf (17 pages, 303008 bytes).
 PDF statistics:
- 410 PDF objects out of 1000 (max. 8388607)
- 364 compressed objects within 4 object streams
+ 409 PDF objects out of 1000 (max. 8388607)
+ 363 compressed objects within 4 object streams
  101 named destinations out of 1000 (max. 500000)
  137 words of extra memory for PDF output out of 10000 (max. 10000000)
 

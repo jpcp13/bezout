@@ -9,7 +9,7 @@
 Let's recall some well-known facts about univariate polynomials. In this section we consider a polynomial $f = a_0x^d + \dots + a_{d-1}x + a_d \in \mathbb{Q}[x]$ in one variable $x$, with rational coefficients, and let $A = \mathbb{Q}[x]/\langle f \rangle$ be the quotient algebra of $\mathbb{Q}[x]$ by the ideal $\langle f \rangle$.
 Let $x$ denote indifferently the variable $x$, its projection on the quotient algebra $A$ and the multiplication map $x : \left\vert h \mapsto xh \right.$ defined on $A$. The vector space $A$ has the particular basis $\bold{x} = (1, x,\cdots, x^{d-1})$; it is called the {\bf monomial basis}.
 
-\subsection{Mutiplication operators}
+\subsection{Mutiplication maps}
 The multiplication map $x : \left\vert h \mapsto xh \right.$ is an endomorphism of $A$ which, when written in the monomial basis, has a matrix $X$ called the {\bf companion matrix} of $f$. The matrix $X$ is Hessenberg and writes simply
 \begin{equation}
 \label{compan}
@@ -36,35 +36,41 @@ Suppose $g_1, g_2$ are two polynomials of $\mathbb{Q}[x]$ such that $g_1 = g_2$ 
 \end{rem}
 
 \begin{rem}
-Let $g$ be an element of $A$ and let us denote again by $g$ any of its representative - that is to say an element of $\mathbb{Q}[x]$ whose projection on $A$ is $g$. Then, $g(X)$ is a matrix that does not depend on the choice of the representative of $g$, and it is the matrix of the endomorphism $g:\left\vert h \mapsto gh \right.$, written in the monomial basis.
+Let $g$ be an element of $A$ and let us denote again by $g$ any of its representative - that is to say an element of $\mathbb{Q}[x]$ whose projection on $A$ is $g$. Then, $g(X)$ is a matrix that does not depend on the choice of the representative of $g$, and it is the matrix of the map $g:\left\vert h \mapsto gh \right.$, written in the monomial basis.
 \end{prop}
 
 
 \subsection{Bezout polynomials and Bezout matrices}
 
+
+As we have seen, the companion matrix can be used to calculate the roots of a univariate polynomial. Interestingly, this can be naturally extended to zero-dimensional multivariate systems; if we have $n$ polynomials $f = f_1, \ldots, f_n$ in the variables $x = x_1, \ldots, x_n$, then we simply define the companion matrices as the matrices of the multiplication maps $x_j : \left\vert h \mapsto x_jh \right.$ in the quotient algebra $ A = \mathbb{Q}[x]/ \langle f\rangle$. The difficulty, in the multivariate case, is that the companion matrices do not have an obvious form, contrary to the univariate case. 
+A solution to this problem is to use a family of matrices, the so-called Bezout matrices, that exists both in the univariate case and in the multivariate case and that we can use as intermediate matrices to get the companion matrices. Let's introduce the Bezout matrices for univariate polynomials.
+
 \begin{defn}
 \label{def_bez}
-The companion matrix is useful for the calculation of the roots of a univariate polynomial. Moreover, it can be naturally extended to zero-dimensional multivariate systems; if we have $n$ polynomials $f_1, \ldots, f_n$ in the variables $x_1, \ldots, x_n$, then we simply define the companion matrices as the matrices of the multiplication operators by the variables $x_1, \ldots, x_n$ in the quotient space $ A = \mathbb{Q}[x_1, \ldots, x_n]/ \langle f_1, \ldots, f_n\rangle$.
-$x_j : \left\vert
-\begin{array}{c}
-h \mapsto x_jh
-\end{array}
-\right.$
-The difficulty, in the multivariate case, is that the companion matrices are not as easy to calculate as in the univariate case; they don't have a direct and simple form like the form \ref{compan}. However, there is a family of matrices, called Bezout matrices, that can be be calculated easily, even in the multivariate case and that we can use as intermediate matrices to get the companion matrices.
-
-Let's introduce the Bezout matrices, for univariate polynomials. To that purpose, we need a new variable $y$. Let $f \in \mathbb{Q}[x]$ be a fixed polynomial and let $g$ be another polynomial. The {\bf Bezout polynomial} $\delta(g)$, or {\bf Bezoutian},
-is defined as the polynomial in the variables $x, y$
+Let $f \in \mathbb{Q}[x]$ be a fixed polynomial. Let us introduce a new variable $y$ and let $g$ be any other polynomial. The {\bf Bezout polynomial} $\delta(g)$, or {\bf bezoutian}, is defined as the polynomial in the two variables $x, y$
 $$
 \delta(g) = \dfrac{f(x)g(y)-f(y)g(x)}{x-y}
 $$
-This polynomial is of degree $m-1$ in both variables $x, y$, where $m$ is the maximum of the degrees of $f$ and $g$. The {\bf Bezout matrix} $B(g) = [b_{\alpha\beta}]$ is then defined as the matrix of the coefficients of $\delta(g)$ expressed on the monomials $(x^\alpha y^\beta)_{0 \le \alpha,\beta}$
+This polynomial is of degree $m-1$ in both variables $x, y$, where $m$ is the maximum of the degrees of $f$ and $g$.
+If we write the bezoutian on the monomials $(x^\alpha y^\beta)_{0 \le \alpha,\beta}$,
 \begin{equation}
 \delta(g) = \sum_{\alpha,\beta = 0, \cdots, m-1} b_{\alpha\beta} x^\alpha y^\beta
 \end{equation}
+then the matrix of coefficients $B(g) = [b_{\alpha\beta}]$ is called the {\bf Bezout matrix}.
 \end{defn}
 
+
 \begin{rem}
-The size of a Bezout matrix may be loosely defined; when working with several Bezout matrices, it may be desirable to pad some of them with extra columns or lines of zeros to get compatible sizes.
+The size of a Bezout matrix may be loosely defined; when working with several Bezout matrices, it may be desirable to pad some of them with extra columns, or lines, of zeros to get compatible sizes.
+\end{rem}
+\begin{rem}
+The Bezout poynomial $\delta(g)$ may be seen as a bilinear form whose matrix is the Bezout matrix $B(g)$
+\begin{equation}
+	\label{xBg}
+	\delta(g) = \bold{x} B(g) \bold{y}^T
+\end{equation}
+with $\bold{x} = (1, x,\cdots, x^{m-1}) \in \mathbb{Q}[x]^m$ and $\bold{y} = (1, y,\cdots, y^{m-1}) \in \mathbb{Q}[y]^m$ are two vectors of monomials.
 \end{rem}
 
 \begin{exmp}
@@ -88,14 +94,7 @@ x^2 & -2 & 3 & -1
 \end{array}
 $$
 \end{exmp}
-\begin{rem}
-The Bezout poynomial $\delta(g)$ may be seen as a bilinear form whose matrix is the Bezout matrix $B(g)$
-\begin{equation}
-	\label{xBg}
-	\delta(g) = \bold{x} B(g) \bold{y}^T
-\end{equation}
-with $\bold{x} = (1, x,\cdots, x^{m-1}) \in \mathbb{Q}[x]^m$ and $\bold{y} = (1, y,\cdots, y^{m-1}) \in \mathbb{Q}[y]^m$ are two vectors of monomials.
-\end{rem}
+
 From Equality (\ref{xBg}), we may regard $\delta(g)$ as an element of $\mathbb{Q}[x][y]$, a polynomial in the variable $y$ with coefficients in $\mathbb{Q}[x]$; specifically, the coefficient of the monomial $y^j$ in $\delta(g)$ is just the $j$-th entry of the vector-matrix product $\bold{x} B(g)$.
 
 
