@@ -115,8 +115,7 @@ specifically, the coefficient of the monomial $y^j$ in $\delta(g)$ is just the $
 
 \begin{prop}
 \label{relations_prop}
-Let $f$ be a fixed polynomial and $g$ be another polynomial; we denote by $m$ the maximum of the degrees of $f$ and $g$ and we put $\bold{x} = (1, x,\cdots, x^{m-1})$. 
-We have
+Let $f$ be a fixed polynomial and $g$ be another polynomial; if we denote by $m$ the maximum of the degrees of $f$ and $g$ and put $\bold{x} = (1, x,\cdots, x^{m-1})$, then
 \begin{equation}
 \label{relations}
 	\bold{x}B(1)g = \bold{x}B(g)
@@ -127,7 +126,7 @@ where the equality must be understood componentwise and modulo $f$.
 We rewrite $\delta(g)$ as
 \begin{align*}
 	\delta(g) & = & g(x)\dfrac{f(x)-f(y)}{x-y} - f(x)\dfrac{g(x)-g(y)}{x-y} \\ \nonumber
-	 & = & g(x)\delta(1) - f(x)\dfrac{g(x)-g(y)}{x-y}
+	\delta(g) & = & g(x)\delta(1) - f(x)\dfrac{g(x)-g(y)}{x-y}
 \end{align*}
 This is an equality between elements of $\mathbb{Q}[x][y]$. 
 If $h\in \mathbb{Q}[x][y]$ and $\beta\in\mathbb{N}$, let's denote by $h_\beta$ - an element of $\mathbb{Q}[x]$ - the coefficient of $y^\beta$ in the polynomial $h$; 
@@ -178,7 +177,7 @@ Given a fixed polynomial $f$, of degree $d$, the two bezoutians $\delta(1)$ and 
 		x_{d-1} & 0 & a_0 & \ldots & 0 \\
 	\end{array}
 \end{equation}
-that make appear the two Bezout matrices $B(1)$, which is clearly invertible, and $B(g)$. 
+that make appear the two Bezout matrices $B(1)$, which is clearly invertible, and $B(x)$. 
 These two matrices are specially important because they are related to the companion matrix:
 \begin{prop}
 \label{Barnett}
@@ -210,15 +209,16 @@ the multiplication map $x$ is also represented in the monomial basis $\bold{x}$ 
 \label{Bar_gen}
 The Barnett decomposition formula relates the companion matrix, representing the multiplication map $x$, to the Bezout matrices of the polynomials $1$ and $x$;
 this can be naturally extended as follows.
-Let $g \in \mathbb{Q}[x]$ be any polynomial.
-The Bezout matrices $B(1)$ et $B(g)$ are related to the matrix $g(X)$ by the {\bf general Barnett decomposition formula}
+Let $g \in \mathbb{Q}[x]$ be any polynomial;
+the Bezout matrices $B(1)$ et $B(g)$ are related to the matrix $g(X)$ by the {\bf general Barnett decomposition formula}
 \begin{equation}
 	\label{GBG}
 	B(g)B(1)^{-1} = g(X)
 \end{equation}
-given that ifthe sizes of $B(1)$ and $B(g)$ differ, then we must transform and resize $B(g)$ according to a procedure that we shall now explain on an example.
-Formula~(\ref{GBG}) is easily checked when the degree of $g$ is smaller or equal to the degree of $f$, because $B(1)$ and $B(g)$ have the same size. 
-For example, if $f = x^2 - 3x + 2$, then we have
+given that if the sizes of $B(1)$ and $B(g)$ differ, then we must transform and resize $B(g)$ according to a procedure that we shall now explain on the following example.
+
+Formula~(\ref{GBG}) is easily checked when the degree of $g$ is smaller or equal to the degree of $f$, because $B(1)$ and $B(g)$ have the same size;
+for example, if $f = x^2 - 3x + 2$, then we have
 $$
 \begin{array}{c|cc}
 	\delta(1) & 1 & y \\
@@ -258,7 +258,7 @@ and
 	= X^2
 \end{equation}
 which is consistent with formula~(\ref{GBG}).
-On the other hand, if the degree $m$ of $g$ is strictly larger than $d$, the degree of $f$, then the sizes of $B(g)$ and $B(1)$ differ, and the product $B(g)B(1)^{-1}$ no longer makes sense. 
+On the other hand, if $m$, the degree of $g$ is strictly larger than $d$, the degree of $f$, then the sizes of $B(g)$ and $B(1)$ differ, and the product $B(g)B(1)^{-1}$ no longer makes sense. 
 This can be fixed by indexing the Bezout matrices by the same monomials, namely $\bold{x} = (1, x,\cdots, x^{m-1})$ and $\bold{y} = (1, y,\cdots, y^{m-1})$. 
 For example, with $f$ as above and $g = x^3$, we have
 $$
