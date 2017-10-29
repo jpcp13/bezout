@@ -1,0 +1,10 @@
+{
+16*x^2+16*y^2-10000;
+53*x^2+53*y^2+53*z^2+2700*x-100000;
+-14*x+10*y+100000*z-340;
+}
+
+#(* From PoSSo 
+#Mixed volume : 4
+#Number of roots : 2
+#Number of real roots : 2 *)

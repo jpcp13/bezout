@@ -1,0 +1,20 @@
+{
+s1^2+c1^2-1;
+s2^2+c2^2-1;
+s3^2+c3^2-1;
+s4^2+c4^2-1;
+s5^2+c5^2-1;
+s6^2+c6^2-1;
+s2*c5*s6-s3*c5*s6-s4*c5*s6+c2*c6+c3*c6+c4*c6-.4077;
+c1*c2*s5+c1*c3*s5+c1*c4*s5+s1*c5-1.9115;
+s2*s5+s3*s5+s4*s5-1.9791;
+3*c1*c2+2*c1*c3+c1*c4-4.0616;
+3*s1*c2+2*s1*c3+s1*c4-1.7172;
+3*s2+2*s3+s4-3.9701;
+}
+
+
+#(* kinematics problem,
+#Mixed volume : 192
+#Number of roots : 48
+#Number of real roots : 16 *)

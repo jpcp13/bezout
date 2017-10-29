@@ -1,0 +1,16 @@
+{
+a+b+.6325;
+c+d+.8465;
+t*a+u*b-v*c-w*d+.1245;
+v*a+w*b+t*c+u*d+5.3452;
+a*t^2-a*v^2-2*c*t*v+b*u^2-b*w^2-2*d*u*w+1.4352;
+c*t^2-c*v^2+2*a*t*v+d*u^2-d*w^2+2*b*u*w+.9896;
+a*t^3-3*a*t*v^2+c*v^3-3*c*v*t^2+b*u^3-3*b*u*w^2+d*w^3-3*d*w*u^2+.3464;
+c*t^3-3*c*t*v^2-a*v^3+3*a*v*t^2+d*u^3-3*d*u*w^2-b*w^3+3*b*w*u^2+3.1345;
+}
+
+
+#(* Heart-dipole problem
+#Mixed volume : 121
+#Number of roots : 4
+#Number of real roots : 2 *)

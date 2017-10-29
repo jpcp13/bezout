@@ -1,0 +1,60 @@
+----------------------------------------------------------------------------------------------
+
+Bertini(TM): Software for Numerical Algebraic Geometry
+
+Copyright (C) 2015
+
+Authors: Daniel J. Bates, Jonathan D. Hauenstein, Andrew J. Sommese, Charles W. Wampler II
+
+Website: http://bertini.nd.edu
+
+License: See the file Bertini_License in this directory.
+
+----------------------------------------------------------------------------------------------
+
+Please refer to the website for information regarding downloading and installing Bertini, 
+as well as new versions, a form for reporting bugs or otherwise contacting the authors, 
+and other relevant information.
+
+Information about how to run Bertini may be found in the user's manual, which should 
+be in the same directory as this README file.
+
+The purpose of this file is to briefly describe the examples/ directory.
+
+----------------------------------------------------------------------------------------------
+
+There are really only three examples included with this release - two zero-dimensional 
+system and one positive-dimensional system.  Inside the examples/zero_dim/ directory, 
+you will find seven directories, six solving {x^2-1, x*y-1}, each in a slightly different 
+way, and one solving a larger system using regeneration.  Here are a few details:
+
+basic_example/:  A standard input file, using one set of unhomogenized variables.
+
+multi_homog/:  A run in which two variable groups are used, rather than one.
+
+user_homog/:  A version that was hand-homogenized by the user before running.
+
+fixed_prec/:  An input file demonstrating how to call fixed multiprecision.
+
+adaptive_prec/:  An input file demonstrating how to call adaptive multiprecision.
+
+user_homotopy/:  An input file showing how to define a user-homotopy.  Note that there 
+are two files needed (input, start) in this case.
+
+regen/:  An input file demonstrating how to tell Bertini to use regeneration.
+
+Inside the examples/pos_dim/ directory, you will find three directories, each asking 
+Bertini to do some sort of positive-dimensional action to a certain system.  
+
+basic_pos_dim/:  A basic positive-dimensional run to gather witness points.
+
+sampling/:  An example of how to do component sampling.  Just respond to the prompts on 
+the screen.  Note that there are two files needed (input, witness_data).  witness_data 
+is produced when running a problem with TRACKTYPE: 1.
+
+membership/:  An example of how to do component membership testing.  Note that there 
+are three files in this case.  witness_data is needed as it was for sampling. 
+member_points contains the points to be tested.
+
+----------------------------------------------------------------------------------------------
+

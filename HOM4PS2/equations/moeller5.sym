@@ -1,0 +1,13 @@
+{
+x^2+2*y^2+2*z^2+2*t^2-x;
+2*x*y+2*y*z+2*z*t-y;
+y^2+2*x*z+2*y*t-z;
+x+2*y+2*z+2*t-1;
+}
+
+#(* Moeller example 5, from PoSSo
+#Mixed volume : 6
+#Extended mixed volume : 8
+#Number of roots : 8
+#Number of real roots : 6 *)
+

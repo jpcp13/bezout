@@ -6,7 +6,7 @@ import bezout_5 as bz
 #TEX_DIR = '/home/jp/Documents/Bezout/bezout/tex/txt'
 TEX_DIR = '../tex/txt'
 
-deg = [2, 3, 4]
+deg = [1, 1, 1, 1, 1, 1]
 
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
@@ -28,14 +28,13 @@ with open(TEX_DIR+'/Dx.txt', 'w') as f:
     f.write("{0:d}".format(Dx))
 
 
-P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
-#P = load('P.sobj')
+#P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
+P = load('P.sobj')
 
-save(P, 'P')
+#save(P, 'P')
 bz.P2txt(n, deg, P, TEX_DIR)
 F = [bz.poly2prism(fshape, p) for p in P]
 
-TEX_DIR
 
 t = time.clock()
 Gx, Gy, Hx, Hy = bz._GH(n, fn, deg, dx, dy)
@@ -65,7 +64,7 @@ with open(TEX_DIR+'/rank_B0.txt', 'w') as f:
     f.write("{0:d}".format(r0))
 with open(TEX_DIR+'/rank_B0_time.txt', 'w') as f:
     f.write("{0:.4f}".format(rank_B0_time))
-print("sage_rank = {0:d}".format(r0))
+#print("sage_rank = {0:d}".format(r0))
 
 bb = []
 for k in range(n+1):
@@ -73,7 +72,7 @@ for k in range(n+1):
 
 b0 = bb[0]
 numpy_rank = np.linalg.matrix_rank(b0)
-print("numpy_rank = {0:d}".format(numpy_rank))
+#print("numpy_rank = {0:d}".format(numpy_rank))
 
 """
 reduction of Bezoutian matrices
@@ -84,8 +83,8 @@ t = time.clock()
 nb_relations = 1
 while nb_relations > 0:
     bb, r0, nb_relations = bz.iteration(bb, r0, epsi)
-    print bb[0].shape, r0, nb_relations
-print "bbt"
+    #print bb[0].shape, r0, nb_relations
+#print "bbt"
 bbt = []
 for k in range(n+1):
     bbt.append(bb[k].T)
@@ -93,7 +92,7 @@ for k in range(n+1):
 nb_relations = 1
 while nb_relations > 0:
     bbt, r0, nb_relations = bz.iteration(bbt, r0, epsi)
-    print bbt[0].shape, r0, nb_relations
+    #print bbt[0].shape, r0, nb_relations
 reductions_time = time.clock() - t
 with open(TEX_DIR+'/bezout_dim.txt', 'w') as f:
     f.write("{0:d}".format(r0))
@@ -114,8 +113,7 @@ test_roots = np.sort(test_bbtr[:])
 
 np.savetxt(TEX_DIR+'/test_roots.txt', test_roots,  fmt='%1.3e')
 
-hist, bin_edges = np.histogram(np.log10(test_roots), bins='scott')
-hist, bin_edges
+hist, bin_edges = np.histogram(np.log10(test_roots))
 
 with open(TEX_DIR+'/histogram.txt', 'w') as f:
     for k in range(len(hist)):
@@ -137,3 +135,42 @@ with open(TEX_DIR+'/grobner_dim.txt', 'w') as f:
 
 with open(TEX_DIR+'/grobner_time.txt', 'w') as f:
     f.write("{0:.4f}".format(grobner_time))
+
+with open(TEX_DIR+'/bezout_exact.txt', 'w') as f:
+    X = matrix(ZZ, Dx, 0)
+    X_ortho = X.kernel().basis_matrix().LLL().transpose()
+    Y, Y_time = bz.BB2Y(BB, X_ortho)
+    f.write("nb de Y-relations = {0:d}\n".format(Y.nrows()))
+    
+    K = bz.Y2K(BB[0], X_ortho, Y)
+    X_dim = Dx - K.nrows()
+    f.write("X_dim = {0:d}\n".format(X_dim))
+
+    Y_ortho = Y.right_kernel_matrix().LLL()
+    X, X_time = bz.BB2X(BB, Y_ortho)
+    N = bz.X2N(BB[0], Y_ortho, X)
+    X_ortho = X.kernel().basis_matrix().LLL().transpose()
+    f.write("nb de X-relations = {0:d}\n".format(X.ncols()))
+    
+    XBBY = []
+    for k in range(n+1):
+        XBBY.append(X_ortho.transpose()*BB[k]*Y_ortho.transpose())
+    bezout_exact_dim = rank(XBBY[0])
+    f.write("bezout_exact_dim = {0:d}\n".format(bezout_exact_dim))
+
+    K_ortho = XBBY[0].kernel().basis_matrix().right_kernel_matrix()
+    N_ortho = N.kernel().basis_matrix().transpose()
+
+    KBBN = []
+    for k in range(n+1):
+        KBBN.append(K_ortho*XBBY[k]*N_ortho)
+
+    XX = []
+    for k in range(n):
+        xx = KBBN[0].solve_right(KBBN[k+1])
+        XX.append(xx)
+
+    test_XX = [norm(bz.X2p(XX, Field, p)) for p in P[:n]]
+    
+    f.write("test_XX = {0:s}".format(test_XX))
+

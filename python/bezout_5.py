@@ -109,7 +109,7 @@ def rand_poly(j, m, deg, t, x):
         if j > 0:
             p += rand_poly(j-1, m-k, deg, t, x)*x[j]**k
         else:
-            coeff = ZZ.random_element(-t, t)*int(random()+0.25)
+            coeff = ZZ.random_element(-t, t)*int(random()+0.35)
             #coeff = Field.random_element()*int(random()*1.5)
             p += coeff*x[j]**k
     return p
@@ -283,15 +283,60 @@ def pol2text(n, P, P_filename):
             sp = str(P[i])
             f.write(sp + '\n')
 
+def pol2hom4ps2(n, P, P_filename):
+    with open(P_filename+"/jp.sym", 'w') as f:
+        f.write("{\n")
+        for i in range(n):
+            f.write(str(P[i])+";\n")
+        f.write("}\n")           
+
+def pol2demics(n, P, directory):
+    with open(directory+"/jp.dat", 'w') as f:
+        f.write("# The dimension or the number of variables\n Dim = {0:d}\n\n".format(n))
+        f.write("# The number of the distinct support sets\n Support = {0:d}\n\n".format(n))
+        f.write("# The multiplicity of each support set\n Type =" + n*" 1" + "\n\n")
+        f.write("# The number of elements in each support set\n Elem =")
+        for i in range(n):
+            nbm = len(P[i].monomials())
+            f.write(" {0:d}".format(nbm))
+        f.write("\n\n")
+        for i in range(n):
+            f.write("# The elements of support set {0:d}\n".format(n))
+            for m in P[i].monomials():
+                degs = m.degrees()
+                for j in range(n):
+                    if j < n-1:
+                        f.write(str(degs[j])+' ')
+                    else:
+                        f.write(str(degs[j])+'\n')
+            f.write('\n')
+        
+def pol2bertini(n, P, directory):
+    with open(directory+"/input", 'w') as f:
+        f.write("variable_group")
+        for i in range(n):
+            if i < n-1:
+                f.write(" x{0:d},".format(i))
+            else:
+                f.write(" x{0:d};\n".format(i))
+        f.write("function")
+        for i in range(n):
+            if i < n-1:
+                f.write(" f{0:d},".format(i))
+            else:
+                f.write(" f{0:d};\n".format(i))
+        for i in range(n):
+            f.write("f{0:d} = ".format(i)+str(P[i])+";\n")
+        f.write("END;")
+
 def P2txt(n, deg, P, directory):
     deg_str = ''.join(str(e) for e in deg)
     local_dir = directory+'/P_'+deg_str
     if 'P_'+deg_str in os.listdir(directory):
         shutil.rmtree(local_dir)
-    os.mkdir(local_dir)	
-    #~ save(P, local_dir+'/P')
-    pol2text(n, P, directory+'/P')
-    pol2tex(n, P, directory+'/P')
+    os.mkdir(local_dir)
+    #~ pol2text(n, P, directory+'/P')
+    #~ pol2tex(n, P, directory+'/P')
     for i in range(n):
         p = P[i]
         pdict = p.dict()
@@ -303,18 +348,6 @@ def bz2txt(n, directory, BB):
     for k in range(n+1):
         m = BB[k]
         mat2txt(m, directory+'/BB/bb'+str(k))
-
-#~ def dims2txt(directory, r0, bezout_dim, grobner_dim, Dx, deg):
-    #~ with open(directory+'/rank_B0.txt', 'w') as f:
-        #~ f.write(str(r0))
-    #~ with open(directory+'/bezout_dim.txt', 'w') as f:
-        #~ f.write(str(bezout_dim))
-    #~ with open(directory+'/grobner_dim.txt', 'w') as f:
-        #~ f.write(str(grobner_dim))
-    #~ with open(directory+'/Dx.txt', 'w') as f:
-        #~ f.write(str(Dx))
-    #~ with open(directory+'/deg.txt', 'w') as f:
-        #~ f.write(str(deg))
 
 def time2txt(directory, bezout_reductions_time, grobner_basis_time):
     with open(directory+'/bezout_time.txt', 'w') as f:

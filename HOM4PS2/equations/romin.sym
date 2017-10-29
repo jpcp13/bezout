@@ -1,0 +1,13 @@
+{
+-.45*s1*c2-.51*s1*c3-.238;
+.45*c1*c2+.51*c1*c3-.9;
+.45*s2+.51*s3-.23;
+s1^2+c1^2-1;
+s2^2+c2^2-1;
+s3^2+c3^2-1;
+}
+
+#(* ROMIN robot inverse model, from PoSSo
+#Mixed volume : 16
+#Number of roots : 4
+#Number of real roots : 4 *)

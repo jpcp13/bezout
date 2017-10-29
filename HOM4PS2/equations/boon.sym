@@ -1,0 +1,13 @@
+{
+s1^2+g1^2 - 1;
+s2^2+g2^2 - 1;
+C1*g1^3+C2*g2^3 - 1.2;
+C1*s1^3+C2*s2^3 - 1.2;
+C1*g1^2*s1+C2*g2^2*s2 - 0.7;
+C1*g1*s1^2+C2*g2*s2^2 - 0.7;
+}
+
+#(*, neurofysiology, posted by Sjirk Boon
+#Mixed volume : 20
+#Number of roots : 8
+#Number of real roots : 8 *)

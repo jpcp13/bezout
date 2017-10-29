@@ -1,0 +1,5 @@
+nb de Y-relations = 3
+X_dim = 129
+nb de X-relations = 0
+bezout_exact_dim = 129
+test_XX = [0, 0, 0]

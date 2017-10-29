@@ -1,0 +1,17 @@
+{
+x1+x3+x5+2.*x7-1.;
+x1*x2+x3*x4+2.*x5*x6+2.*x7*x8+2.*x7*x9-.6666666666666667;
+x1*x2^2+x3*x4^2+2.*x5*x6^2+2.*x7*x8^2+2.*x7*x9^2-.4000000000000000;
+x1*x2^3+x3*x4^3+2.*x5*x6^3+2.*x7*x8^3+2.*x7*x9^3-.2857142857142857;
+x1*x2^4+x3*x4^4+2.*x5*x6^4+2.*x7*x8^4+2.*x7*x9^4-.2222222222222222;
+x5*x6^2+2.*x7*x8*x9-.1111111111111111;
+x5*x6^4+2.*x7*x8^2*x9^2-.4000000000000000e-1;
+x5*x6^3+x7*x8*x9^2+x7*x8^2*x9-.6666666666666667e-1;
+x5*x6^4+x7*x8*x9^3+x7*x8^3*x9-.4761904761904762e-1;
+}
+
+#(* optimal multi-dimensional quadrature formulas,
+#Mixed volume : 136
+#Number of roots : 16
+#Number of real roots : 8 
+#Remark : had difficulty to trace the nonlinear homotopy*)
