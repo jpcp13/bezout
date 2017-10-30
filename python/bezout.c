@@ -3,7 +3,6 @@
 #include <math.h>
 #include <time.h>
 
-
 #define foreach(a, b, c) for (int a = b; a < c; a++)
 #define for_i foreach(i, 0, n)
 #define for_j foreach(j, 0, n)
@@ -48,58 +47,60 @@ int* readB(int n) {
     }
 	fclose(f);
 	return B;
-
 }
 
-void writeB(int n, int *B) {
+void writeB(int n, int i_max, int j_max, int *B) {
 	FILE *f;
 	f = fopen("b1.txt", "w");
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+	for (int i = 0; i < i_max; i++) {
+		for (int j = 0; j < j_max; j++) {
     		fprintf(f, "%d ", B[n*i + j]);
 		}
 		fprintf(f, "\n");
     }
 	fclose(f);
-
 }
-void  process_lines(int i0, int i1, int n, int *B) {
-
+void process_lines(int i0, int i1, int j0, int n, int *B) {
 	int a, b, temp;
 	myGcd g;
-	a = B[n*i0];
-	b = B[n*i1];
-
+	a = B[n*i0 + j0];
+	b = B[n*i1 + j0];
 	g = bezout_gcd(a, b);
-
-	for_j {
-		int aj = B[n*i0 + j];
-		int bj = B[n*i1 + j];
-		temp = g.x*aj + g.y*bj;
-		B[n*i1 + j] = -b/g.d*aj + a/g.d*bj;
-		B[n*i0 + j] = temp;
+	if (g.d != 0) {
+		for (int j = 0; j < n; j++) {
+			int aj = B[n*i0 + j];
+			int bj = B[n*i1 + j];
+			temp = g.x*aj + g.y*bj;
+			B[n*i1 + j] = -b/g.d*aj + a/g.d*bj;
+			B[n*i0 + j] = temp;
+		}
 	}
-
 }
 
+void process_block(int block_start, int block_end, int n, int *B) {
+	for (int j0 = block_start; j0 < block_end; j0++) {
+		for (int i1 = j0 + 1; i1 < block_end; i1++) {
+			process_lines(j0, i1, j0, n, B);
+		}
+		printf("%d ", B[n*j0 + j0]);
+	}
+}
 
 int main(){
 	double cpu_time_used, start, end;
-
-	int n = 720;
+	int n = 48, block_size = 8;
 	int *B;
 	B = readB(n);
-
 	start = clock();
-	int i0 = 0, i1_max = 10;
-	for (int i1 = 1; i1 < i1_max; i1++) {
-		process_lines(i0, i1, n, B);
+	for (int block_start = 0; block_start < n; block_start += block_size) {
+		
+		process_block(block_start, block_start + block_size, n, B);
 	}
 	end = clock();
 	cpu_time_used = (end - start) / CLOCKS_PER_SEC;
 	printf("cpu_time_used = %f\n", cpu_time_used);
 
-	writeB(n, B);
+	writeB(n, n, n, B);
 /*
 	for_j {
 		printf("%d ", B[n*0 + j]);
