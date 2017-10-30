@@ -21,7 +21,6 @@ myGcd bezout_gcd(int a, int b){
 	t = 1; old_t = 0;
 	r = b; old_r = a;
 	while(r != 0) {
-
 	    quotient = old_r/r;
 	    temp = r;
 	    r = old_r - quotient*r;
@@ -93,7 +92,6 @@ int main(){
 	B = readB(n);
 	start = clock();
 	for (int block_start = 0; block_start < n; block_start += block_size) {
-		
 		process_block(block_start, block_start + block_size, n, B);
 	}
 	end = clock();
