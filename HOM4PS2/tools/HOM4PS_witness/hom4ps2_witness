@@ -1,4 +1,0 @@
-./bin/sym2num < $1 > ./bin/input.num
-
-./bin/flwcrv_witness 
-
