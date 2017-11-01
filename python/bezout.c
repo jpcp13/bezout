@@ -35,6 +35,7 @@ long long* readB(int n, int D) {
 	FILE *f;
 	long long *B;
     B = (long long*) malloc(sizeof(long long)*(n+1)*D*D);
+	printf("long size = %lu\n", sizeof(long long));
 	f = fopen("bb.txt", "r");
 	for (int k = 0; k < n+1; k++) {
 		for (int i = 0; i < D; i++) {
@@ -91,15 +92,16 @@ void process_block(int block_start, int block_end, int n, int D, long long *B) {
 	}
 }
 
-int main(){
-	double cpu_time_used, start, end;
-	int n = 2;
-	int D = 32;
-	int block_size = 4;
+int main(int argc, char *argv[]){
+	int n, D, block_size;
+	sscanf(argv[1], "%d", &n);
+	sscanf(argv[2], "%d", &D);
+	sscanf(argv[3], "%d", &block_size);
+
 	long long *B;
 	B = readB(n, D);
 
-
+	double cpu_time_used, start, end;
 	start = clock();
 	for (int block_start = 0; block_start < D; block_start += block_size) {
 		//printf("block_start = %d, block_end = %d\n", block_start, block_start + block_size);
@@ -110,16 +112,8 @@ int main(){
 	cpu_time_used = (end - start) / CLOCKS_PER_SEC;
 	printf("cpu_time_used = %f\n", cpu_time_used);
 
-
-
 	writeB(n, D, B);
-/*
-	for_j {
-		printf("%lli ", B[n*0 + j]);
-	}
-*/
-	
 
 
-	return 0;
+	return EXIT_SUCCESS;
 }

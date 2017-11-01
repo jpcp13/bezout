@@ -109,7 +109,7 @@ def rand_poly(j, m, deg, t, x):
         if j > 0:
             p += rand_poly(j-1, m-k, deg, t, x)*x[j]**k
         else:
-            coeff = ZZ.random_element(-t, t)*int(random()+0.75)
+            coeff = ZZ.random_element(-t, t)*int(random()+0.3)
             #coeff = Field.random_element()*int(random()*1.5)
             p += coeff*x[j]**k
     return p
@@ -403,6 +403,7 @@ def BB2roots(bb):
     return roots
 
 def bbt2roots(bbt, epsi, r0):
+
     right_ker, right_ortho = null_space(bbt[0], epsi, r0)
     left_ker, left_ortho = null_space(bbt[0].T, epsi, r0)
     qrBB = []
@@ -410,6 +411,13 @@ def bbt2roots(bbt, epsi, r0):
     for k in range(n+1):
         qrbbk = right_ortho.dot(bbt[k]).dot(left_ortho.T)
         qrBB.append(qrbbk)
+    """
+    qrBB = []
+    n = len(bbt)-1
+    for k in range(n):
+        xxk, residuals, rank_b0, s = np.linalg.lstsq(bbt[0], bbt[k+1])
+        qrBB.append(xxk)
+    """
     b0 = qrBB[0]
     bezout_dim = b0.shape[0]
     chow_mat = np.zeros((r0, r0))
