@@ -109,7 +109,7 @@ def rand_poly(j, m, deg, t, x):
         if j > 0:
             p += rand_poly(j-1, m-k, deg, t, x)*x[j]**k
         else:
-            coeff = ZZ.random_element(-t, t)*int(random()+0.3)
+            coeff = ZZ.random_element(-t, t)*int(random()+0.35)
             #coeff = Field.random_element()*int(random()*1.5)
             p += coeff*x[j]**k
     return p
@@ -493,3 +493,45 @@ def X2p(XX, Field, p):
         s += pc[k]*X2m(XX, v, pm[k])
     return s
 
+def numpy_X2m(xxx, v, m):
+    n = len(xxx)
+    r = v
+    degs = m.degrees()
+    for j in range(n):
+        xj = xxx[j]
+        for k in range(degs[j]):
+            r = r.dot(xj)
+    return r
+    
+def numpy_X2p(xxx, p):
+    dim = xxx[0].shape[0]
+    pm = p.monomials()
+    pc = p.coefficients()
+    v = np.random.randn(dim)
+    v /= la.norm(v)
+    s = np.zeros(dim)
+    for k in range(len(pc)):
+        m = pm[k]
+        s += pc[k]*numpy_X2m(xxx, v, m)
+    return s
+    
+def _Dxn(n, Dx, dx):
+    Dxn = np.zeros((Dx, n), dtype=int)
+    for j in range(n):
+        K = 1
+        for k in range(n):
+            if k == j:
+                K = np.kron(np.array(range(dx[k])), K)
+            else:
+                K = np.kron(np.ones(dx[k]), K)
+        Dxn[:, j] = K
+    return Dxn
+
+def BB2p(i, idy, n, Dx, BB, xx):
+    s = 0.0*xx[0]
+    for k in range(Dx):
+        m = bb[i][k, idy]
+        for j in range(n):
+            m *= xx[j+1]^Dxn[k, j]
+        s += m
+    return s
