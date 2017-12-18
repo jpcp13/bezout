@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  1 NOV 2017 22:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  2 NOV 2017 12:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -571,7 +571,7 @@ Missing character: There is no © in font cmr10!
  (./txt/construction_B_time.txt)
 (./txt/rank_b0_time.txt) (./txt/reductions_time.txt)
 (./txt/compute_roots_time.txt) (./txt/grobner_time.txt)
-Overfull \hbox (16.2785pt too wide) in paragraph at lines 45--55
+Overfull \hbox (11.27849pt too wide) in paragraph at lines 45--55
  [] 
  []
 
@@ -640,7 +640,7 @@ st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts
 ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on bezout.pdf (17 pages, 303151 bytes).
+Output written on bezout.pdf (17 pages, 303099 bytes).
 PDF statistics:
  410 PDF objects out of 1000 (max. 8388607)
  364 compressed objects within 4 object streams
