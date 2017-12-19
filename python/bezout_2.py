@@ -191,3 +191,26 @@ def X2p(XX, Field, p):
     for k in range(len(pc)):
         s += pc[k]*X2m(XX, v, pm[k])
     return s
+
+def find_Y(BB, B0Y, Field, n):
+    nr, nc = BB[0].nrows(), BB[0].ncols()
+    while True:
+        old_nbr = B0Y.nrows()
+        print old_nbr
+        K_lambda = B0Y.kernel().basis_matrix()
+        K = K_lambda[:, 0:nc]
+        Y = matrix(Field, 0, nc)
+        for k in range(1, n+1):
+            Yk = K*BB[k]
+            Y = block_matrix(2, 1, [Y, Yk]).LLL()
+            nzr = nzrows(Y) 
+            Y = Y[nzr, :]
+        B0Y = block_matrix(2, 1, [BB[0], Y])
+        if B0Y.nrows() == old_nbr:
+            break
+            
+    return Y
+
+def P2field(p, Field):
+    coeffs, monoms = p.coefficients(), p.monomials()
+    return sum([Field(coeffs[i])*monoms[i] for i in range(len(coeffs))])
