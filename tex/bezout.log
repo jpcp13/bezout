@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  2 NOV 2017 12:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  17 JAN 2018 09:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -478,12 +478,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  (./univariate.tex
 
 Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
-d on input line 12.
+d on input line 9.
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (2.23346pt too wide) in paragraph at lines 118--119
+Overfull \hbox (2.23346pt too wide) in paragraph at lines 108--109
 \OT1/cmr/m/it/10 de-note by $\OML/cmm/m/it/10 m$ \OT1/cmr/m/it/10 the max-i-mum
  of the de-grees of $\OML/cmm/m/it/10 f$ \OT1/cmr/m/it/10 and $\OML/cmm/m/it/10
  g$ \OT1/cmr/m/it/10 and put $\OT1/cmr/bx/n/10 x \OT1/cmr/m/n/10 = (1\OML/cmm/m
@@ -578,7 +578,7 @@ Overfull \hbox (11.27849pt too wide) in paragraph at lines 45--55
 ) (./bibliography.tex
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
- [15] [16]
+ [15]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no Ã in font cmr10!
@@ -597,13 +597,13 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 35.
- [17]
+ [16] [17]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
  (./bezout.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 35.
 Package rerunfilecheck Info: File `bezout.out' has not changed.
-(rerunfilecheck)             Checksum: D1E8C5034B6CCCABB9935EA50335B7C2;1495.
+(rerunfilecheck)             Checksum: 83C1A574D847699E22F40407B97374E4;1483.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -611,9 +611,9 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
  ) 
 Here is how much of TeX's memory you used:
- 8187 strings out of 493029
- 122732 string characters out of 6136234
- 244309 words of memory out of 5000000
+ 8186 strings out of 493029
+ 122726 string characters out of 6136234
+ 244289 words of memory out of 5000000
  11423 multiletter control sequences out of 15000+600000
  15392 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -640,10 +640,10 @@ st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts
 ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on bezout.pdf (17 pages, 303099 bytes).
+Output written on bezout.pdf (17 pages, 301456 bytes).
 PDF statistics:
- 410 PDF objects out of 1000 (max. 8388607)
- 364 compressed objects within 4 object streams
- 101 named destinations out of 1000 (max. 500000)
+ 408 PDF objects out of 1000 (max. 8388607)
+ 362 compressed objects within 4 object streams
+ 100 named destinations out of 1000 (max. 500000)
  137 words of extra memory for PDF output out of 10000 (max. 10000000)
 

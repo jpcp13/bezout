@@ -1,8 +1,8 @@
 \contentsline {section}{\numberline {1}Univariate case}{2}{section.1}
 \contentsline {subsection}{\numberline {1.1}Mutiplication maps}{2}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}Bezout polynomials and Bezout matrices}{2}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Relation between the Bezout matrices and the companion matrix}{4}{subsection.1.3}
-\contentsline {subsection}{\numberline {1.4}General Barnett decomposition formula}{5}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.3}Relation between Bezout matrices and the companion matrix}{4}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Barnett decomposition formula}{5}{subsection.1.4}
 \contentsline {section}{\numberline {2}Multivariate case}{7}{section.2}
 \contentsline {subsection}{\numberline {2.1}Construction of Bezout polynomials and Bezout matrices}{7}{subsection.2.1}
 \contentsline {subsubsection}{\numberline {2.1.1}Extension of Definition \ref {def_bez} to the multivariate case}{7}{subsubsection.2.1.1}
