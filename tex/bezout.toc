@@ -11,7 +11,7 @@
 \contentsline {subsubsection}{\numberline {2.2.1}Algebraic properties of polynomial $\delta (1)$ and of matrix $B(1)$}{11}{subsubsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.2}Reduction process}{12}{subsubsection.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.3}Barnett formula and companion matrices}{14}{subsubsection.2.2.3}
-\contentsline {subsubsection}{\numberline {2.2.4}Numerical computation of the roots}{15}{subsubsection.2.2.4}
+\contentsline {subsubsection}{\numberline {2.2.4}Numerical computation of the roots}{14}{subsubsection.2.2.4}
 \contentsline {subsection}{\numberline {2.3}Numerical experiment}{15}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}Quality of the results}{15}{subsubsection.2.3.1}
 \contentsline {subsubsection}{\numberline {2.3.2}Timings}{15}{subsubsection.2.3.2}

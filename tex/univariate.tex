@@ -98,10 +98,6 @@ x^2 & -2 & 3 & -1
 $$
 \end{exmp}
 
-From the equality (\ref{xBg}), we may regard $\delta(g)$ as an element of $\mathbb{Q}[x][y]$, a polynomial in the variable $y$ with coefficients in $\mathbb{Q}[x]$; 
-specifically, the coefficient of the monomial $y^j$ in $\delta(g)$ is just the $j$-th entry of the vector-matrix product $\bold{x} B(g)$.
-
-
 \begin{prop}
 \label{relations_prop}
 Let $f$ be a fixed polynomial and $g$ be another polynomial; if we denote by $m$ the maximum of the degrees of $f$ and $g$ and put $\bold{x} = (1, x,\cdots, x^{m-1})$, then
@@ -109,7 +105,7 @@ Let $f$ be a fixed polynomial and $g$ be another polynomial; if we denote by $m$
 \label{relations}
 	\bold{x}B(1)g = \bold{x}B(g)
 \end{equation}
-where the equality must be understood componentwise and modulo $f$.
+where the equality must be understood componentwise in $\mathbb{Q}[x]^m$ and modulo $f$.
 \end{prop}
 \begin{proof}
 We rewrite $\delta(g)$ as
@@ -118,29 +114,27 @@ We rewrite $\delta(g)$ as
 	\delta(g) & = & g(x)\delta(1) - f(x)\dfrac{g(x)-g(y)}{x-y}
 \end{align*}
 This is an equality between elements of $\mathbb{Q}[x][y]$. 
-If $h\in \mathbb{Q}[x][y]$ and $\beta\in\mathbb{N}$, let's denote by $h_\beta$ - an element of $\mathbb{Q}[x]$ - the coefficient of $y^\beta$ in the polynomial $h$; 
-with this notation we have
+If $h\in \mathbb{Q}[x][y]$ and $\beta\in\mathbb{N}$, we denote by $h_\beta \in \mathbb{Q}[x]$ the coefficient of $y^\beta$ in the polynomial $h$; then
 $$\delta(g)_\beta = g(x)\delta(1)_\beta - f(x)\left(\dfrac{g(x)-g(y)}{x-y}\right)_\beta$$
-which is an equality in $\mathbb{Q}[x]$. Thus, we have $\delta(g)_\beta = g(x)\delta(1)_\beta$ modulo $f$ and, as this is true for all $\beta\in\mathbb{N}$, we get the equality (\ref{relations}).
+which holds in $\mathbb{Q}[x]$. Thus, we have $\delta(g)_\beta = g(x)\delta(1)_\beta$ modulo $f$; as this is true for all $\beta\in\mathbb{N}$, Equality (\ref{relations}) follows.
 \end{proof}
 
 \begin{rem}
 Each column of a Bezout matrix, when left-multiplied by $\bold{x}$, is a polynomial in the variable $x$; when this does not bring to confusion, we will think of columns of a Bezout matrix as elements of $\mathbb{Q}[x]$, and lines as elements of $\mathbb{Q}[y]$.
-Saying Proposition \ref{relations_prop} differently, each column of $B(1)$, when multiplied by $g$, equals, modulo $f$, the column of same index of $B(g)$.
+Saying Proposition \ref{relations_prop} differently : each column of $B(1)$, when multiplied by $g$, equals the column of same index of $B(g)$, modulo $f$.
 \end{rem}
 
 \begin{exmp}
-Returning to Example \ref{exmp_1}, Proposition \ref{relations_prop} says that
+Returning to Example \ref{exmp_1}, Proposition \ref{relations_prop} says that the following equalities hold, modulo $f$
 \begin{align*}
  (-3 + x)x^3 &= -2x^2, \\
  (1)x^3 &= -2x + 3x^2, \\
  (0)x^3 &= -2 + 3x - x^2
 \end{align*}
-three equalities in $\mathbb{Q}[x]/\langle f \rangle$ that can be easily checked.
 \end{exmp}
 
 \begin{rem}
-If in the Bezoutians $\delta(1)$ and $\delta(g)$, we work with lines, instead of columns, then we get $gB(1)\bold{y}^T = B(g)\bold{y}^T$, of which each component is an equality in $\mathbb{Q}[y]/\langle f \rangle$.
+If we work with lines instead of columns, then Proposition \ref{relations_prop} says that $gB(1)\bold{y}^T = B(g)\bold{y}^T$, giving equalities in $\mathbb{Q}[y]/\langle f \rangle$.
 \end{rem}
 
 
