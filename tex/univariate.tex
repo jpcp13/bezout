@@ -113,7 +113,7 @@ We rewrite $\delta(g)$ as
 	\delta(g) & = & g(x)\dfrac{f(x)-f(y)}{x-y} - f(x)\dfrac{g(x)-g(y)}{x-y} \\ \nonumber
 	\delta(g) & = & g(x)\delta(1) - f(x)\dfrac{g(x)-g(y)}{x-y}
 \end{align*}
-This is an equality between elements of $\mathbb{Q}[x][y]$. 
+This equality holds between elements of $\mathbb{Q}[x][y]$. 
 If $h\in \mathbb{Q}[x][y]$ and $\beta\in\mathbb{N}$, we denote by $h_\beta \in \mathbb{Q}[x]$ the coefficient of $y^\beta$ in the polynomial $h$; then
 $$\delta(g)_\beta = g(x)\delta(1)_\beta - f(x)\left(\dfrac{g(x)-g(y)}{x-y}\right)_\beta$$
 which holds in $\mathbb{Q}[x]$. Thus, we have $\delta(g)_\beta = g(x)\delta(1)_\beta$ modulo $f$; as this is true for all $\beta\in\mathbb{N}$, Equality (\ref{relations}) follows.
@@ -140,7 +140,7 @@ If we work with lines instead of columns, then Proposition \ref{relations_prop} 
 
 \subsection{Relation between Bezout matrices and the companion matrix}
 \label{Bar}
-Given a fixed polynomial $f$, of degree $d$, the two bezoutians $\delta(1)$ and $\delta(x)$ write
+Given a fixed polynomial $f$ of degree $d$, the bezoutians $\delta(1)$ and $\delta(x)$ write
 \begin{equation}
 	\begin{array}{c|cccc}
 		\delta(1) & 1 & y & \dots & y^{d-1} \\
@@ -158,9 +158,9 @@ Given a fixed polynomial $f$, of degree $d$, the two bezoutians $\delta(1)$ and 
 		x & 0 & a_{d-2} & \ldots & a_0 \\
 		\vdots & \vdots & \vdots & \vdots & \vdots \\
 		x_{d-1} & 0 & a_0 & \ldots & 0 \\
-	\end{array}
+	\end{array}.
 \end{equation}
-that make appear the two Bezout matrices $B(1)$, which is clearly invertible, and $B(x)$. 
+The corresponding arrays of coefficients are the Bezout matrices $B(1)$, which is clearly invertible, and $B(x)$. 
 These two matrices are specially important because they are related to the companion matrix:
 \begin{prop}
 \label{Barnett}
