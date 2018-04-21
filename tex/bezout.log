@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  3 FEB 2018 20:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  21 APR 2018 19:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -490,46 +490,43 @@ Overfull \hbox (2.23346pt too wide) in paragraph at lines 103--104
 /it/10 ; x; []  ; x[]\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 ,
  []
 
-[3] [4] [5] [6]) (./multivariate.tex
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 18.
+[3] [4] [5]) (./multivariate.tex [6]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 17.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¨ in font cmr10!
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
  [7]
-Overfull \hbox (40.68394pt too wide) in paragraph at lines 84--84
+Overfull \hbox (40.68394pt too wide) in paragraph at lines 83--83
 [] 
  []
 
 
-Overfull \hbox (14.14609pt too wide) in paragraph at lines 84--87
+Overfull \hbox (14.14609pt too wide) in paragraph at lines 83--86
 \OT1/cmr/m/n/10 The mono-mial sets ap-pear-ing in these poly-no-mi-als are $\OT
 1/cmr/bx/n/10 x \OT1/cmr/m/n/10 = (1\OML/cmm/m/it/10 ; x[]; x[]; x[]; x[]x[]; x
 []x[]\OT1/cmr/m/n/10 )$
  []
 
 [8]
-Overfull \hbox (8.31644pt too wide) in paragraph at lines 136--138
+Overfull \hbox (8.31644pt too wide) in paragraph at lines 135--137
 \OT1/cmr/m/n/10 eval-u-ate de $\OML/cmm/m/it/10 ^^N\OT1/cmr/m/n/10 (\OML/cmm/m/
 it/10 x[]\OT1/cmr/m/n/10 )$. Sup-pose the poly-no-mial sys-tem $\OML/cmm/m/it/1
 0 f$ \OT1/cmr/m/n/10 has multi-degree $(\OML/cmm/m/it/10 d[]; []  ; d[]\OT1/cmr
 /m/n/10 )$,
  []
 
-[9]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `htbp') on input line 140.
+               Default added (so using `htbp') on input line 139.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `htbp') on input line 155.
+               Default added (so using `htbp') on input line 154.
 
-[10]) (./barnett_formula.tex
+[9] [10]) (./barnett_formula.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 9.
@@ -579,6 +576,7 @@ Overfull \hbox (11.27849pt too wide) in paragraph at lines 45--55
 ) (./bibliography.tex
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
+ [15]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no Ã in font cmr10!
@@ -595,7 +593,7 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
- [15])
+)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 35.
  [16] [17]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
@@ -603,7 +601,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 35.
 Package rerunfilecheck Info: File `bezout.out' has not changed.
-(rerunfilecheck)             Checksum: 83C1A574D847699E22F40407B97374E4;1483.
+(rerunfilecheck)             Checksum: B83C7E83220A4F08CCD7CFC69EC231CC;1477.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -613,7 +611,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
 Here is how much of TeX's memory you used:
  8186 strings out of 493029
  122726 string characters out of 6136234
- 240289 words of memory out of 5000000
+ 244283 words of memory out of 5000000
  11423 multiletter control sequences out of 15000+600000
  15392 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -640,7 +638,7 @@ st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts
 ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on bezout.pdf (17 pages, 301264 bytes).
+Output written on bezout.pdf (17 pages, 300568 bytes).
 PDF statistics:
  408 PDF objects out of 1000 (max. 8388607)
  362 compressed objects within 4 object streams
