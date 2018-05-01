@@ -26,35 +26,33 @@ From now on we assume that $\langle f\rangle$ is {\bf zero-dimensional}, that is
 
 \begin{defn}
 Let $x^\gamma = x_1^{\gamma_1}\cdots x_n^{\gamma_n} \in \mathbb{Q}[x]$ be some monomial.
-We introduce a new variable set $y = y_1,\cdots, y_n$ and we consider, for each couple of indices $i, j = 1\cdots n$, the ratio
+We introduce a new variable set $y = y_1,\cdots, y_n$ and consider, for each couple of indices $i, j = 1\cdots n$, the ratio
 \begin{equation}
 \label{finite_diff}
 \delta_{i,j}(x^\gamma) = \dfrac{y_j^{\gamma_j}f_i(y_1,\cdots, y_{j-1},x_j,\cdots,x_n) - x_j^{\gamma_j}f_i(y_1,\cdots,y_j,x_{j+1},\cdots,x_n)}{x_j - y_j}
 \end{equation}
-which is a polynomial in the variables $x, y$. We get a matrix of finite differences, something like a multivariate rate of increase
+which is a polynomial in the variables $x, y$. 
+With the $\delta_{i,j}$'s we form a matrix of finite differences
 \begin{equation}
 \label{Delta}
 \Delta(x^\gamma) = (\delta_{ij}(x^\gamma))_{ij}
 \end{equation}
-
-The {\bf Bezout polynomial}, or {\bf Bezoutian}, of the monomial $x^\gamma$ is by definition
-\begin{equation}
-	\delta(x^\gamma) = det(\Delta(x^\gamma))
-\end{equation}
-which belongs to $\mathbb{Q}[x, y]$. For a more general polynomial $g = \sum_\gamma g_\gamma x^\gamma \in \mathbb{Q}[x]$, this definition is extended by linearity 
+whose determinant $\delta(x^\gamma) = det(\Delta(x^\gamma))$, a polynomial in both variables $x, y$, is called the {\bf Bezout polynomial}, or {\bf Bezoutian}, of $x^\gamma$.
+This definition can be extended by linearity to a more general polynomial $g = \sum_\gamma g_\gamma x^\gamma \in \mathbb{Q}[x]$ by the formula
 $$\delta(g) = \sum_\gamma g_\gamma \delta(x^\gamma)$$
 
-The {\bf Bezout matrix} $B(g) = [b_{\alpha\beta}]$ is then defined as the matrix of the coefficients of $\delta(g)$ expressed on the monomials $(x^\alpha y^\beta)_{0 \le \alpha,\beta}$ appearing in $\delta(g)$
+
+Writting $\delta(g)$ as a sum of monomials, 
 \begin{equation}
 \label{def_bez}
 \delta(g) = \sum_{0 \le \alpha,\beta} b_{\alpha\beta} x^\alpha y^\beta
-\end{equation}
-If we denote by $\bold{x}$ and $\bold{y}$ the sets of all the monomials $x^\alpha$ et $y^\beta$ that appear in \ref{def_bez}, then we have the following relation, similar to~(\ref{xBg})
+\end{equation} 
+we define $B(g)$, the {\bf Bezout matrix} of $g$, as the matrix of the coefficients $B(g) = [b_{\alpha\beta}]$. If we denote by $\bold{x}$ and $\bold{y}$ the sets of all the monomials $x^\alpha$ et $y^\beta$ that appear in \ref{def_bez}, then we have the relation, similar to~(\ref{xBg})
 \begin{equation}
 	\delta(g) = \bold{x} B(g) \bold{y}^T
 \end{equation}
 \end{defn}
-The following example, from \cite{jpc}, will illustrate this construction
+The following example, see \cite{jpc}, illustrate the previous definitions
 \begin{exmp}
 \label{bez_multi}
 We consider $n = 2$, $f_1 = x_1^2 + x_1x_2^2 - 1, f_2 = x_1^2x_2 + x_1$ and we are interested by the calculation of the Bezout matrices $B(1), B(x_1), B(x_2)$, which are useful for computing the companion matrices $X_1, X_2$. To begin with, let us compute the finite differences matrices, as defined in (\ref{Delta})
