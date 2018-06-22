@@ -40,8 +40,6 @@ With the $\delta_{i,j}$'s we form a matrix of finite differences
 whose determinant $\delta(x^\gamma) = det(\Delta(x^\gamma))$, a polynomial in both variables $x, y$, is called the {\bf Bezout polynomial}, or {\bf Bezoutian}, of $x^\gamma$.
 This definition can be extended by linearity to a more general polynomial $g = \sum_\gamma g_\gamma x^\gamma \in \mathbb{Q}[x]$ by the formula
 $$\delta(g) = \sum_\gamma g_\gamma \delta(x^\gamma)$$
-
-
 Writting $\delta(g)$ as a sum of monomials, 
 \begin{equation}
 \label{def_bez}
@@ -52,7 +50,8 @@ we define $B(g)$, the {\bf Bezout matrix} of $g$, as the matrix of the coefficie
 	\delta(g) = \bold{x} B(g) \bold{y}^T
 \end{equation}
 \end{defn}
-The following example, see \cite{jpc}, illustrate the previous definitions
+The following example, see \cite{jpc}, illustrates the previous definitions
+
 \begin{exmp}
 \label{bez_multi}
 We consider $n = 2$, $f_1 = x_1^2 + x_1x_2^2 - 1, f_2 = x_1^2x_2 + x_1$ and we are interested by the calculation of the Bezout matrices $B(1), B(x_1), B(x_2)$, which are useful for computing the companion matrices $X_1, X_2$. To begin with, let us compute the finite differences matrices, as defined in (\ref{Delta})
