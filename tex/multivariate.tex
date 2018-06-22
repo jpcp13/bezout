@@ -32,12 +32,12 @@ We introduce a new variable set $y = y_1,\cdots, y_n$ and consider, for each cou
 \delta_{i,j}(x^\gamma) = \dfrac{y_j^{\gamma_j}f_i(y_1,\cdots, y_{j-1},x_j,\cdots,x_n) - x_j^{\gamma_j}f_i(y_1,\cdots,y_j,x_{j+1},\cdots,x_n)}{x_j - y_j}
 \end{equation}
 which is a polynomial in the variables $x, y$. 
-With the $\delta_{i,j}$'s we form a matrix of finite differences
+With the $\delta_{i,j}$'s we form a matrix of finite difference
 \begin{equation}
 \label{Delta}
 \Delta(x^\gamma) = (\delta_{ij}(x^\gamma))_{ij}
 \end{equation}
-whose determinant $\delta(x^\gamma) = det(\Delta(x^\gamma))$, a polynomial in both variables $x, y$, is called the {\bf Bezout polynomial}, or {\bf Bezoutian}, of $x^\gamma$.
+whose determinant $\delta(x^\gamma) = det(\Delta(x^\gamma))$, a polynomial in both variables $x, y$, is called the {\bf Bezout polynomial}, or {\bf bezoutian}, of $x^\gamma$.
 This definition can be extended by linearity to a more general polynomial $g = \sum_\gamma g_\gamma x^\gamma \in \mathbb{Q}[x]$ by the formula
 $$\delta(g) = \sum_\gamma g_\gamma \delta(x^\gamma)$$
 Writting $\delta(g)$ as a sum of monomials, 
@@ -54,7 +54,7 @@ The following example, see \cite{jpc}, illustrates the previous definitions
 
 \begin{exmp}
 \label{bez_multi}
-We consider $n = 2$, $f_1 = x_1^2 + x_1x_2^2 - 1, f_2 = x_1^2x_2 + x_1$ and we are interested by the calculation of the Bezout matrices $B(1), B(x_1), B(x_2)$, which are useful for computing the companion matrices $X_1, X_2$. To begin with, let us compute the finite differences matrices, as defined in (\ref{Delta})
+We take $n = 2$, $f_1 = x_1^2 + x_1x_2^2 - 1, f_2 = x_1^2x_2 + x_1$ and want to calculate the Bezout matrices $B(1), B(x_1), B(x_2)$, which are useful for computing the companion matrices $X_1, X_2$. To begin with, we compute the finite difference matrices, as defined in (\ref{Delta})
 \begin{align}
 \Delta(1) &=
 \begin{pmatrix}
@@ -78,7 +78,7 @@ whose determinants are the bezoutians
 \delta(x_1) &=  y_1^2 - x_1x_2^2y_1^2 + x_1y_1^3 - x_1x_2y_1^2y_2 \nonumber \\
 \delta(x_2) &= -1 - x_1x_2 - x_1y_1 -x_2y_1 - x_2^2y_1 + x_1x_2y_1^2 + x_2y_1^3 - x_2y_1y_2 - x_1x_2^2y_1y_2 - x_2^2y_1^2y_2\nonumber
 \end{align}
-The monomial sets appearing in these polynomials are
+The monomial appearing in these polynomials are
 $\bold{x} = (1, x_2, x_2^2, x_1, x_1x_2, x_1x_2^2)$ and $\bold{y} = (1, y_1, y_1y_2, y_1^2, y_1^2y_2, y_1^3)$; the Bezout matrices $B(1), B(x_1), B(x_2)$ appear when we write these bezoutians as double-entry arrays indexed by $\bold{x}, \bold{y}$
 $$\begin{array}{c|cccccc}
 	\delta(1) & 1 & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
@@ -116,6 +116,8 @@ $$\begin{array}{c|cccccc}
 \begin{rem}
 Contrasting with the univariate case, $\bold{x}$ and $\bold{y}$ are not bases of the vector space $A$. We will see that they are, however, generating sets and we will show how to extract bases from them.
 \end{rem}
+
+
 
 \subsubsection{Practical computation of the Bezout matrices}
 In the previous example, the matrices $\Delta(1), \Delta(x_1), \Delta(x_2)$ are of size $2$ and their entries are polynomials in $x_1, x_2$; it is easy to calculate their determinant. When either the number of variables variables $n$, or the degree of the input polynomials $f_i$, increase, then this calculation becomes impractical because one cannot use the Gauss pivot algorithm to a matrix with polynomial entries. However, one can overcome this difficulty by applying the following evaluation-interpolation process

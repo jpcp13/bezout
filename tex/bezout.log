@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  22 JUN 2018 09:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  22 JUN 2018 10:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -503,15 +503,8 @@ Overfull \hbox (40.68394pt too wide) in paragraph at lines 80--80
 [] 
  []
 
-
-Overfull \hbox (14.14609pt too wide) in paragraph at lines 80--83
-\OT1/cmr/m/n/10 The mono-mial sets ap-pear-ing in these poly-no-mi-als are $\OT
-1/cmr/bx/n/10 x \OT1/cmr/m/n/10 = (1\OML/cmm/m/it/10 ; x[]; x[]; x[]; x[]x[]; x
-[]x[]\OT1/cmr/m/n/10 )$
- []
-
 [8]
-Overfull \hbox (8.31644pt too wide) in paragraph at lines 132--134
+Overfull \hbox (8.31644pt too wide) in paragraph at lines 134--136
 \OT1/cmr/m/n/10 eval-u-ate de $\OML/cmm/m/it/10 ^^N\OT1/cmr/m/n/10 (\OML/cmm/m/
 it/10 x[]\OT1/cmr/m/n/10 )$. Sup-pose the poly-no-mial sys-tem $\OML/cmm/m/it/1
 0 f$ \OT1/cmr/m/n/10 has multi-degree $(\OML/cmm/m/it/10 d[]; []  ; d[]\OT1/cmr
@@ -520,11 +513,11 @@ it/10 x[]\OT1/cmr/m/n/10 )$. Sup-pose the poly-no-mial sys-tem $\OML/cmm/m/it/1
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `htbp') on input line 136.
+               Default added (so using `htbp') on input line 138.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `htbp') on input line 151.
+               Default added (so using `htbp') on input line 153.
 
 [9] [10]) (./barnett_formula.tex
 
@@ -638,7 +631,7 @@ st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts
 ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on bezout.pdf (17 pages, 300085 bytes).
+Output written on bezout.pdf (17 pages, 300048 bytes).
 PDF statistics:
  407 PDF objects out of 1000 (max. 8388607)
  361 compressed objects within 4 object streams
