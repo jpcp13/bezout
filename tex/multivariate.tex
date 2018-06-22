@@ -114,24 +114,26 @@ $$\begin{array}{c|cccccc}
 \end{exmp}
 
 \begin{rem}
-Contrasting with the univariate case, $\bold{x}$ and $\bold{y}$ are not bases of the vector space $A$. We will see that they are, however, generating sets and we will show how to extract bases from them.
+Contrasting with the univariate case, $\bold{x}$ and $\bold{y}$ are not bases of the vector space $A$. We will see, however, that they are generating sets and how to extract bases from them.
 \end{rem}
 
 
 
 \subsubsection{Practical computation of the Bezout matrices}
-In the previous example, the matrices $\Delta(1), \Delta(x_1), \Delta(x_2)$ are of size $2$ and their entries are polynomials in $x_1, x_2$; it is easy to calculate their determinant. When either the number of variables variables $n$, or the degree of the input polynomials $f_i$, increase, then this calculation becomes impractical because one cannot use the Gauss pivot algorithm to a matrix with polynomial entries. However, one can overcome this difficulty by applying the following evaluation-interpolation process
+In the previous example, the matrices $\Delta(1), \Delta(x_1), \Delta(x_2)$ have size $2$ and their entries are polynomials in $x_1, x_2$; it is easy to calculate their determinant. If either the number  $n$ of variables or the degree of the input polynomials $f_i$ increase, then this calculation becomes impractical because we cannot use the Gauss pivot algorithm to a polynomial entries matrix. We can however overcome this difficulty by applying the following evaluation-interpolation process
 \begin{enumerate}
 \item
-A priori estimation of the set of monomials $x^\alpha y^\beta$ appearing in the bezoutian $\delta(x_k)$
+Estimate a priori the set of monomials $x^\alpha y^\beta$ appearing in the bezoutian $\delta(x_k)$,
 \item
-Evaluation of $\Delta(x_k)$ on an adequate set $U \times V$ of Fourier multi-points $u = (u_1,\cdots, u_n) \in U$ et $v = (v_1,\cdots, v_n) \in V$
+Evaluate the polynomial-entries matrix $\Delta(x_k)$ on all pairs $(u, v)$ where $u = (u_1,\cdots, u_n) \in U$ and $v = (v_1,\cdots, v_n) \in V$, $U, V$ being adequate sets of Fourier multi-points,
 \item
-For each $(u, v) \in U\times V$, numerical computation, by the Gauss pivot method, of the determinant $\Delta(x_k)(u, v)$.
+For each $(u, v) \in U\times V$, apply the Gauss pivot method to the numerical matrix $\Delta(x_k)(u, v)$ in order to compute its determinant,
 \item
-Interpolation of the set of calculated values $\Delta(x_k)(u, v)$ by the desired polynomial $\delta(x_k)$.
+Interpolate the set of all the previously computed determinants $\Delta(x_k)(u, v)$ in order to obtain the polynomial $\delta(x_k)$.
 \end{enumerate}
-Let us specify what are the monomials of $\delta(x_k)$ and the Fourier points used to evaluate de $\delta(x_k)$. Suppose the polynomial system $f$ has multi-degree $(d_1, \cdots, d_n)$, that is to say, for all $i, j = 1..n$ the degree of $f_i$ in the variable $x_j$ is smaller or equal to $d_j$. We fix an integer $k$ between $0$ and $n$ and we adopt the convention that $x_0 = 1$. It is easy to show that the polynomial $\delta(x_k)$ has multi-degree $(d_1, 2d_2, \cdots, nd_n)$ in the variable $x$ and has multi-degree $(nd_1, (n-1)d_2, \cdots, d_n)$ in the variable $y$. To evaluate $\delta(x_k)$, we then choose the Fourier sets $U = \prod_{j=1..n} U_j$ where $U_j$ is the set of complex roots of $X^{jd_j} - 1$. We also choose $V = \prod_{j=1..n} V_j$ in such a way $U_j$ et $V_j$ are disjoint sets, so that the denominator of (\ref{finite_diff}) never vanishes. This is realized, for example, when $V_j$ is the set of complex roots of $X^{(n-j+1)d_j} - \theta_j$ avec $\theta_j = e^{i\pi/j}$. 
+Let us specify what are the monomials of $\delta(x_k)$, for some fixed $k$, $k = 0,\cdots, n$, with the convention that $x_0 = 1$, and what is the Fourier points used to evaluate $\delta(x_k)$. We suppose that the polynomial system $f$ has multi-degree $(d_1, \cdots, d_n)$; that is to say, the partial degree of each $f_i$, in the variable $x_j$, is smaller or equal to $d_j$. We can easily see that the polynomial $\delta(x_k)$ has multi-degree $(d_1, 2d_2, \cdots, nd_n)$ in the variable $x$ and multi-degree $(nd_1, (n-1)d_2, \cdots, d_n)$ in the variable $y$. To evaluate $\delta(x_k)$, we choose the Fourier set $U = \prod_{j=1..n} U_j$ where each $U_j$ is the set of complex roots of $X^{jd_j} - 1$; then we choose $V = \prod_{j=1..n} V_j$ in such a way that $U_j$ et $V_j$ are disjoint sets, so that the denominator of (\ref{finite_diff}) never vanishes. This is obtained, for example, when $V_j$ is the set of complex roots of $X^{(n-j+1)d_j} - \theta_j$ with $\theta_j = e^{i\pi/j}$ (here $i$ means the square root of $-1$). 
+
+
 These considerations lead to the following algorithm providing the sets $U$ and $V$.
 
 
