@@ -119,57 +119,18 @@ But, as we will see, they are  generating sets and we will examine how to build 
 \end{rem}
 
 \subsubsection{Practical computation of the Bezout matrices}
-In the previous example, the matrices $\Delta(1), \Delta(x_1), \Delta(x_2)$ have size $2$ and their entries are polynomials in $x_1, x_2$; calculating their determinant is easy. But, if either the number  $n$ of variables or the degree of the input polynomials $f_i$ increase, then this calculation becomes impractical because one cannot use the Gauss pivot algorithm to a polynomial entries matrix. We can however overcome this difficulty by applying the following evaluation-interpolation process :
+From now on, we will denote $\delta^{(k)}$ the Bezout polynomial $\delta(x_k)$ and $B^{(k)}$ the Bezout matrix $B(x_k)$; we will also adopt the the convention that $x_0 = 1$. Accordingly, $\Delta(1), \Delta(x_1), \Delta(x_2)$ will be denoted $\Delta^{(0)}, \Delta^{(1)}, \Delta^{(2)}$.
+
+In the previous example, the matrices $\Delta^{(0)}, \Delta^{(1)}, \Delta^{(2)}$ have size $2$ and their entries are polynomials in $x_1, x_2$; calculating their determinant is easy. But, if either the number  $n$ of variables or the degree of the input polynomials $f_i$ increase, then this calculation becomes impractical because one cannot use the Gauss pivot algorithm to a polynomial entries matrix. We can however overcome this difficulty by applying the following evaluation-interpolation process :
 \begin{enumerate}
 \item
-Estimate a priori the set of monomials $x^\alpha y^\beta$ appearing in the Bezout polynomial $\delta(x_k)$ (for fixed $k$, $k = 0,\cdots, n$, with the convention that $x_0 = 1$). Specifically, if we suppose that the polynomial system $f$ has multi-degree $(d_1, \cdots, d_n)$, that is to say, the partial degree in the variable $x_j$ of each $f_i$ is smaller or equal to $d_j$,then the polynomial $\delta(x_k)$ has multi-degree $(d_1, 2d_2, \cdots, nd_n)$ in variable $x$ and multi-degree $(nd_1, (n-1)d_2, \cdots, d_n)$ in variable $y$. Note that this estimate is the same for each $k$.
+Estimate a priori the set of monomials $x^\alpha y^\beta$ appearing in the Bezout polynomial $\delta(x_k)$ (for fixed $k$, $k = 0,\cdots, n$, ). Specifically, if we suppose that the polynomial system $f$ has multi-degree $(d_1, \cdots, d_n)$, that is to say, the partial degree in the variable $x_j$ of each $f_i$ is smaller or equal to $d_j$,then the polynomial $\delta(x_k)$ has multi-degree $(d_1, 2d_2, \cdots, nd_n)$ in variable $x$ and multi-degree $(nd_1, (n-1)d_2, \cdots, d_n)$ in variable $y$. Note that this estimate is the same for each $k$.
 \item
 Evaluate the polynomial-entries matrix $\Delta(x_k)$ on all pairs $(u, v)$ where $u = (u_1,\cdots, u_n) \in U$ and $v = (v_1,\cdots, v_n) \in V$, $U, V$ being adequate sets of Fourier multi-points. We can choose, for instance, $U = \prod_{j=1..n} U_j$ where $U_j$ is the set of complex roots of the polynomial $X^{jd_j} - 1$; and we must choose $V = \prod_{j=1..n} V_j$ in such a way that $U_j$ et $V_j$ are disjoint sets, so that the denominator of the ratio (\ref{finite_diff}) never vanishes. This is obtained, for example, if $V_j$ is the set of complex roots of the polynomial $X^{(n-j+1)d_j} - \theta_j$ with $\theta_j = e^{i\pi/j}$ (here $i$ means the square root of $-1$). 
 \item
-For each $(u, v) \in U\times V$, apply the Gauss pivot method to the numerical matrix $\Delta(x_k)(u, v)$ in order to compute its determinant $\delta(x_k)(u, v)$. This produces a matrix $C^{(k)}$ defined by $C^{(k)}_{u, v} = \delta(x_k)(u, v)$.
+For each $(u, v) \in U\times V$, apply the Gauss pivot method to the numerical matrix $\Delta(x_k)(u, v)$ in order to compute its determinant $\delta(x_k)(u, v)$. This produces a matrix $C^{(k)}$, indexed by $(u, v) \in U\times V$, and defined by $C^{(k)}_{u, v} = \delta(x_k)(u, v)$.
 \item
-Interpolate the set of numerical values $\delta(x_k)(u, v)$ in order to obtain the Bezout polynomial $\delta(x_k)$ and the Bezout matrix $B^{(k)}$.
-\end{enumerate}
-
-These considerations lead to the following algorithm providing the sets $U$ and $V$.
-\begin{algorithm}[]
-\label{fourierPoints}
-\KwData{$d = (d_1, \cdots, d_n)$, multi-degree of polynomial system}
-\KwResult{$U, V$, two sets of Fourier points}
-\For{$j = 1,\cdots, n$}{
-	$U_j \gets$ roots of $X^{jd_j}-1$\;
-	$V_j \gets$ roots of $X^{(n-j+1)d_j}-e^{i\pi/j}$\;
-}
-$U \gets \prod_{j=1..n}U_j$\;
-$V \gets \prod_{j=1..n}V_j$\;
-\caption{Construction of $U, V$, two sets of Fourier points}
-\end{algorithm}
-
-Then, we evaluate the bezoutian $\delta(x_k)$ on the Fourier points $(u, v) \in U\times V$
-
-\begin{algorithm}[]
-\label{algo_2}
-\KwData{polynomial sytem $f$, index $k$}
-\KwResult{matrix $C^{(k)}$ containing the evaluations $\delta(x_k)(u, v)$}
-$(d_1, \cdots, d_n) \gets$ multi-degree of $f$\;
-Get $U, V$ via Algorithm \ref{fourierPoints}\;
-$D \gets \prod_{j=1..n}jd_j$\;
-$C^{(k)} \gets \textsc{zeros}(D, D)$\;
-\For{$(u, v) \in U\times V$}{
-	$\Delta \gets \textsc{zeros}(n, n)$\;
-	\For{$i, j=1..n$}{
-		$\Delta_{i,j} \gets \delta_{i,j}(x_k)(u, v)$
-	}
-	$C^{(k)}_{u, v} \gets \textsc{det}(\Delta)$
-}
-\caption{Evaluation of the bezoutian $\delta(x_k)$ on $U\times V$}
-\end{algorithm}
-
-Let us show, to conclude, how the Bezout matrix $B(x_k)$ is simply related to $C^{(k)}$.
-To simplify, we denote the bezoutian $\delta(x_k)$ by $\delta^{(k)}$ and the Bezout matrix $B(x_k)$ by $B^{(k)}$; recall that $C^{(k)}$ denotes the evaluation matrix of $\delta^(k)$ on $U\times V$.
-The matrix $B^{(k)} = \left[b^{(k)}_{\alpha\beta}\right]$ satisfies $\delta^{(k)}(x, y) = \sum_{\alpha,\beta} b^{(k)}_{\alpha\beta} x^\alpha y^\beta$,
-thus $C^{(k)}_{u,v} = \delta^{(k)}(u, v) = \sum_{\alpha,\beta} b^{(k)}_{\alpha\beta} u^\alpha v^\beta$; this writes as a matrix product
-$\left[C^{(k)}_{u,v}\right]_{u,v} = \left[u^\alpha\right]_{u,\alpha} \left[b^{(k)}_{\alpha,\beta}\right]_{\alpha, \beta} \left[v^\beta\right]_{v, \beta}^T$. If we define the Fourier matrices $F_u = \left[ u^\alpha \right]_{u, \alpha}$ and $F_v = \left[ v^\beta \right]_{v, \beta}$, then we get the evaluation-interpolation relation between matrices $B^{(k)}$ and $C^{(k)}$
+Interpolate the set of numerical values $\delta(x_k)(u, v), (u, v) \in U\times V$ in order to obtain the Bezout polynomial $\delta(^{(k)}$ and the Bezout matrix $B^{(k)}$. The matrices $B^{(k)}$ and $C^{(k)}$ are closely related. Indeed, $B^{(k)} = \left[b^{(k)}_{\alpha\beta}\right]$ satisfies $\delta^{(k)}(x, y) = \sum_{\alpha,\beta} b^{(k)}_{\alpha\beta} x^\alpha y^\beta$, thus $C^{(k)}_{u,v} = \delta^{(k)}(u, v) = \sum_{\alpha,\beta} b^{(k)}_{\alpha\beta} u^\alpha v^\beta$. This writes as a matrix product $\left[C^{(k)}_{u,v}\right]_{u,v} = \left[u^\alpha\right]_{u,\alpha} \left[b^{(k)}_{\alpha,\beta}\right]_{\alpha, \beta} \left[v^\beta\right]_{v, \beta}^T$. If we define the Fourier matrices $F_u = \left[ u^\alpha \right]_{u, \alpha}$ and $F_v = \left[ v^\beta \right]_{v, \beta}$, then we get the evaluation-interpolation relation between matrices $B^{(k)}$ and $C^{(k)}$
 \begin{equation}
 C^{(k)} = F_uB^{(k)} F_v^T
  \end{equation}
@@ -177,6 +138,7 @@ Since $U$ and $V$ consist of Fourier points, $F_u$ et $F_v$ are unitary and $B^{
  \begin{equation}
  B^{(k)} = F_u^*C^{(k)} \overline{F_v}
  \end{equation}
+\end{enumerate}
 The computation of the Bezout matrices, as described above, have been implemented in Numpy and can be found at \cite{jp_code}.
 
 \end{document}
