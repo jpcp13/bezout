@@ -118,21 +118,20 @@ Contrasting with the univariate case, $\bold{x}$ and $\bold{y}$ are not bases of
 But, as we will see, they are  generating sets and we will examine how to build bases from them.
 \end{rem}
 
-
-
 \subsubsection{Practical computation of the Bezout matrices}
-In the previous example, the matrices $\Delta(1), \Delta(x_1), \Delta(x_2)$ have size $2$ and their entries are polynomials in $x_1, x_2$; it is easy to calculate their determinant. If either the number  $n$ of variables or the degree of the input polynomials $f_i$ increase, then this calculation becomes impractical because we cannot use the Gauss pivot algorithm to a polynomial entries matrix. We can however overcome this difficulty by applying the following evaluation-interpolation process
+In the previous example, the matrices $\Delta(1), \Delta(x_1), \Delta(x_2)$ have size $2$ and their entries are polynomials in $x_1, x_2$; calculating their determinant is easy. But, if either the number  $n$ of variables or the degree of the input polynomials $f_i$ increase, then this calculation becomes impractical because one cannot use the Gauss pivot algorithm to a polynomial entries matrix. We can however overcome this difficulty by applying the following evaluation-interpolation process :
 \begin{enumerate}
 \item
-Estimate a priori the set of monomials $x^\alpha y^\beta$ appearing in the bezoutian $\delta(x_k)$,
+Estimate a priori the set of monomials $x^\alpha y^\beta$ appearing in the Bezout polynomial $\delta(x_k)$ (for fixed $k$, $k = 0,\cdots, n$, with the convention that $x_0 = 1$),
 \item
 Evaluate the polynomial-entries matrix $\Delta(x_k)$ on all pairs $(u, v)$ where $u = (u_1,\cdots, u_n) \in U$ and $v = (v_1,\cdots, v_n) \in V$, $U, V$ being adequate sets of Fourier multi-points,
 \item
 For each $(u, v) \in U\times V$, apply the Gauss pivot method to the numerical matrix $\Delta(x_k)(u, v)$ in order to compute its determinant $\delta(x_k)(u, v)$,
 \item
-Interpolate the set of all the numerical values $\delta(x_k)(u, v)$ in order to obtain the polynomial $\delta(x_k)$.
+Interpolate the set of numerical values $\delta(x_k)(u, v)$ in order to obtain the polynomial $\delta(x_k)$.
 \end{enumerate}
-Let us specify what are the monomials of $\delta(x_k)$ (for some fixed $k$, $k = 0,\cdots, n$, with the convention that $x_0 = 1$) and what is the Fourier points used to evaluate $\delta(x_k)$. We suppose that the polynomial system $f$ has multi-degree $(d_1, \cdots, d_n)$; that is to say, the partial degree of each $f_i$, in the variable $x_j$, is smaller or equal to $d_j$. We can easily see that the polynomial $\delta(x_k)$ has multi-degree $(d_1, 2d_2, \cdots, nd_n)$ in the variable $x$ and multi-degree $(nd_1, (n-1)d_2, \cdots, d_n)$ in the variable $y$. To evaluate $\delta(x_k)$, we choose the Fourier set $U = \prod_{j=1..n} U_j$ where each $U_j$ is the set of complex roots of $X^{jd_j} - 1$; then we choose $V = \prod_{j=1..n} V_j$ in such a way that $U_j$ et $V_j$ are disjoint sets, so that the denominator of (\ref{finite_diff}) never vanishes. This is obtained, for example, when $V_j$ is the set of complex roots of $X^{(n-j+1)d_j} - \theta_j$ with $\theta_j = e^{i\pi/j}$ (here $i$ means the square root of $-1$). 
+
+Let us specify, in the process above, which are the monomials appearing in $\delta(x_k)$ - item 1 - and which are the Fourier points used to evaluate $\delta(x_k)$ - item 2. Suppose that the polynomial system $f$ has multi-degree $(d_1, \cdots, d_n)$, that is to say the partial degree of each $f_i$, in the variable $x_j$, is smaller or equal to $d_j$. One can see, then, that the polynomial $\delta(x_k)$ has multi-degree $(d_1, 2d_2, \cdots, nd_n)$ in the variable $x$ and multi-degree $(nd_1, (n-1)d_2, \cdots, d_n)$ in the variable $y$. To evaluate $\delta(x_k)$, we choose the Fourier set $U = \prod_{j=1..n} U_j$ where $U_j$ is the set of complex roots of $X^{jd_j} - 1$; and we choose $V = \prod_{j=1..n} V_j$ in such a way that $U_j$ et $V_j$ are disjoint sets, so that the denominator of the ratio (\ref{finite_diff}) never vanishes. This is obtained, for example, if $V_j$ is the set of complex roots of $X^{(n-j+1)d_j} - \theta_j$ with $\theta_j = e^{i\pi/j}$ (here $i$ means the square root of $-1$). 
 
 
 These considerations lead to the following algorithm providing the sets $U$ and $V$.
