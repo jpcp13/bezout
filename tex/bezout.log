@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  16 JUL 2018 20:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  19 JUL 2018 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -514,28 +514,36 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 9.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 9.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 9.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 9.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 9.
 
 [10]
-Overfull \hbox (36.76518pt too wide) detected at line 83
+Overfull \hbox (36.76518pt too wide) detected at line 78
 [] []
  []
 
 [11]
-Overfull \hbox (9.39012pt too wide) detected at line 147
+Overfull \hbox (9.39012pt too wide) detected at line 142
 [] []
  []
 
 
-Overfull \hbox (39.85974pt too wide) detected at line 176
+Overfull \hbox (39.85974pt too wide) detected at line 171
 [] [] []
  []
 
@@ -553,7 +561,6 @@ Overfull \hbox (11.27849pt too wide) in paragraph at lines 45--55
 ) (./bibliography.tex
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
- [14]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no Ã in font cmr10!
@@ -570,7 +577,7 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
-)
+ [14])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 35.
  [15] [16]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
@@ -578,7 +585,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 35.
 Package rerunfilecheck Info: File `bezout.out' has not changed.
-(rerunfilecheck)             Checksum: 1E9B001E31CA2D3BF669AB212C7D8850;1477.
+(rerunfilecheck)             Checksum: D186AB168DC3CA96763A3AD5CFF8BA66;1470.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -586,13 +593,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 35.
  ) 
 Here is how much of TeX's memory you used:
- 8175 strings out of 493029
- 122610 string characters out of 6136234
- 244283 words of memory out of 5000000
- 11419 multiletter control sequences out of 15000+600000
+ 8173 strings out of 493029
+ 122587 string characters out of 6136234
+ 241141 words of memory out of 5000000
+ 11417 multiletter control sequences out of 15000+600000
  14489 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,14n,38p,938b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,14n,38p,937b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -614,7 +621,7 @@ ublic/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symb
 ols/msbm10.pfb>
-Output written on bezout.pdf (16 pages, 289805 bytes).
+Output written on bezout.pdf (16 pages, 289447 bytes).
 PDF statistics:
  393 PDF objects out of 1000 (max. 8388607)
  349 compressed objects within 4 object streams

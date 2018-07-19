@@ -130,11 +130,11 @@ Evaluate the polynomial-entries matrix $\Delta(x_k)$ on all pairs $(u, v)$ where
 \item
 For each $(u, v) \in U\times V$, apply the Gauss pivot method to the numerical matrix $\Delta(x_k)(u, v)$ in order to compute its determinant $\delta(x_k)(u, v)$. This produces a matrix $C^{(k)}$, indexed by $(u, v) \in U\times V$, and defined by $C^{(k)}_{u, v} = \delta(x_k)(u, v)$.
 \item
-Interpolate the set of numerical values $\delta(x_k)(u, v), (u, v) \in U\times V$ in order to obtain the Bezout polynomial $\delta(^{(k)}$ and the Bezout matrix $B^{(k)}$. The matrices $B^{(k)}$ and $C^{(k)}$ are closely related. Indeed, $B^{(k)} = \left[b^{(k)}_{\alpha\beta}\right]$ satisfies $\delta^{(k)}(x, y) = \sum_{\alpha,\beta} b^{(k)}_{\alpha\beta} x^\alpha y^\beta$, thus $C^{(k)}_{u,v} = \delta^{(k)}(u, v) = \sum_{\alpha,\beta} b^{(k)}_{\alpha\beta} u^\alpha v^\beta$. This writes as a matrix product $\left[C^{(k)}_{u,v}\right]_{u,v} = \left[u^\alpha\right]_{u,\alpha} \left[b^{(k)}_{\alpha,\beta}\right]_{\alpha, \beta} \left[v^\beta\right]_{v, \beta}^T$. If we define the Fourier matrices $F_u = \left[ u^\alpha \right]_{u, \alpha}$ and $F_v = \left[ v^\beta \right]_{v, \beta}$, then we get the evaluation-interpolation relation between matrices $B^{(k)}$ and $C^{(k)}$
+Interpolate the set of numerical values $\delta(x_k)(u, v), (u, v) \in U\times V$ in order to obtain the Bezout polynomial $\delta^{(k)}$ and the Bezout matrix $B^{(k)}$. The matrices $B^{(k)}$ and $C^{(k)}$ are closely related. Indeed, $B^{(k)} = \left[b^{(k)}_{\alpha\beta}\right]$ satisfies $\delta^{(k)}(x, y) = \sum_{\alpha,\beta} b^{(k)}_{\alpha\beta} x^\alpha y^\beta$, thus $C^{(k)}_{u,v} = \delta^{(k)}(u, v) = \sum_{\alpha,\beta} b^{(k)}_{\alpha\beta} u^\alpha v^\beta$. This writes as a matrix product $\left[C^{(k)}_{u,v}\right]_{u,v} = \left[u^\alpha\right]_{u,\alpha} \left[b^{(k)}_{\alpha,\beta}\right]_{\alpha, \beta} \left[v^\beta\right]_{v, \beta}^T$. If we define the Fourier matrices $F_u = \left[ u^\alpha \right]_{u, \alpha}$ and $F_v = \left[ v^\beta \right]_{v, \beta}$, then we get the evaluation-interpolation relation between matrices $B^{(k)}$ and $C^{(k)}$
 \begin{equation}
 C^{(k)} = F_uB^{(k)} F_v^T
  \end{equation}
-Since $U$ and $V$ consist of Fourier points, $F_u$ et $F_v$ are unitary and $B^{(k)}$ writes as the matrix product
+Since $U$ and $V$ consist of Fourier points, $F_u$ et $F_v$ are (unitary) Fourier matrices and $B^{(k)}$ appears to be the 2D DFT of $C^{(k)}$
  \begin{equation}
  B^{(k)} = F_u^*C^{(k)} \overline{F_v}
  \end{equation}
