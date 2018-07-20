@@ -235,41 +235,39 @@ Proposition \ref{conjecture} is guaranted when the ideal is zero-dimensional; in
 \end{rem}
 
 \subsubsection{Barnett formula and companion matrices}
-Following Example \ref{bez_multi}, we define the matrices $X_1, X_2$
+Following Proposition \ref{Barnett}, we consider the matrices $X_1, X_2$
 \begin{equation}
-	X_1 = B(x_1)B(1)^{-1} =
+	X_1 = B^{(1)}{B^{(0)}}^{-1} =
 	\begin{bmatrix}
 		0 & -1 & 0\\
 		-1 & 0 & -1\\
 		-1 & 0 & 0
 	\end{bmatrix},\quad
-	X_2 = B(x_2)B(1)^{-1} =
+	X_2 = B^{(2)}{B^{(0)}}^{-1} =
 	\begin{bmatrix}
 		0 & 0 & 1\\
 		1 & 0 & 0\\
 		0 & 1 & -1
 	\end{bmatrix}
 \end{equation}
-We see that $X_1, X_2$ are the multiplication matrices by the variables $x_1, x_2$ in the basis $\bold{x}$; these are the companion matrices associated to the basis $\bold{x}$. More generally, we have
+We can see that $X_1, X_2$ are the multiplication matrices by the variables $x_1, x_2$ in the basis $\bold{x}$, i.e the companion matrices associated to the basis $\bold{x}$. More generally, we have
 \begin{prop}
 \label{Barnett_multi}
-When the reduction process has been completed and we have at our disposal Bezout matrices $B(x_j)$ and bases $\bold{x, y}$, the companion matrices $X_j$, i.e the multiplication matrices by the variables $x_1, x_2$ in the basis $\bold{x}$, can be calculated by the {\bf Barnett formulas}
+After the reduction process has been completed, the companion matrices $X_j$ and the Bezout matrices are related by the {\bf Barnett formulas}
 \begin{equation}
-	X_j = B(x_j)B(1)^{-1}
+	X_j = B^{(j)}{B^{(0)}}^{-1}, j = 1,\cdots, n
 \end{equation}
 \end{prop}
 
 \begin{rem}
 As in the univariate case, we have, for all $j=1,\cdots,n$,\\
-$B(x_j)^{T}B(1)^{-T}$ is the multiplication matrix by $y_j$ in the basis $\bold{y}$ \\
-$B(1)^{-1}B(x_j)$  is the multiplication matrix by $x_j$ in the basis $\hat{\bold{x}}$ \\
-$B(1)^{-T}B(x_j)^{T}$  is the multiplication matrix by $y_j$ in the basis $\hat{\bold{y}}$
+${B^{(j)}}^{T}{B^{(0)}}^{-T}$ is the multiplication matrix by $y_j$ in the basis $\bold{y}$ \\
+${B^{(0)}}^{-1}{B^{(j)}}$  is the multiplication matrix by $x_j$ in the basis $\hat{\bold{x}}$ \\
+${B^{(0)}}^{-T}{B^{(j)}}^{T}$  is the multiplication matrix by $y_j$ in the basis $\hat{\bold{y}}$
 \end{rem}
 
 \subsubsection{Numerical computation of the roots}
-As in the univariate case, (see Proposition \ref{compan2roots}), the roots of the polynomial system$f_1, \cdots, f_n$ are the eigenvalues of the companion matrices (\cite{AS}).
-
-In Example \ref{bez_multi},the eigenvalues of matrices $X_1, X_2$ are
+As in the univariate case, (see Proposition \ref{compan2roots}), the roots of the polynomial system$f_1, \cdots, f_n$ are the eigenvalues of the companion matrices (\cite{AS}). The eigenvalues of matrices $X_1, X_2$ above are
 $$
 \begin{array}{c|c}
 	x_1 & x_2 \\
@@ -279,8 +277,7 @@ $$
 	0.66236 - 0.56228i & -0.87744 - 0.74486i
 \end{array}
 $$
-
-Since $A$ is a commutative algebra, the matrices $X_1, X_2$ commute and have the same eigenvectors. We must be careful to sort the eigenvalues of $X_1, X_2$ so that they correspond to the same eigenvectors. In Example \ref{bez_multi}, it is easy to check that the couples $(x_1, x_2)$ are numerical approximations of the roots of the polynomial system $f_1 = x_1^2 + x_1x_2^2 - 1, f_2 = x_1^2x_2 + x_1$.
+Since $A$ is a commutative algebra, the matrices $X_1, X_2$ commute and have the same eigenvectors. We must be careful to sort the eigenvalues of $X_1, X_2$ so that they correspond to the same eigenvectors. In this example, it is easy to check that the couples $(x_1, x_2)$ are numerical approximations of the roots of the polynomial system $f_1 = x_1^2 + x_1x_2^2 - 1, f_2 = x_1^2x_2 + x_1$ defined in Example \ref{bez_multi}.
 
 
 \end{document}
