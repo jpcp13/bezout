@@ -41,7 +41,7 @@ Both $\bold{x}$ and $\hat{\bold{x}}$ are generating families of the vector space
 \label{sec:reduction_process}
 Following the matrix handlings described in Section \ref{Bar_gen}, we now show how to compute, starting from the generating families $\bold{x}, \hat{\bold{x}}$ and the Bezout matrices $B^{(k)}$, a basis of $A$ and the companion matrices $X_k$.
 Let us illustrate this process on Example \ref{bez_multi}.\\
-The first column of $B^{(0)}$ is zero but that of de $B^{(2)}$ is not; this gives the relation $1 + x_1x_2 = 0$, modulo $I$. Then, we right-multiply $\bold{x}$ by the Gauss matrix $P$ whose $5$th column is $(1, 0, 0, 0, 1, 0)^{T}$ and left-multiply the Bezout matrices by $P^{-1}$; the Bezout polynomials write 
+The first column is zero in $B^{(0)}$ but not in $B^{(2)}$; this gives, modulo $I$, the relation $1 + x_1x_2 = 0$. Then, we right-multiply $\bold{x}$ by the Gauss matrix $P$ whose fifth column is $(1, 0, 0, 0, 1, 0)^{T}$ and left-multiply the Bezout matrices by $P^{-1}$; the Bezout polynomials write 
 $$
 \begin{array}{c|cccccc}
 	\delta^{(0)} & 1 & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
@@ -76,10 +76,10 @@ $$
 	x_1x_2^2 &  &  & -1 &  &  &
 \end{array}
 $$
-As we have $1 + x_1x_2 = 0$ we remove the first column and the fifth row in the Bezout matrices; the bezoutians write
+Since $1 + x_1x_2 = 0$, we can remove the fifth row in the Bezout matrices; then, the Bezout polynomials write
 $$
 \begin{array}{c|ccccc}
-	B(1) & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(0)} & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &  &  &  &  & 1 \\
 	x_2  & -1 &  &  & -1 & \\
@@ -89,7 +89,7 @@ $$
 \end{array}$$
 $$
 \begin{array}{c|ccccc}
-	B(x_1)  & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(1)}  & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &  &  & 1 & 1 & \\
 	x_2  &  &  &  &  & \\
@@ -99,7 +99,7 @@ $$
 \end{array}
 \hspace{0.2cm}
 \begin{array}{c|ccccc}
-	B(x_2) & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(2)} & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &  &  & -1 &  & \\
 	x_2  & -1 & -1 &  &  & 1 \\
@@ -108,10 +108,10 @@ $$
 	x_1x_2^2 &  & -1 &  &  &
 \end{array}
 $$
-The second column of $B(1)$ is zero but that of $B(x_2)$ is not. This implies that $x_2 + x_1x_2^{2} = 0$. We repeat the previous step with the Gauss matrix $P$ whose fifth column is $(0, 1, 0, 0, 1)^{T}$; the bezoutians write
+Now, the second column is zero in $B^{(0)}$ but not in $B^{(2)}$. We have $x_2 + x_1x_2^{2} = 0$, modulo $I$. We repeat the previous step with the Gauss matrix $P$ whose fifth column is $(0, 1, 0, 0, 1)^{T}$; the Bezout polynomials write
 $$
 \begin{array}{c|ccccc}
-	B(1) & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(0)} & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &  &  &  &  & 1 \\
 	x_2  &  &  &  & -1 & \\
@@ -121,7 +121,7 @@ $$
 \end{array}$$
 $$
 \begin{array}{c|ccccc}
-	B(x_1)  & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(1)}  & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &  &  & 1 & 1 & \\
 	x_2  &  &  & 1 &  & \\
@@ -131,7 +131,7 @@ $$
 \end{array}
 \hspace{0.2cm}
 \begin{array}{c|ccccc}
-	B(x_2) & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(2)} & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &  &  & -1 &  & \\
 	x_2  & -1 &  &  &  & 1 \\
@@ -140,10 +140,10 @@ $$
 	x_2 + x_1x_2^2 &  & -1 &  &  &
 \end{array}
 $$
-As we heve $x_2 + x_1x_2^{2} = 0$, we can remove the second column and the fifth row in each Bezout matrix; the bezoutians write
+Since $x_2 + x_1x_2^{2} = 0$, we can remove the fifth row in each Bezout matrix; the Bezout polynomials write
 $$
 \begin{array}{c|cccc}
-	B(1) & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(0)} & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &   &  &  & 1 \\
 	x_2  &  &  & -1 & \\
@@ -152,7 +152,7 @@ $$
 \end{array}
 \hspace{0.2cm}
 \begin{array}{c|cccc}
-	B(x_1)  & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(1)}  & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &  & 1 & 1 & \\
 	x_2  &  & 1 &  & \\
@@ -161,7 +161,7 @@ $$
 \end{array}
 \hspace{0.2cm}
 \begin{array}{c|cccc}
-	B(x_2) & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(2)} & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &  & -1 &  & \\
 	x_2  & -1 &  &  & 1 \\
@@ -169,10 +169,10 @@ $$
 	x_1  & -1 &  &  &
 \end{array}
 $$
-The first column of $B(1)$ is zero but that of $B(x_2)$ is not. This implies taht $x_2 + x_2^{2} + x_1 = 0$. The new Gauss matrix is $P$ whose fourth column is $(0, 1, 1, 1)^{T}$; the bezoutians write
+Now, the first column is zero in $B^{(0)}$ but not in $B^{(2)}$. We have $x_2 + x_2^{2} + x_1 = 0$, modulo $I$. We use the Gauss matrix $P$ whose fourth column is $(0, 1, 1, 1)^{T}$; the Bezout polynomials write
 $$
 \begin{array}{c|cccc}
-	B(1) & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(0)} & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &   &  &  & 1 \\
 	x_2  &  & -1 & -1 & \\
@@ -181,7 +181,7 @@ $$
 \end{array}$$
 $$
 \begin{array}{c|cccc}
-	B(x_1)  & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(1)} & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &  & 1 & 1 & \\
 	x_2  &  &  &  & \\
@@ -190,7 +190,7 @@ $$
 \end{array}
 \hspace{0.2cm}
 \begin{array}{c|cccc}
-	B(x_2) & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(2)} & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &  & -1 &  & \\
 	x_2  &  &  &  & 1 \\
@@ -198,10 +198,10 @@ $$
 	x_2 + x_2^{2} + x_1  & -1 &  &  &
 \end{array}$$
 
-As $x_2 + x_2^{2} + x_1 = 0$, we remove the first column eand fourth row in each Bezout matrix; the bezoutians write
+As $x_2 + x_2^{2} + x_1 = 0$, we can remove the fourth row in each Bezout matrix; the Bezout polynomials write
 $$
 \begin{array}{c|ccc}
-	B(1) & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(0)} & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  &  &  & 1 \\
 	x_2  & -1 & -1 & \\
@@ -209,7 +209,7 @@ $$
 \end{array}
 \hspace{0.2cm}
 \begin{array}{c|ccc}
-	B(x_1) & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(1)} & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  & 1 & 1 & \\
 	x_2  & 1 &  & -1\\
@@ -217,21 +217,21 @@ $$
 \end{array}
 \hspace{0.2cm}
 \begin{array}{c|ccc}
-	B(x_2) & y_1^2 & y_1^2y_2 & y_1^3 \\
+	\delta^{(2)} & y_1^2 & y_1^2y_2 & y_1^3 \\
 	\hline
 	1  & -1 &  & \\
 	x_2  &  &  & 1 \\
 	x_2^2  &  & -1 &
 \end{array}$$
-Matrix $B(1)$ is now invertible; the reduction process is completed. The dimension of $A$ is~$3$. We observe that $\bold{x} = (1, x_2, x_2^{2})$ et $\bold{y} = (y_1, y_1^{2}, y_1^{3})$ are bases of $A$; the associated Horner bases are $\hat{\bold{x}} = (-x_2-x_2^{2}, -x_{2}, 1)$ and $\hat{\bold{y}} = (y_1^{3}, -y_1^{2}-y_1^{2}y_2, -y_1^{2})$.
+Matrix $B^{(0)}$ is now invertible; the reduction process is completed. The dimension of $A$ is~$3$. We observe that $\bold{x} = (1, x_2, x_2^{2})$ and $\bold{y} = (y_1, y_1^{2}, y_1^{3})$ are bases of $A$; the associated Horner bases are $\hat{\bold{x}} = (-x_2-x_2^{2}, -x_{2}, 1)$ and $\hat{\bold{y}} = (y_1^{3}, -y_1^{2}-y_1^{2}y_2, -y_1^{2})$.
 More generally we have (\cite{jpc} p.57, \cite{bm}, \cite{tm})
 \begin{prop}
 \label{conjecture}
-After the reduction process described above is completed, that is to say when $B(1)$ is invertible and all the matrices $B(x_k), k=0, \cdots, n$ have the same size and are indexed by the same families $\bold{x, y}$, then each family $\bold{x, y}$ is a basis of $A$.
+After the reduction process described above is completed, that is to say when $B^{(0)}$ is invertible and all the matrices $B^{(k)}, k=0, \cdots, n$ have the same size, then the indexing families $\bold{x}$ and $\bold{y}$ are bases of $A$.
 \end{prop}
 
 \begin{rem}
-Proposition \ref{conjecture} is guaranted only when the ideal is zero-dimensional; in this case, to complete the reduction process we just have to use zero-columns of $B(1)$ or, more generally, linear combinations of columns that vanish, i.e elements of the right kernel of $B(1)$. If, however, the ideal is not zero-dimensional, then our experiments show that the reduction process, using both the right-kernel and the left-kernel of $B(1)$, generally produces an interesting result.
+Proposition \ref{conjecture} is guaranted when the ideal is zero-dimensional; in this case, to complete the reduction process we just have to use zero-columns of $B^{(0)}$ or, more generally, linear combinations of columns that vanish, i.e elements of the right kernel of $B^{(0)}$.
 \end{rem}
 
 \subsubsection{Barnett formula and companion matrices}
