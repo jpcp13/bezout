@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  20 JUL 2018 08:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  24 JUL 2018 19:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -554,14 +554,14 @@ Missing character: There is no © in font cmr10!
  (./txt/construction_B_time.txt)
 (./txt/rank_b0_time.txt) (./txt/reductions_time.txt)
 (./txt/compute_roots_time.txt) (./txt/grobner_time.txt)
-Overfull \hbox (11.27849pt too wide) in paragraph at lines 45--55
+Overfull \hbox (16.2785pt too wide) in paragraph at lines 45--55
  [] 
  []
 
 ) (./bibliography.tex
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
- [14]
+ [14] [15]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 Missing character: There is no Ã in font cmr10!
@@ -580,7 +580,7 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 35.
- [15] [16]
+ [16]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
  (./bezout.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
@@ -622,7 +622,7 @@ ublic/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symb
 ols/msbm10.pfb>
-Output written on bezout.pdf (16 pages, 288826 bytes).
+Output written on bezout.pdf (16 pages, 289138 bytes).
 PDF statistics:
  392 PDF objects out of 1000 (max. 8388607)
  348 compressed objects within 4 object streams

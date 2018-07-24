@@ -1,3 +1,5 @@
-nb de Y-relations = 16
-X_dim = 92
+nb de Y-relations = 3
+X_dim = 99
 nb de X-relations = 0
+bezout_exact_dim = 99
+test_XX = [0, 0, 0, 0, 0]

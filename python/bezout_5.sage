@@ -28,10 +28,10 @@ with open(TEX_DIR+'/Dx.txt', 'w') as f:
     f.write("{0:d}".format(Dx))
 
 
-#P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
-P = load('P.sobj')
+P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
+#P = load('P.sobj')
 
-#save(P, 'P')
+save(P, 'P')
 bz.P2txt(n, deg, P, TEX_DIR)
 F = [bz.poly2prism(fshape, p) for p in P]
 
