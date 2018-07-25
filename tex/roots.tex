@@ -8,13 +8,11 @@
 In this experiment, we solve the particular polynomial system $f = [\\ 
 \input{txt/P.txt}$
 ]\\
-The size of the Bezout matrix $B(1)$ is $\input{txt/Dx.txt}$; this is the maximum number of solutions that a system of degree \input{txt/deg.txt} can have. To initiate the reduction process, the rank of $B(1)$ is needed; as the matrix has integer coefficients, we use the Sage function matrix.kernel() to calculate its rank. This is the only computation that we do in exact arithmetic; all the subsequent computations are done in floating-point arithmetic.
-After the reduction process has been completed, we find that the dimension of the quotient $A$ is $\input{txt/bezout_dim.txt}$.
-Since the computations have been done numerically, the Bezout matrices and the companion matrices are numerical matrices and the eigenvalues of the companion matrices $X_j = B(x_j)B(1)^{-1}$ are numerical approximations of the roots of the polynomial system $f$.
+The size of the Bezout matrix $B^{(0)}$ is $\input{txt/Dx.txt}$; this is the maximum number of solutions that a system of degree \input{txt/deg.txt} can have. To initiate the reduction process, the rank of $B^{(0)}$ is needed; as the matrix has integer coefficients, we use the Sage function matrix.kernel() to calculate its rank. After the reduction process has been completed, we find that the dimension of the quotient $A$ is $\input{txt/bezout_dim.txt}$. The Bezout matrices and the companion matrices have rational entries as well as the companion matrices $X_j = B^{(j)}{B^{(0)}}^{-1}$ ; computing the numerical eigenvalues of the $X_j$'s give approximations of the roots of the polynomial system $f$.
 
 \subsubsection{Quality of the results}
-To check the quality of the numerical roots $\alpha$, we compute the errors $f(\alpha)$.
-These errors are shown in Table \ref{tab:histo}.
+To check the quality of the numerical roots $\alpha$, we compute the errors $Df(\alpha)^{-1}f(\alpha)$.
+Table \ref{tab:histo} shows these errors.
 \begin{table}[p]
 \begin{center}
 \begin{tabular}{c|c}
@@ -28,14 +26,14 @@ These errors are shown in Table \ref{tab:histo}.
 \end{table}
 
 \subsubsection{Timings}
-Table \ref{tab:timings} shows the timings of the Bezout computations as compared to the timings of the  Groebner computations.
+Table \ref{tab:timings} shows the timings of the Bezout computations as compared to the timings of the Groebner computations.
 \begin{table}[p]
 \begin{center}
 \begin{tabular}{llllr}
  Method & Computation & Software & Arithmetic & Timing \\ \hline
    \multirow{4}{*}{Bezout} & Bezout matrices & NumPy & floating point & $\input{txt/construction_B_time.txt}$ s \\
    & rank of $B(1)$ via rref()  & Sage & integer & $\input{txt/rank_b0_time.txt}$ s \\
-   & matrices reduction & Sage & integer & $\input{txt/reductions_time.txt}$ s \\
+   & reduction process & Sage & integer & $\input{txt/reductions_time.txt}$ s \\
    & eigenvalues & SciPy & floating point & $\input{txt/compute_roots_time.txt}$ s \\ 
    \hline
    \hline
@@ -62,12 +60,6 @@ Table \ref{tab:sizes} shows the disk space occupied by the Bezout matrices (afte
 \caption{sizes}
 \label{tab:sizes}
 \end{table}
-
-
-
-
-
-
 
 
 

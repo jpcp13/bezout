@@ -6,7 +6,7 @@ import bezout_2 as bz
 #TEX_DIR = '/home/jp/Documents/Bezout/bezout/tex/txt'
 TEX_DIR = '../tex/txt'
 
-deg = [4,3,5]
+deg = [2,2,2,2]
 
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
@@ -52,7 +52,7 @@ BB = []
 for k in range(n+1):
         Bk = matrix(Field, B[k])
         BB.append(Bk[:, :])
-bz.bz2txt(n, TEX_DIR, BB)
+
 
 bezout_size = sum([float(os.path.getsize(TEX_DIR+'/BB/'+f)) for f in os.listdir(TEX_DIR+'/BB')])
 with open(TEX_DIR+'/bezout_size.txt', 'w') as f:
@@ -108,7 +108,7 @@ def P2field(p):
 
 
 """
-reduction of Bezoutian matrices
+reduction process
 """
 t = time.clock()
 B0Y = BB[0]
@@ -126,15 +126,8 @@ xbb0 = X_ortho*BB[0]
 xbb0y = X_ortho*BB[0]*Y_ortho.transpose()
 bezout_exact_dim = rank(xbb0y)
 print("bezout_exact_dim = {0:d}".format(bezout_exact_dim))
-reductions_time = time.clock() - t
 with open(TEX_DIR+'/bezout_dim.txt', 'w') as f:
     f.write("{0:d}".format(r0))
-with open(TEX_DIR+'/reductions_time.txt', 'w') as f:
-    f.write("{0:.4f}".format(reductions_time))
-
-
-
-
 XBBY = []
 for k in range(n+1):
     XBBY.append(X_ortho*BB[k]*Y_ortho.transpose())
@@ -144,7 +137,15 @@ N_ortho = XBBY[0].right_kernel_matrix().right_kernel_matrix()
 KBBN = []
 for k in range(n+1):
     KBBN.append(K_ortho*XBBY[k]*N_ortho.transpose())
+bz.bz2txt(n, TEX_DIR, KBBN)
+reductions_time = time.clock() - t
+with open(TEX_DIR+'/reductions_time.txt', 'w') as f:
+    f.write("{0:.4f}".format(reductions_time))
 
+
+"""
+Test using finite field arithmetic
+"""
 Field = GF(next_prime(200))
 BBf = []
 for k in range(n+1):
@@ -160,7 +161,7 @@ if rank(BBf[0]) == bezout_exact_dim:
     #f.write("test_XX = {0:s}".format(test_XX))
     print("test_XX = {0:s}".format(test_XX))
 else:
-        print("rank deficiency !")
+    print("rank deficiency !")
 
 
 """
@@ -175,7 +176,7 @@ compute_roots_time = time.clock() - t
 with open(TEX_DIR+'/compute_roots_time.txt', 'w') as f:
     f.write("{0:.4f}".format(compute_roots_time))
 test_roots = bz.roots_test(P, x, roots)
-test_roots
+print(test_roots)
 
 hist, bin_edges = np.histogram(np.log10(test_roots), bins='scott')
 with open(TEX_DIR+'/histogram.txt', 'w') as f:
@@ -187,8 +188,7 @@ with open(TEX_DIR+'/histogram.txt', 'w') as f:
                 f.write("$[{0:2.1f}, {1:2.1f}]$ & ${2:d}$\\\\\n".format(left_bin, right_bin, nb_roots))
             else:
                 f.write("$[{0:2.1f}, {1:2.1f}]$ & ${2:d}$\n".format(left_bin, right_bin, nb_roots))
-                
-                
+
 
 """
 Grobner computations 
