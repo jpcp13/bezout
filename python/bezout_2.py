@@ -111,11 +111,15 @@ def P2txt(n, deg, P, directory):
                 f.write(str(key) + ', ' + str(val) + '\n')
 
 def bz2txt(n, directory, BB):
+    for f in os.listdir(directory+'/BB'):
+        os.remove(directory+'/BB/'+f)
     for k in range(n+1):
         m = BB[k]
         mat2txt(m, directory+'/BB/bb'+str(k))
 
 def gb2txt(directory, GB):
+	for f in os.listdir(directory+'/GB'):
+		os.remove(directory+'/GB/'+f)
 	for k in range(len(GB)):
 		p = GB[k]
 		mat2txt(p, directory+'/GB/gb'+str(k))

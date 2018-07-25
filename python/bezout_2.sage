@@ -6,7 +6,7 @@ import bezout_2 as bz
 #TEX_DIR = '/home/jp/Documents/Bezout/bezout/tex/txt'
 TEX_DIR = '../tex/txt'
 
-deg = [3, 4, 5]
+deg = [4, 6, 5]
 
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
