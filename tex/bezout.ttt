@@ -1,0 +1,47 @@
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{c|c}
+ log10 of errors & nb of roots \\
+ \hline
+ \input{txt/histogram.txt}
+\end{tabular}
+\end{center}
+\caption{histogram of errors}
+\label{tab:histo}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{llllr}
+ Method & Computation & Software & Arithmetic & Timing \\ \hline
+   \multirow{4}{*}{Bezout} & Bezout matrices & NumPy & floating point & $\input{txt/construction_B_time.txt}$ s \\
+   & rank of $B(1)$ via rref()  & Sage & integer & $\input{txt/rank_b0_time.txt}$ s \\
+   & reduction process & Sage & integer & $\input{txt/reductions_time.txt}$ s \\
+   & eigenvalues & SciPy & floating point & $\input{txt/compute_roots_time.txt}$ s \\
+   \hline
+   \hline
+   Groebner & Groebner basis & Sage & integer & $\input{txt/grobner_time.txt}$ s
+\end{tabular}
+\end{center}
+\caption{timings}
+\label{tab:timings}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{llc}
+ Method & Output & Disk space usage \\ \hline
+   \multirow{2}{*}{Bezout} & reduced Bezout matrices & $\input{txt/bezout_size.txt}$ Mo\\
+   & (non-zero entries only) & \\
+   \hline
+   \hline
+   Groebner & Groebner basis & $\input{txt/grobner_size.txt}$ Mo
+\end{tabular}
+\end{center}
+\caption{sizes}
+\label{tab:sizes}
+\end{table}
+\efloatseparator
+ 

@@ -13,7 +13,7 @@ The size of the Bezout matrix $B^{(0)}$ is $\input{txt/Dx.txt}$; this is the max
 \subsubsection{Quality of the results}
 To check the quality of the numerical roots $\alpha$, we compute the errors $Df(\alpha)^{-1}f(\alpha)$.
 Table \ref{tab:histo} shows these errors.
-\begin{table}[p]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{c|c}
  log10 of errors & nb of roots \\ 
@@ -27,7 +27,7 @@ Table \ref{tab:histo} shows these errors.
 
 \subsubsection{Timings}
 Table \ref{tab:timings} shows the timings of the Bezout computations as compared to the timings of the Groebner computations.
-\begin{table}[p]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{llllr}
  Method & Computation & Software & Arithmetic & Timing \\ \hline
@@ -46,7 +46,7 @@ Table \ref{tab:timings} shows the timings of the Bezout computations as compared
 
 \subsubsection{Size of output}
 Table \ref{tab:sizes} shows the disk space occupied by the Bezout matrices (after the reduction process; only non-zero entries taken in account) as compared to the disk space occupied by the Groebner basis.
-\begin{table}[p]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{llc}
  Method & Output & Disk space usage \\ \hline
