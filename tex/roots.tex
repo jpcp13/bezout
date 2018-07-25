@@ -47,22 +47,30 @@ Table \ref{tab:timings} shows the timings of the Bezout computations as compared
 \end{table}
 
 \subsubsection{Size of output}
-Table \ref{tab:sizes} shows the disk space occupied by the Bezout matrices (after the reduction process; only non-zero entries taken in account) as compared to the the disk space occupied by the Groebner basis.
+Table \ref{tab:sizes} shows the disk space occupied by the Bezout matrices (after the reduction process; only non-zero entries taken in account) as compared to the disk space occupied by the Groebner basis.
 \begin{table}[p]
 \begin{center}
-\begin{tabular}{llr}
+\begin{tabular}{llc}
  Method & Output & Disk space usage \\ \hline
-   \multirow{4}{*}{Bezout} & Bezout matrices & $\input{txt/bezout_size.txt}$ \\
-   &  after reduction process &  \\
-   & only non-zero entries &  \\
+   \multirow{2}{*}{Bezout} & reduced Bezout matrices & $\input{txt/bezout_size.txt}$ Mo\\
+   & (non-zero entries only) & \\
    \hline
    \hline
-   Groebner & Groebner basis & $\input{txt/grobner_size.txt}$ s
+   Groebner & Groebner basis & $\input{txt/grobner_size.txt}$ Mo
 \end{tabular}
 \end{center}
 \caption{sizes}
 \label{tab:sizes}
 \end{table}
+
+
+
+
+
+
+
+
+
 \end{document}
 
 

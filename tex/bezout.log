@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  25 JUL 2018 15:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  25 JUL 2018 16:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -550,8 +550,8 @@ Overfull \hbox (13.5403pt too wide) detected at line 171
 [12] [13]) (./roots.tex (./txt/P.txt) (./txt/Dx.txt) (./txt/deg.txt)
 (./txt/bezout_dim.txt) (./txt/histogram.txt) (./txt/construction_B_time.txt)
 (./txt/rank_b0_time.txt) (./txt/reductions_time.txt)
-(./txt/compute_roots_time.txt) (./txt/grobner_time.txt) (./txt/bezout_size.txt)
-(./txt/grobner_size.txt)) (./bibliography.tex [14]
+(./txt/compute_roots_time.txt) (./txt/grobner_time.txt) [14]
+(./txt/bezout_size.txt) (./txt/grobner_size.txt)) (./bibliography.tex
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
 Missing character: There is no Ã in font cmr10!
@@ -572,7 +572,8 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no © in font cmr10!
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 35.
- [15] [16]
+ [15]
+[16]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 35.
  (./bezout.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 35.
@@ -592,7 +593,7 @@ Here is how much of TeX's memory you used:
  11419 multiletter control sequences out of 15000+600000
  14489 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,14n,38p,987b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,14n,38p,1633b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -614,7 +615,7 @@ ublic/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symb
 ols/msbm10.pfb>
-Output written on bezout.pdf (16 pages, 290986 bytes).
+Output written on bezout.pdf (16 pages, 291612 bytes).
 PDF statistics:
  400 PDF objects out of 1000 (max. 8388607)
  356 compressed objects within 4 object streams
