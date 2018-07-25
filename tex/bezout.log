@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  25 JUL 2018 17:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  25 JUL 2018 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -628,7 +628,7 @@ ublic/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symb
 ols/msbm10.pfb>
-Output written on bezout.pdf (16 pages, 292862 bytes).
+Output written on bezout.pdf (16 pages, 292878 bytes).
 PDF statistics:
  401 PDF objects out of 1000 (max. 8388607)
  357 compressed objects within 4 object streams
