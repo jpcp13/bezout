@@ -95,6 +95,16 @@ def mat2txt(mat, mat_name):
             #~ if c != 1:
             f.write(str(c)+'\n')
 
+def pol2tex(n, P, P_filename):
+    sp = str(P[:n])
+    sp = sp.replace('[', '')
+    sp = sp.replace(']', '')
+    sp = sp.replace('x', "x_")
+    sp = sp.replace('*', '')
+    sp = sp.replace(',', ",\\\\")
+    with open(P_filename+".txt", 'w') as f:
+        f.write(sp)
+        
 def P2txt(n, deg, P, directory):
     deg_str = ''.join(str(e) for e in deg)
     local_dir = directory+'/P_'+deg_str
@@ -102,7 +112,7 @@ def P2txt(n, deg, P, directory):
         shutil.rmtree(local_dir)
     os.mkdir(local_dir)
     #~ pol2text(n, P, directory+'/P')
-    #~ pol2tex(n, P, directory+'/P')
+    pol2tex(n, P, directory+'/P')
     for i in range(n):
         p = P[i]
         pdict = p.dict()

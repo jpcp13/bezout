@@ -6,12 +6,12 @@ import bezout_2 as bz
 #TEX_DIR = '/home/jp/Documents/Bezout/bezout/tex/txt'
 TEX_DIR = '../tex/txt'
 
-deg = [4, 6, 5]
+deg = [2,3,5]
 
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
     
-t = 5
+t = 8
 m = 16000
 n = len(deg)
 
@@ -53,6 +53,11 @@ for k in range(n+1):
         Bk = matrix(Field, B[k])
         BB.append(Bk[:, :])
 bz.bz2txt(n, TEX_DIR, BB)
+
+bezout_size = sum([float(os.path.getsize(TEX_DIR+'/BB/'+f)) for f in os.listdir(TEX_DIR+'/BB')])
+with open(TEX_DIR+'/bezout_size.txt', 'w') as f:
+	f.write("{0:.4f}".format(float(bezout_size)/1000000))
+	
 
 """
 computing rank of B0
@@ -133,22 +138,18 @@ with open(TEX_DIR+'/reductions_time.txt', 'w') as f:
 XBBY = []
 for k in range(n+1):
     XBBY.append(X_ortho*BB[k]*Y_ortho.transpose())
-
 K_ortho = XBBY[0].kernel().basis_matrix().right_kernel_matrix()
 N_ortho = XBBY[0].right_kernel_matrix().right_kernel_matrix()
 #N_ortho = N.kernel().basis_matrix().transpose()
-
 KBBN = []
 for k in range(n+1):
     KBBN.append(K_ortho*XBBY[k]*N_ortho.transpose())
 
 Field = GF(next_prime(200))
-
 BBf = []
 for k in range(n+1):
         Bk = matrix(Field, KBBN[k])
         BBf.append(Bk[:, :])
-        
 if rank(BBf[0]) == bezout_exact_dim:
     XX = []
     for k in range(n):
@@ -197,8 +198,10 @@ GB, grobner_dim = bz.compute_grobner(R, P, n)
 print grobner_dim
 grobner_time = time.clock() - t
 bz.gb2txt(TEX_DIR, GB)
+grobner_size = sum([float(os.path.getsize(TEX_DIR+'/GB/'+f)) for f in os.listdir(TEX_DIR+'/GB')])
 with open(TEX_DIR+'/grobner_dim.txt', 'w') as f:
     f.write("{0}".format(grobner_dim))
 with open(TEX_DIR+'/grobner_time.txt', 'w') as f:
     f.write("{0:.4f}".format(grobner_time))
-
+with open(TEX_DIR+'/grobner_size.txt', 'w') as f:
+    f.write("{0:.4f}".format(grobner_size/1000000))

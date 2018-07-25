@@ -15,17 +15,6 @@ Since the computations have been done numerically, the Bezout matrices and the c
 \subsubsection{Quality of the results}
 To check the quality of the numerical roots $\alpha$, we compute the errors $f(\alpha)$.
 These errors are shown in Table \ref{tab:histo}.
-
-\iffalse
-an histogram (Figure \ref{fig:roots}).
-\begin{figure}[p]
-    \caption{Histogram of errors}
-  \label{fig:roots}
-  \includegraphics[scale=0.5]{txt/histo_roots.eps}
-\end{figure}
-\fi
-
-
 \begin{table}[p]
 \begin{center}
 \begin{tabular}{c|c}
@@ -43,20 +32,45 @@ Table \ref{tab:timings} shows the timings of the Bezout computations as compared
 \begin{table}[p]
 \begin{center}
 \begin{tabular}{llllr}
- Méthode & Computation & Software & Arithmetic & Timing \\ \hline
+ Method & Computation & Software & Arithmetic & Timing \\ \hline
    \multirow{4}{*}{Bezout} & Bezout matrices & NumPy & floating point & $\input{txt/construction_B_time.txt}$ s \\
    & rank of $B(1)$ via rref()  & Sage & integer & $\input{txt/rank_b0_time.txt}$ s \\
    & matrices reduction & Sage & integer & $\input{txt/reductions_time.txt}$ s \\
    & eigenvalues & SciPy & floating point & $\input{txt/compute_roots_time.txt}$ s \\ 
    \hline
    \hline
-   Groebner & Groebner basis computation & Sage & integer & $\input{txt/grobner_time.txt}$ s
+   Groebner & Groebner basis & Sage & integer & $\input{txt/grobner_time.txt}$ s
 \end{tabular}
 \end{center}
 \caption{timings}
 \label{tab:timings}
 \end{table}
 
-
-
+\subsubsection{Size of output}
+Table \ref{tab:sizes} shows the disk space occupied by the Bezout matrices (after the reduction process; only non-zero entries taken in account) as compared to the the disk space occupied by the Groebner basis.
+\begin{table}[p]
+\begin{center}
+\begin{tabular}{llr}
+ Method & Output & Disk space usage \\ \hline
+   \multirow{4}{*}{Bezout} & Bezout matrices & $\input{txt/bezout_size.txt}$ \\
+   &  after reduction process &  \\
+   & only non-zero entries &  \\
+   \hline
+   \hline
+   Groebner & Groebner basis & $\input{txt/grobner_size.txt}$ s
+\end{tabular}
+\end{center}
+\caption{sizes}
+\label{tab:sizes}
+\end{table}
 \end{document}
+
+
+\iffalse
+an histogram (Figure \ref{fig:roots}).
+\begin{figure}[p]
+    \caption{Histogram of errors}
+  \label{fig:roots}
+  \includegraphics[scale=0.5]{txt/histo_roots.eps}
+\end{figure}
+\fi
