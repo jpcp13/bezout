@@ -74,7 +74,7 @@ def rand_poly(j, m, deg, t, x):
         if j > 0:
             p += rand_poly(j-1, m-k, deg, t, x)*x[j]**k
         else:
-            coeff = ZZ.random_element(-t, t)*int(random() + 0.35)
+            coeff = ZZ.random_element(-t, t)*int(random() + 0.3)
             #coeff = Field.random_element()*int(random()*1.5)
             p += coeff*x[j]**k
     return p

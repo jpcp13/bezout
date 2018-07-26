@@ -14,5 +14,5 @@
 \contentsline {subsubsection}{\numberline {2.2.4}Numerical computation of the roots}{13}{subsubsection.2.2.4}
 \contentsline {subsection}{\numberline {2.3}Numerical experiment}{14}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}Quality of the results}{14}{subsubsection.2.3.1}
-\contentsline {subsubsection}{\numberline {2.3.2}Timings}{15}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Size of output}{15}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.2}Timings}{14}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Size of output}{14}{subsubsection.2.3.3}

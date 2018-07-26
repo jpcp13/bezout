@@ -41,7 +41,7 @@ Both $\bold{x}$ and $\hat{\bold{x}}$ are generating families of the vector space
 \label{sec:reduction_process}
 Following the matrix handlings described in Section \ref{Bar_gen}, we now show how to compute, starting from the generating families $\bold{x}, \hat{\bold{x}}$ and the Bezout matrices $B^{(k)}$, a basis of $A$ and the companion matrices $X_k$.
 Let us illustrate this process on Example \ref{bez_multi}.\\
-The first column is zero in $B^{(0)}$ but not in $B^{(2)}$; this gives, modulo $I$, the relation $1 + x_1x_2 = 0$. Then, we right-multiply $\bold{x}$ by the Gauss matrix $P$ whose fifth column is $(1, 0, 0, 0, 1, 0)^{T}$ and left-multiply the Bezout matrices by $P^{-1}$; the Bezout polynomials write 
+The first column is zero in $B^{(0)}$ but not in $B^{(2)}$; this gives, modulo $\langle f \rangle$ , the relation $1 + x_1x_2 = 0$. Then, we right-multiply $\bold{x}$ by the Gauss matrix $P$ whose fifth column is $(1, 0, 0, 0, 1, 0)^{T}$ and left-multiply the Bezout matrices by $P^{-1}$; the Bezout polynomials write 
 $$
 \begin{array}{c|cccccc}
 	\delta^{(0)} & 1 & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
@@ -108,7 +108,7 @@ $$
 	x_1x_2^2 &  & -1 &  &  &
 \end{array}
 $$
-Now, the second column is zero in $B^{(0)}$ but not in $B^{(2)}$. We have $x_2 + x_1x_2^{2} = 0$, modulo $I$. We repeat the previous step with the Gauss matrix $P$ whose fifth column is $(0, 1, 0, 0, 1)^{T}$; the Bezout polynomials write
+Now, the second column is zero in $B^{(0)}$ but not in $B^{(2)}$. We have $x_2 + x_1x_2^{2} = 0$, modulo $\langle f \rangle$ . We repeat the previous step with the Gauss matrix $P$ whose fifth column is $(0, 1, 0, 0, 1)^{T}$; the Bezout polynomials write
 $$
 \begin{array}{c|ccccc}
 	\delta^{(0)} & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
@@ -169,7 +169,7 @@ $$
 	x_1  & -1 &  &  &
 \end{array}
 $$
-Now, the first column is zero in $B^{(0)}$ but not in $B^{(2)}$. We have $x_2 + x_2^{2} + x_1 = 0$, modulo $I$. We use the Gauss matrix $P$ whose fourth column is $(0, 1, 1, 1)^{T}$; the Bezout polynomials write
+Now, the first column is zero in $B^{(0)}$ but not in $B^{(2)}$. We have $x_2 + x_2^{2} + x_1 = 0$, modulo $\langle f \rangle$ . We use the Gauss matrix $P$ whose fourth column is $(0, 1, 1, 1)^{T}$; the Bezout polynomials write
 $$
 \begin{array}{c|cccc}
 	\delta^{(0)} & y_1 & y_1^2 & y_1^2y_2 & y_1^3 \\

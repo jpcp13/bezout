@@ -6,12 +6,12 @@ import bezout_2 as bz
 #TEX_DIR = '/home/jp/Documents/Bezout/bezout/tex/txt'
 TEX_DIR = '../tex/txt'
 
-deg = [2,2,2,2]
+deg = [2, 3, 5]
 
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
     
-t = 8
+t = 12
 m = 16000
 n = len(deg)
 
@@ -28,8 +28,8 @@ with open(TEX_DIR+'/Dx.txt', 'w') as f:
     f.write("{0:d}".format(Dx))
 
 
-P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
-#P = load('P.sobj')
+#~ P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
+P = load('P.sobj')
 
 save(P, 'P')
 bz.P2txt(n, deg, P, TEX_DIR)
@@ -79,33 +79,6 @@ for k in range(n+1):
 b0 = bb[0]
 numpy_rank = np.linalg.matrix_rank(b0)
 print("numpy_rank = {0:d}".format(numpy_rank))
-
-
-"""
-def find_Y(BB, B0Y):
-    nr, nc = BB[0].nrows(), BB[0].ncols()
-    while True:
-        old_nbr = B0Y.nrows()
-        print old_nbr
-        K_lambda = B0Y.kernel().basis_matrix()
-        K = K_lambda[:, 0:nc]
-        Y = matrix(Field, 0, nc)
-        for k in range(1, n+1):
-            Yk = K*BB[k]
-            Y = block_matrix(2, 1, [Y, Yk]).LLL()
-            nzr = bz.nzrows(Y) 
-            Y = Y[nzr, :]
-        B0Y = block_matrix(2, 1, [BB[0], Y])
-        if B0Y.nrows() == old_nbr:
-            break
-    return Y
-"""
-
-
-def P2field(p):
-    coeffs, monoms = p.coefficients(), p.monomials()
-    return sum([Field(coeffs[i])*monoms[i] for i in range(len(coeffs))])
-
 
 """
 reduction process
