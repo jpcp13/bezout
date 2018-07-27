@@ -6,7 +6,7 @@ import bezout_2 as bz
 #TEX_DIR = '/home/jp/Documents/Bezout/bezout/tex/txt'
 TEX_DIR = '../tex/txt'
 
-deg = [4, 3, 5]
+deg = [2, 2, 2, 2]
 
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
@@ -27,14 +27,12 @@ fn, Dx, Dy = factorial(n), prod(dx), prod(dy)
 with open(TEX_DIR+'/Dx.txt', 'w') as f:
     f.write("{0:d}".format(Dx))
 
-
+#~ P = load('P_'+''.join(str(e) for e in deg)+'.sobj')
 P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
-#~ P = load('P.sobj')
 
-save(P, 'P')
+save(P, 'P_'+''.join(str(e) for e in deg))
 bz.P2txt(n, deg, P, TEX_DIR)
 F = [bz.poly2prism(fshape, p) for p in P]
-
 
 t = time.clock()
 Gx, Gy, Hx, Hy = bz._GH(n, fn, deg, dx, dy)
@@ -52,7 +50,6 @@ BB = []
 for k in range(n+1):
         Bk = matrix(Field, B[k])
         BB.append(Bk[:, :])
-
 
 bezout_size = sum([float(os.path.getsize(TEX_DIR+'/BB/'+f)) for f in os.listdir(TEX_DIR+'/BB')])
 with open(TEX_DIR+'/bezout_size.txt', 'w') as f:
@@ -79,6 +76,7 @@ for k in range(n+1):
 b0 = bb[0]
 numpy_rank = np.linalg.matrix_rank(b0)
 print("numpy_rank = {0:d}".format(numpy_rank))
+
 
 """
 reduction process
