@@ -27,8 +27,8 @@ The characteristic polynomial of $X$ is $f$.
 \end{prop}
 
 \begin{rem}
-We deduce from Proposition \ref{compan2roots} that the eigenvalues of $X$ are the roots of $f$, taking account the multiplicities. 
-Moreover, as the matrix $X$ is Hessenberg, we can use reliable techniques, like the QR algorithm, to compute its eigenvalues. 
+We deduce from Proposition \ref{compan2roots} that the eigenvalues of $X$ are the roots of $f$, taking the multiplicities into account. 
+Moreover, since the matrix $X$ is Hessenberg, we can use reliable techniques, like the QR algorithm, to compute its eigenvalues. 
 This gives a practical and fast method to compute numerical approximations of the roots of $f$. 
 \end{rem}
 
@@ -42,15 +42,14 @@ this matrix does not depend on the choice of the particular representative of $g
 \subsection{Bezout polynomials and Bezout matrices}
 As we have seen, the companion matrix can be used to calculate the roots of a univariate polynomial. 
 Interestingly, this can be naturally extended to zero-dimensional multivariate systems; 
-if we have $n$ polynomials $f = f_1, \ldots, f_n$ in the variables $x = x_1, \ldots, x_n$, then we simply define the companion matrices as the matrices of the multiplication maps $x_j : \left\vert h \mapsto x_jh \right.$ defined on the quotient algebra $ A = \mathbb{Q}[x]/ \langle f\rangle$, written in some basis of $A$. 
+if we have $n$ polynomials $f = f_1, \ldots, f_n$ in $n$ variables $x = x_1, \ldots, x_n$, then we simply define the companion matrices as the matrices of the multiplication maps $x_j : \left\vert h \mapsto x_jh \right.$ defined on the quotient algebra $ A = \mathbb{Q}[x]/ \langle f\rangle$, written in some basis of $A$. 
 However, in the multivariate case, $A$ has no canonical basis, and the companion matrices do not have an obvious form. 
 We can nonetheless resolve this problem by using a family of matrices, the so-called Bezout matrices, that exists both in the univariate case and in the multivariate case, and that serve as intermediate matrices to construct the companion matrices. 
 Let's introduce the Bezout matrices in the case of univariate polynomials.
 
 \begin{defn}
-\label{def_bez}
-Let $f \in \mathbb{Q}[x]$ be a fixed polynomial. Let us introduce a new variable $y$ and let $g$ be any other polynomial. 
-The {\bf Bezout polynomial} $\delta(g)$, or {\bf bezoutian}, is defined as the polynomial in the two variables $x, y$
+\label{def:bez}
+Let $f \in \mathbb{Q}[x]$ be a fixed polynomial and let $g$ be any other polynomial. We introduce a new variable $y$ and define the {\bf Bezout polynomial} $\delta(g)$, or {\bf bezoutian}, as the polynomial in two variables $x, y$
 $$
 \delta(g) = \dfrac{f(x)g(y)-f(y)g(x)}{x-y}
 $$
@@ -71,7 +70,7 @@ The Bezout poynomial $\delta(g)$ and the Bezout matrix $B(g)$ satisfy the follow
 	\label{xBg}
 	\delta(g) = \bold{x} B(g) \bold{y}^T
 \end{equation}
-with $\bold{x} = (1, x,\cdots, x^{m-1}) \in \mathbb{Q}[x]^m$ and $\bold{y} = (1, y,\cdots, y^{m-1}) \in \mathbb{Q}[y]^m$ are two vectors of monomials.
+where $\bold{x} = (1, x,\cdots, x^{m-1}) \in \mathbb{Q}[x]^m$ and $\bold{y} = (1, y,\cdots, y^{m-1}) \in \mathbb{Q}[y]^m$ are two vectors of monomials.
 \end{rem}
 
 \begin{exmp}
@@ -116,7 +115,7 @@ We rewrite $\delta(g)$ as
 This equality holds between elements of $\mathbb{Q}[x][y]$. 
 If $h\in \mathbb{Q}[x][y]$ and $\beta\in\mathbb{N}$, we denote by $h_\beta \in \mathbb{Q}[x]$ the coefficient of $y^\beta$ in the polynomial $h$; then
 $$\delta(g)_\beta = g(x)\delta(1)_\beta - f(x)\left(\dfrac{g(x)-g(y)}{x-y}\right)_\beta$$
-which holds in $\mathbb{Q}[x]$. Thus, we have $\delta(g)_\beta = g(x)\delta(1)_\beta$ modulo $f$; as this is true for all $\beta\in\mathbb{N}$, Equality (\ref{relations}) follows.
+which holds in $\mathbb{Q}[x]$. Thus, we have $\delta(g)_\beta = g(x)\delta(1)_\beta$ modulo $f$; since this is true for all $\beta\in\mathbb{N}$, Equality (\ref{relations}) follows.
 \end{proof}
 
 \begin{rem}

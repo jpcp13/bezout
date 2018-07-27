@@ -6,7 +6,7 @@ import bezout_2 as bz
 #TEX_DIR = '/home/jp/Documents/Bezout/bezout/tex/txt'
 TEX_DIR = '../tex/txt'
 
-deg = [2, 3, 5]
+deg = [4, 3, 5]
 
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
@@ -28,8 +28,8 @@ with open(TEX_DIR+'/Dx.txt', 'w') as f:
     f.write("{0:d}".format(Dx))
 
 
-#~ P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
-P = load('P.sobj')
+P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
+#~ P = load('P.sobj')
 
 save(P, 'P')
 bz.P2txt(n, deg, P, TEX_DIR)

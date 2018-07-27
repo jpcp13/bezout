@@ -5,12 +5,12 @@
 \BOOKMARK [2][-]{subsection.1.4}{Barnett decomposition formula}{section.1}% 5
 \BOOKMARK [1][-]{section.2}{Multivariate case}{}% 6
 \BOOKMARK [2][-]{subsection.2.1}{Construction of Bezout polynomials and Bezout matrices}{section.2}% 7
-\BOOKMARK [3][-]{subsubsection.2.1.1}{Extension of Definition 13 to the multivariate case}{subsection.2.1}% 8
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Extension of Definition 1 to the multivariate case}{subsection.2.1}% 8
 \BOOKMARK [3][-]{subsubsection.2.1.2}{Practical computation of the Bezout matrices}{subsection.2.1}% 9
 \BOOKMARK [2][-]{subsection.2.2}{Barnett decomposition formula and structure of the quotient algebra.}{section.2}% 10
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Algebraic properties of polynomial 0 and matrix B\(0\)}{subsection.2.2}% 11
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Reduction process}{subsection.2.2}% 12
-\BOOKMARK [3][-]{subsubsection.2.2.3}{Barnett formula and companion matrices}{subsection.2.2}% 13
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Bezout matrices are related to the companion matrices}{subsection.2.2}% 13
 \BOOKMARK [3][-]{subsubsection.2.2.4}{Numerical computation of the roots}{subsection.2.2}% 14
 \BOOKMARK [2][-]{subsection.2.3}{Numerical experiment}{section.2}% 15
 \BOOKMARK [3][-]{subsubsection.2.3.1}{Quality of the results}{subsection.2.3}% 16

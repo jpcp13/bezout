@@ -32,7 +32,7 @@ Table \ref{tab:timings} shows the timings of the Bezout computations as compared
 \begin{tabular}{llllr}
  Method & Computation & Software & Arithmetic & Timing \\ \hline
    \multirow{4}{*}{Bezout} & Bezout matrices & NumPy & floating point & $\input{txt/construction_B_time.txt}$ s \\
-   & rank of $B(1)$ via rref()  & Sage & integer & $\input{txt/rank_b0_time.txt}$ s \\
+   & rank of $B(1)$ via rref()  & Sage & integer & $\input{txt/rank_B0_time.txt}$ s \\
    & reduction process & Sage & integer & $\input{txt/reductions_time.txt}$ s \\
    & eigenvalues & SciPy & floating point & $\input{txt/compute_roots_time.txt}$ s \\ 
    \hline
@@ -45,7 +45,7 @@ Table \ref{tab:timings} shows the timings of the Bezout computations as compared
 \end{table}
 
 \subsubsection{Size of output}
-Table \ref{tab:sizes} shows the disk space occupied by the Bezout matrices (after the reduction process; only non-zero entries taken in account) as compared to the disk space occupied by the Groebner basis.
+Table \ref{tab:sizes} shows the disk space used by the Bezout matrices (after the reduction process; only the non-zero entries are taken in account) as compared to the disk space used by the Groebner basis.
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{llc}
