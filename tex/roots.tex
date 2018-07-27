@@ -3,11 +3,10 @@
 % Preamble
 \begin{document}
 
-  \subsection{Numerical experiment}
-
-In this experiment, we solve the particular polynomial system $f = [\\ 
-\input{txt/P.txt}$
-]\\
+\subsection{Numerical experiment}
+We provide a reproducible computational experiment that illustrates the effectiveness of the method presented in this article. To perform the computations, follow the steps mentioned in the README.md file of the git repository \cite{jp_code}.
+In this experiment, we solve the polynomial system $f = [\\ 
+\input{txt/P.txt}$]\\
 The size of the Bezout matrix $B^{(0)}$ is $\input{txt/Dx.txt}$; this is the maximum number of solutions that a system of degree \input{txt/deg.txt} can have. To initiate the reduction process, the rank of $B^{(0)}$ is needed; as the matrix has integer coefficients, we use the Sage function matrix.kernel() to calculate its rank. After the reduction process has been completed, we find that the dimension of the quotient $A$ is $\input{txt/bezout_dim.txt}$. The Bezout matrices and the companion matrices have rational entries as well as the companion matrices $X_j = B^{(j)}{B^{(0)}}^{-1}$ ; computing the numerical eigenvalues of the $X_j$'s give approximations of the roots of the polynomial system $f$.
 
 \subsubsection{Quality of the results}

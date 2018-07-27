@@ -1,6 +1,7 @@
-If you want to reproduce the experiment presented in the arXiv paper, you should have python and sage installed on your computer ; then follow the steps
+If you want to reproduce the experiment presented in the arXiv paper, you should have python and sage installed on your computer. Download and save this repository at a place of your choice on your computer and unzip the bezout-master.zip file ; it should create a directory named bezout-master and containing two directories, one named python and one named tex.
+Then follow the steps :
 
-1. In file python/bezout_2.sage :
+1. In the file python/bezout_2.sage :
     * do not modify line 8 ; this line should write `deg = [2, 2, 2, 2]`
     * uncomment line 30, this line should write `P = load('P_'+''.join(str(e) for e in deg)+'.sobj')`
     * comment line 31, this line should write `# P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx`
