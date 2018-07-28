@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  28 JUL 2018 19:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  28 JUL 2018 21:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -532,18 +532,19 @@ Overfull \hbox (13.5403pt too wide) detected at line 173
 (./txt/bezout_exact_dim.txt) [14]
 \openout4 = `bezout.ttt'.
 
- (bezout.ttt)
-Overfull \hbox (9.06793pt too wide) in paragraph at lines 22--35
-\OT1/cmr/m/n/10 To check the qual-ity of the nu-mer-i-cal roots $\OML/cmm/m/it/
-10 $\OT1/cmr/m/n/10 , we com-pute the er-rors $\OML/cmm/m/it/10 Df\OT1/cmr/m/n
-/10 (\OML/cmm/m/it/10 \OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\O
-ML/cmm/m/it/10 \OT1/cmr/m/n/10 )$.
- []
+ (bezout.ttt)) (./infinite_dim.tex
 
-) (./bibliography.tex
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 6.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 6.
+
+[15]) (./bibliography.tex
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
- [15]) AED endfloat: Processing end Figures and Tables
+) AED endfloat: Processing end Figures and Tables
 [16] (./bezout.ttt (./txt/histogram.txt) [17
 
 
@@ -559,49 +560,50 @@ Overfull \hbox (0.60141pt too wide) in paragraph at lines 16--26
 ] (./txt/bezout_size.txt) (./txt/grobner_size.txt) [19
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 38.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 38.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 39.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
  (./bezout.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 38.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 38.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 39.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 39.
 Package rerunfilecheck Info: File `bezout.out' has not changed.
-(rerunfilecheck)             Checksum: C293F6C5CE3CEBBBE7E9193B1C63DBC6;1661.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 38.
+(rerunfilecheck)             Checksum: 2B953655BA419B3E00A692161BDD28C1;1689.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 39.
  ) 
 Here is how much of TeX's memory you used:
- 8361 strings out of 493029
- 125326 string characters out of 6136234
- 243196 words of memory out of 5000000
- 11584 multiletter control sequences out of 15000+600000
- 14658 words of font info for 57 fonts, out of 8000000 for 9000
+ 8373 strings out of 493029
+ 125466 string characters out of 6136234
+ 243252 words of memory out of 5000000
+ 11588 multiletter control sequences out of 15000+600000
+ 15279 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,14n,38p,937b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,14n,38p,1084b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
-bm10.pfb>
-Output written on bezout.pdf (19 pages, 299568 bytes).
+t/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.p
+fb>
+Output written on bezout.pdf (19 pages, 309022 bytes).
 PDF statistics:
- 426 PDF objects out of 1000 (max. 8388607)
- 378 compressed objects within 4 object streams
- 101 named destinations out of 1000 (max. 500000)
+ 435 PDF objects out of 1000 (max. 8388607)
+ 386 compressed objects within 4 object streams
+ 104 named destinations out of 1000 (max. 500000)
  153 words of extra memory for PDF output out of 10000 (max. 10000000)
 

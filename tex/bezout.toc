@@ -13,7 +13,7 @@
 \contentsline {subsubsection}{\numberline {2.2.3}Bezout matrices are related to the companion matrices}{13}{subsubsection.2.2.3}
 \contentsline {subsubsection}{\numberline {2.2.4}Numerical computation of the roots}{14}{subsubsection.2.2.4}
 \contentsline {subsection}{\numberline {2.3}Numerical experiment}{14}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Testing the result}{15}{subsection.2.4}
-\contentsline {subsubsection}{\numberline {2.4.1}Quality of the results}{15}{subsubsection.2.4.1}
-\contentsline {subsubsection}{\numberline {2.4.2}Timings}{15}{subsubsection.2.4.2}
-\contentsline {subsubsection}{\numberline {2.4.3}Size of output}{15}{subsubsection.2.4.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Testing the result}{15}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Timings}{15}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Size of output}{15}{subsubsection.2.3.3}
+\contentsline {subsection}{\numberline {2.4}What happens when the dimension of $A$ is infinite ?}{16}{subsection.2.4}
