@@ -171,15 +171,24 @@ def evalP(P, x, root):
 
 def roots_test(P, x, roots):
 	dim, n = roots.shape
-	test = np.zeros((dim))
+	#~ test = np.zeros((dim))
+	test = []
 	test_r = np.zeros((dim))
 	for k in range(dim):
 		root = roots[k, :]
 		px, Jx = evalP(P, x, root)
-		iJpx = np.linalg.solve(Jx, px)
-		test[k] = np.linalg.norm(iJpx)
-		test_r[k] = np.linalg.norm(iJpx)/np.linalg.norm(root)
-	return test_r
+		try:
+			iJpx = np.linalg.solve(Jx, px)
+			test.append(np.linalg.norm(iJpx))
+		except np.linalg.LinAlgError as err:
+			if 'Singular matrix' in str(err):
+				print("ooh")
+			else:
+				raise
+		#~ test[k] = np.linalg.norm(iJpx)
+		#~ test_r[k] = np.linalg.norm(iJpx)/np.linalg.norm(root)
+	#~ return test_r
+	return np.array(test)
 
 def compute_grobner(R, P, n):
     I = R.ideal(P[:n])
