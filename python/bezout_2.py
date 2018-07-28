@@ -171,7 +171,6 @@ def evalP(P, x, root):
 
 def roots_test(P, x, roots):
 	dim, n = roots.shape
-	#~ test = np.zeros((dim))
 	test = []
 	test_r = np.zeros((dim))
 	for k in range(dim):
@@ -185,9 +184,6 @@ def roots_test(P, x, roots):
 				print("ooh")
 			else:
 				raise
-		#~ test[k] = np.linalg.norm(iJpx)
-		#~ test_r[k] = np.linalg.norm(iJpx)/np.linalg.norm(root)
-	#~ return test_r
 	return np.array(test)
 
 def compute_grobner(R, P, n):

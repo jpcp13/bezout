@@ -6,7 +6,7 @@ import bezout_2 as bz
 #TEX_DIR = '/home/jp/Documents/Bezout/bezout/tex/txt'
 TEX_DIR = '../tex/txt'
 
-deg = [3, 3, 3]
+deg = [2, 2, 2, 2]
 
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
@@ -96,8 +96,9 @@ xbb0 = X_ortho*BB[0]
 xbb0y = X_ortho*BB[0]*Y_ortho.transpose()
 bezout_exact_dim = rank(xbb0y)
 print("bezout_exact_dim = {0:d}".format(bezout_exact_dim))
-with open(TEX_DIR+'/bezout_dim.txt', 'w') as f:
-    f.write("{0:d}".format(r0))
+with open(TEX_DIR+'/bezout_exact_dim.txt', 'w') as f:
+    f.write("{0:d}".format(bezout_exact_dim))
+    
 XBBY = []
 for k in range(n+1):
     XBBY.append(X_ortho*BB[k]*Y_ortho.transpose())
@@ -107,16 +108,20 @@ N_ortho = XBBY[0].right_kernel_matrix().right_kernel_matrix()
 KBBN = []
 for k in range(n+1):
     KBBN.append(K_ortho*XBBY[k]*N_ortho.transpose())
-bz.bz2txt(n, TEX_DIR, KBBN)
+
 reductions_time = time.clock() - t
 with open(TEX_DIR+'/reductions_time.txt', 'w') as f:
     f.write("{0:.4f}".format(reductions_time))
 
 
+bz.bz2txt(n, TEX_DIR, KBBN)
+bezout_size = sum([float(os.path.getsize(TEX_DIR+'/BB/'+f)) for f in os.listdir(TEX_DIR+'/BB')])
+with open(TEX_DIR+'/bezout_size.txt', 'w') as f:
+	f.write("{0:.4f}".format(float(bezout_size)/1000000))
 """
 Test using finite field arithmetic
 """
-Field = GF(next_prime(200))
+Field = GF(next_prime(2000))
 BBf = []
 for k in range(n+1):
         Bk = matrix(Field, KBBN[k])
@@ -131,7 +136,7 @@ if rank(BBf[0]) == bezout_exact_dim:
     #f.write("test_XX = {0:s}".format(test_XX))
     print("test_XX = {0:s}".format(test_XX))
 else:
-    print("rank deficiency !")
+    print("rank deficiency ! Change finite field !")
 
 
 """
@@ -147,7 +152,7 @@ with open(TEX_DIR+'/compute_roots_time.txt', 'w') as f:
     f.write("{0:.4f}".format(compute_roots_time))
 test_roots = bz.roots_test(P, x, roots)
 
-hist, bin_edges = np.histogram(np.log10(test_roots), bins='scott')
+hist, bin_edges = np.histogram(np.log10(test_roots + 1e-16), bins='scott')
 with open(TEX_DIR+'/histogram.txt', 'w') as f:
     for k in range(len(hist)):
         nb_roots = hist[k]
@@ -164,7 +169,7 @@ Grobner computations
 """
 t = time.clock()
 GB, grobner_dim = bz.compute_grobner(R, P, n)
-print grobner_dim
+print("grobner_dim = {0}".format(grobner_dim))
 grobner_time = time.clock() - t
 bz.gb2txt(TEX_DIR, GB)
 grobner_size = sum([float(os.path.getsize(TEX_DIR+'/GB/'+f)) for f in os.listdir(TEX_DIR+'/GB')])
