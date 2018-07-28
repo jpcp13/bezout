@@ -6,12 +6,12 @@ import bezout_2 as bz
 #TEX_DIR = '/home/jp/Documents/Bezout/bezout/tex/txt'
 TEX_DIR = '../tex/txt'
 
-deg = [2, 2, 2, 2]
+deg = [3, 3, 3]
 
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
     
-t = 12
+t = 4
 m = 16000
 n = len(deg)
 
@@ -29,7 +29,6 @@ with open(TEX_DIR+'/Dx.txt', 'w') as f:
 
 #~ P = load('P_'+''.join(str(e) for e in deg)+'.sobj')
 P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
-
 save(P, 'P_'+''.join(str(e) for e in deg))
 bz.P2txt(n, deg, P, TEX_DIR)
 F = [bz.poly2prism(fshape, p) for p in P]
@@ -128,7 +127,7 @@ if rank(BBf[0]) == bezout_exact_dim:
         xx = BBf[0].solve_right(BBf[k+1])
         XX.append(xx)
     Pf = [bz.P2field(p, Field) for p in P]
-    test_XX = [bz.X2p(XX, Field, p) for p in Pf[:n]]
+    test_XX = [bz.X2p(XX, Field, p).is_zero() for p in Pf[:n]]
     #f.write("test_XX = {0:s}".format(test_XX))
     print("test_XX = {0:s}".format(test_XX))
 else:
@@ -147,7 +146,6 @@ compute_roots_time = time.clock() - t
 with open(TEX_DIR+'/compute_roots_time.txt', 'w') as f:
     f.write("{0:.4f}".format(compute_roots_time))
 test_roots = bz.roots_test(P, x, roots)
-print(test_roots)
 
 hist, bin_edges = np.histogram(np.log10(test_roots), bins='scott')
 with open(TEX_DIR+'/histogram.txt', 'w') as f:

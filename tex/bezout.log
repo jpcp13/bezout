@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  27 JUL 2018 15:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.27)  28 JUL 2018 11:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -513,47 +513,18 @@ Overfull \hbox (40.68394pt too wide) in paragraph at lines 81--81
 [] 
  []
 
-[8] [9]) (./barnett_formula.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 10.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\delta' on input line 10.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 10.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 10.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 10.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 10.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 10.
-
-[10]
-Overfull \hbox (36.76518pt too wide) detected at line 79
+[8] [9]) (./barnett_formula.tex [10]
+Overfull \hbox (36.76518pt too wide) detected at line 80
 [] []
  []
 
 [11]
-Overfull \hbox (9.39012pt too wide) detected at line 143
+Overfull \hbox (9.39012pt too wide) detected at line 144
 [] []
  []
 
 
-Overfull \hbox (13.5403pt too wide) detected at line 172
+Overfull \hbox (13.5403pt too wide) detected at line 173
 [] [] []
  []
 
@@ -594,7 +565,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 38.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 38.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 38.
 Package rerunfilecheck Info: File `bezout.out' has not changed.
-(rerunfilecheck)             Checksum: AC7D3448E54CDB06B6652BCFA8DF38BB;1558.
+(rerunfilecheck)             Checksum: D7960D3AC8A53FAEB7FD0B43C6DAE136;1593.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 38.
  ) 
 Here is how much of TeX's memory you used:
@@ -604,7 +575,7 @@ Here is how much of TeX's memory you used:
  11583 multiletter control sequences out of 15000+600000
  14658 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,14n,38p,1464b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,14n,38p,1464b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -627,7 +598,7 @@ msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
 bm10.pfb>
-Output written on bezout.pdf (18 pages, 298040 bytes).
+Output written on bezout.pdf (18 pages, 297875 bytes).
 PDF statistics:
  415 PDF objects out of 1000 (max. 8388607)
  368 compressed objects within 4 object streams

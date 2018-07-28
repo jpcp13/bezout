@@ -7,7 +7,7 @@
 Since the ideal $\langle f\rangle$ is zero-dimensional, the dimension of the quotient algebra $A = \mathbb{Q}[\bold{x}]/\langle f\rangle$ is finite; we may look for some basis and its related companion matrices (matrices of the multiplication maps by $x_1,\cdots, x_n$). 
 For this purpose, we will adapt the process described in Section \ref{Bar_gen} but, before, we will specify a number of algebraic properties about polynomial $\delta^0$ and matrices $B^{(k)}$.
 
-\subsubsection{Algebraic properties of polynomial $\delta^0$ and matrix $B^{(0)}$}
+\subsubsection{Algebraic properties of Bezout polynomials and Bezout matrices}
 The following properties are simple; for a proof, the interested reader may refer to \cite{jpc}. As in Proposition \ref{Barnett}, we define families of elements of $A$ by forming the vector-matrix products
 \begin{equation}
 		\hat{\bold{x}}_k  =  \bold{x}B^{(k)}, \quad k=0\cdots n
@@ -26,12 +26,13 @@ Following Example \ref{bez_multi} we have
 
 \begin{prop}
 \label{xj} (see \cite{jpc}).
-For all $k=1\cdots n$ we have
+For all $k=1\cdots n$ we have, modulo $\langle f \rangle$,
 \begin{equation}
     \hat{\bold{x}}x_k = \hat{\bold{x}}_k
 \end{equation}
 \end{prop}
 This proposition can be easily checked on Example \ref{bez_multi}. 
+
 So far, the univariate and multivariate cases are very similar, except on one point : in the multivariate case the families $\bold{x}$ and $\hat{\bold{x}}$ are not, in general, bases of the vector space $A$. We have, however, the weaker result (see \cite{jpc}) :
 
 \begin{prop}
@@ -40,9 +41,9 @@ Both $\bold{x}$ and $\hat{\bold{x}}$ are generating families of the vector space
 
 \subsubsection{Reduction process}
 \label{sec:reduction_process}
-Following the matrix handlings described in Section \ref{Bar_gen}, we now show how to compute, starting from the generating families $\bold{x}, \hat{\bold{x}}$ and the Bezout matrices $B^{(k)}$, a basis of $A$ and the companion matrices $X_k$.
+Following the matrix handlings described in Section \ref{Bar_gen}, we will show how to compute, starting from the generating families $\bold{x}, \hat{\bold{x}}$ and the Bezout matrices $B^{(k)}$, a basis of $A$ and the companion matrices $X_k$.
 Let us illustrate this process on Example \ref{bez_multi}.\\
-The first column is zero in $B^{(0)}$ but not in $B^{(2)}$; this gives, modulo $\langle f \rangle$ , the relation $1 + x_1x_2 = 0$. Then, we right-multiply $\bold{x}$ by the Gauss matrix $P$ whose fifth column is $(1, 0, 0, 0, 1, 0)^{T}$ and left-multiply the Bezout matrices by $P^{-1}$; the Bezout polynomials write 
+The first column is zero in $B^{(0)}$ but not in $B^{(2)}$; this gives, modulo $\langle f \rangle$, the relation $1 + x_1x_2 = 0$. Then, we right-multiply $\bold{x}$ by the Gauss matrix $P$ whose fifth column is $(1, 0, 0, 0, 1, 0)^{T}$ and left-multiply the Bezout matrices by $P^{-1}$; the Bezout polynomials write 
 $$
 \begin{array}{c|cccccc}
 	\delta^{(0)} & 1 & y_1 & y_1y_2 & y_1^2 & y_1^2y_2 & y_1^3 \\
