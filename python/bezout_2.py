@@ -68,7 +68,6 @@ def _B(n, Dx, Dy, H, K, C):
 	return np.around(B).real.astype(int)
 
 def rand_poly(j, m, deg, t, x):
-    # construit un polynome random en j+1 variables 0..j, de degres max(deg, m)
     p = 0
     for k in range(min(deg[j], m) + 1):
         if j > 0:
@@ -111,7 +110,6 @@ def P2txt(n, deg, P, directory):
     if 'P_'+deg_str in os.listdir(directory):
         shutil.rmtree(local_dir)
     os.mkdir(local_dir)
-    #~ pol2text(n, P, directory+'/P')
     pol2tex(n, P, directory+'/P')
     for i in range(n):
         p = P[i]

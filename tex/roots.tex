@@ -18,7 +18,7 @@ We can compare the dimension of the quotient $A$, as provided by the Groebner ba
 \item
 We can check that $f(X) = 0$, i.e $f_i(X_1,\cdots, X_n) = 0$ for every $i = 1\cdots, n$ and where the $X_j$'s are the companion matrices. When the polynomial system is in complete intersection, this means that every $f_i$ belongs to the ideal $\langle f\rangle$. But, in practice, since the companion matrices have rational entries, the calculation of each $f_i(X_1,\cdots, X_n)$ may be too heavy. Rather, we choose to make the computations in a finite field $F$, typically $\mathbb{Z}/ p\mathbb{Z}$ with, in this experiment, $p = 2003$. Moreover, to lighten even more the computation, we choose a random vector $v\in F$ and compute only the product of each $f_i(X_1,\cdots, X_n)$ by $v$. Thus, we only need to do matrix-vector products. If at the end of the process, and for all $i= 1\cdots, n$, we have $f_i(X_1,\cdots, X_n)v = 0$ then we can conclude that, with a very high probability, $f(X) = 0$. In this experiment we know that the test was succesful because in the sage variable test\_XX, a Python list, all the entries equal True.
 \item
-We can check the quality of the numerical roots $\alpha$ by computing the errors $Df(\alpha)^{-1}f(\alpha)$. An histogram of these errors is shown in Table \ref{tab:histo} (only when the jacobian $Df(\alpha)$ is invertible have the errors been calculated).
+We can check the quality of the numerical roots $\alpha$ by computing the errors $Df(\alpha)^{-1}f(\alpha)$. An histogram of these errors is shown in Table \ref{tab:histo} (the errors are calculated only when the jacobian $Df(\alpha)$ is invertible).
 \end{enumerate}
 
 \begin{table}[h]

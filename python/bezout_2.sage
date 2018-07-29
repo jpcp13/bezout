@@ -3,7 +3,6 @@ import scipy.linalg as la
 import time
 import bezout_2 as bz
 
-#TEX_DIR = '/home/jp/Documents/Bezout/bezout/tex/txt'
 TEX_DIR = '../tex/txt'
 
 deg = [2, 2, 2, 2]
@@ -27,9 +26,9 @@ fn, Dx, Dy = factorial(n), prod(dx), prod(dy)
 with open(TEX_DIR+'/Dx.txt', 'w') as f:
     f.write("{0:d}".format(Dx))
 
-#~ P = load('P_'+''.join(str(e) for e in deg)+'.sobj')
-P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
-save(P, 'P_'+''.join(str(e) for e in deg))
+P = load('P_'+''.join(str(e) for e in deg)+'.sobj')
+#~ P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
+#~ save(P, 'P_'+''.join(str(e) for e in deg))
 bz.P2txt(n, deg, P, TEX_DIR)
 F = [bz.poly2prism(fshape, p) for p in P]
 
@@ -44,7 +43,6 @@ construction_B_time = time.clock() - t
 with open(TEX_DIR+'/construction_B_time.txt', 'w') as f:
     f.write("{0:.4f}".format(construction_B_time))
 
-#B = bz.block_triang(n, Dx, Dy, dx, dy, deg, B)
 BB = []
 for k in range(n+1):
         Bk = matrix(Field, B[k])
