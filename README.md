@@ -3,11 +3,8 @@ Then follow the steps :
 
 1. In file python/bezout_2.sage, check that :
     * the degree of the polynomial system is set to [2, 2, 2, 2] ; line 8 should write `deg = [2, 2, 2, 2]`
-    * line 29 is uncommented ; this line should write 
-        `P = load('P_'+''.join(str(e) for e in deg)+'.sobj')`
-    * lines 30, 31 are commented, these lines should write 
-        #~ P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
-        #~ save(P, 'P_'+''.join(str(e) for e in deg))
+    * line 29 is uncommented ; this line should write `P = load('P_'+''.join(str(e) for e in deg)+'.sobj')`
+    * lines 30 and 31 are commented ; these lines should write `#~ P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx` and `#~ save(P, 'P_'+''.join(str(e) for e in deg))`
 
 2. From within the directory named python open a linux terminal;
     * from within this terminal execute the command `sage`; this will open a sage terminal
