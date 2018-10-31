@@ -1,7 +1,7 @@
 from sage.all import *
 import scipy.fftpack as ft
-import numpy as np
 import scipy.linalg as la
+import numpy as np
 import time
 import os
 import shutil
@@ -134,27 +134,29 @@ def gb2txt(directory, GB):
 		p = GB[k]
 		mat2txt(p, directory+'/GB/gb'+str(k))
 
-def BB2roots(bb):
-    qrBB = []
+def qz_BB2roots(bb):
     n = len(bb)-1
+    bbt = [bb[k].T for k in range(n+1)] # transposition ! dim x DIM
+    dim, DIM = bbt[0].shape
+    q, r, p = la.qr(bbt[0], pivoting=True)
+    qr_BB = []
     for k in range(n+1):
-        qrBB.append(np.array(bb[k]))
-    b0 = qrBB[0]
-    bezout_dim = b0.shape[0]
-    chow_mat = np.zeros((bezout_dim, bezout_dim))
+        qb = q.T.dot(bbt[k])
+        qbp = qb[:, p]
+        qr_BB.append(qbp[:, 0:dim])
+    chow_mat = np.zeros((dim, dim))
     for k in range(n):
-        chow_mat += np.random.randn()*qrBB[k+1]
+        chow_mat += np.random.randn()*qr_BB[k+1]
+    b0 = qr_BB[0]
     chowchow, b0b0, Q, Z = la.qz(chow_mat, b0, output='complex')
     qzBB = []
     for k in range(n+1):
-        bk = qrBB[k]
-        qzBB.append( Q.T.conjugate().dot(bk).dot(Z) )
-    roots = np.zeros((bezout_dim, n), dtype=complex)
+        qzBB.append( Q.T.conjugate().dot(qr_BB[k]).dot(Z) )
+    roots = np.zeros((dim, n), dtype=complex)
     for j in range(n):
         roots[:, j] = np.diag(qzBB[j+1])/np.diag(qzBB[0])
     return roots
-
-
+    
 def evalP(P, x, root):
 	n = len(root)
 	px = np.zeros((n), dtype='complex')
@@ -183,7 +185,19 @@ def roots_test(P, x, roots):
 			else:
 				raise
 	return np.array(test)
-
+	
+def Y_test(BBN, n, Field, P):
+    def BBf(k):
+        return matrix(Field, BBN[k])[:, :]
+    if rank(BBf(0)) == BBN[0].ncols():
+        XX = [BBf(0).solve_right(BBf(k+1)) for k in range(n)]
+        Pf = [P2field(p, Field) for p in P]
+        test_XX = [X2p(XX, Field, p).is_zero() for p in Pf[:n]]
+        return test_XX
+    else:
+        print("rank deficiency ! Change finite field !")
+        return None
+        
 def compute_grobner(R, P, n):
     I = R.ideal(P[:n])
     GB = I.groebner_basis()
@@ -217,7 +231,7 @@ def find_Y(BB, B0Y, Field, n):
         old_nbr = B0Y.nrows()
         print old_nbr
         K_lambda = B0Y.kernel().basis_matrix()
-        K = K_lambda[:, 0:nc]
+        K = K_lambda[:, 0:nr]
         Y = matrix(Field, 0, nc)
         for k in range(1, n+1):
             Yk = K*BB[k]
@@ -227,9 +241,23 @@ def find_Y(BB, B0Y, Field, n):
         B0Y = block_matrix(2, 1, [BB[0], Y])
         if B0Y.nrows() == old_nbr:
             break
-            
     return Y
 
+def Y_reduct(BB, Field, n):
+    Y = find_Y(BB, BB[0], Field, n)
+    print "-"*10
+    BBt = [BB[k].transpose() for k in range(n+1)]
+    X = find_Y(BBt, BBt[0], Field, n)
+    Y_ortho = Y.right_kernel_matrix()
+    X_ortho = X.right_kernel_matrix()
+    xbb0y = X_ortho*BB[0]*Y_ortho.transpose()
+    bezout_exact_dim = rank(xbb0y)
+    print("bezout_exact_dim = {0:d}".format(bezout_exact_dim))
+    XBBY = [X_ortho*BB[k]*Y_ortho.transpose() for k in range(n+1)]
+    N_ortho = XBBY[0].right_kernel_matrix().right_kernel_matrix()
+    BBN = [XBBY[k]*N_ortho.transpose() for k in range(n+1)]
+    return BBN, bezout_exact_dim
+    
 def P2field(p, Field):
     coeffs, monoms = p.coefficients(), p.monomials()
     return sum([Field(coeffs[i])*monoms[i] for i in range(len(coeffs))])

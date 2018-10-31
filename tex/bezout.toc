@@ -15,5 +15,5 @@
 \contentsline {subsection}{\numberline {2.3}Numerical experiment}{14}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}Testing the result}{15}{subsubsection.2.3.1}
 \contentsline {subsubsection}{\numberline {2.3.2}Timings}{15}{subsubsection.2.3.2}
-\contentsline {subsubsection}{\numberline {2.3.3}Size of output}{15}{subsubsection.2.3.3}
+\contentsline {subsubsection}{\numberline {2.3.3}Size of output}{16}{subsubsection.2.3.3}
 \contentsline {subsection}{\numberline {2.4}What happens when the polynomial system is not zero-dimensional ?}{16}{subsection.2.4}

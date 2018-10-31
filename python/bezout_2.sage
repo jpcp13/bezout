@@ -6,11 +6,10 @@ import bezout_2 as bz
 TEX_DIR = '../tex/txt'
 
 deg = [2, 2, 2, 2]
-
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
     
-t = 4
+t = 5
 m = 16000
 n = len(deg)
 
@@ -46,12 +45,14 @@ with open(TEX_DIR+'/construction_B_time.txt', 'w') as f:
 BB = []
 for k in range(n+1):
         Bk = matrix(Field, B[k])
-        BB.append(Bk[:, :])
+        BB.append(Bk)
+    
+bezout_size = sum([float(os.path.getsize(TEX_DIR+'/BB/'+f)) \
+                   for f in os.listdir(TEX_DIR+'/BB')])
 
-bezout_size = sum([float(os.path.getsize(TEX_DIR+'/BB/'+f)) for f in os.listdir(TEX_DIR+'/BB')])
 with open(TEX_DIR+'/bezout_size.txt', 'w') as f:
-	f.write("{0:.4f}".format(float(bezout_size)/1000000))
-	
+    f.write("{0:.4f}".format(float(bezout_size)/1000000))
+
 
 """
 computing rank of B0
@@ -74,82 +75,33 @@ b0 = bb[0]
 numpy_rank = np.linalg.matrix_rank(b0)
 print("numpy_rank = {0:d}".format(numpy_rank))
 
-
-"""
-reduction process
-"""
 t = time.clock()
-B0Y = BB[0]
-Y = bz.find_Y(BB, B0Y, Field, n)
-BBt = []
-for k in range(n+1):
-    BBt.append(BB[k].transpose())
-B0Yt = B0Y.transpose()
-X = bz.find_Y(BBt, B0Yt, Field, n)
-print "-"*10
-Y_ortho = Y.right_kernel_matrix()
-bb0y = BB[0]*Y_ortho.transpose()
-X_ortho = X.right_kernel_matrix()
-xbb0 = X_ortho*BB[0]
-xbb0y = X_ortho*BB[0]*Y_ortho.transpose()
-bezout_exact_dim = rank(xbb0y)
-print("bezout_exact_dim = {0:d}".format(bezout_exact_dim))
-with open(TEX_DIR+'/bezout_exact_dim.txt', 'w') as f:
-    f.write("{0:d}".format(bezout_exact_dim))
-    
-XBBY = []
-for k in range(n+1):
-    XBBY.append(X_ortho*BB[k]*Y_ortho.transpose())
-K_ortho = XBBY[0].kernel().basis_matrix().right_kernel_matrix()
-N_ortho = XBBY[0].right_kernel_matrix().right_kernel_matrix()
-#N_ortho = N.kernel().basis_matrix().transpose()
-KBBN = []
-for k in range(n+1):
-    KBBN.append(K_ortho*XBBY[k]*N_ortho.transpose())
-
+BBN, bezout_exact_dim = bz.Y_reduct(BB, Field, n)
 reductions_time = time.clock() - t
+
 with open(TEX_DIR+'/reductions_time.txt', 'w') as f:
     f.write("{0:.4f}".format(reductions_time))
+with open(TEX_DIR+'/bezout_exact_dim.txt', 'w') as f:
+    f.write("{0:d}".format(bezout_exact_dim))
 
-
-bz.bz2txt(n, TEX_DIR, KBBN)
-bezout_size = sum([float(os.path.getsize(TEX_DIR+'/BB/'+f)) for f in os.listdir(TEX_DIR+'/BB')])
-with open(TEX_DIR+'/bezout_size.txt', 'w') as f:
-	f.write("{0:.4f}".format(float(bezout_size)/1000000))
-"""
-Test using finite field arithmetic
-"""
 Field = GF(next_prime(2000))
-BBf = []
-for k in range(n+1):
-        Bk = matrix(Field, KBBN[k])
-        BBf.append(Bk[:, :])
-if rank(BBf[0]) == bezout_exact_dim:
-    XX = []
-    for k in range(n):
-        xx = BBf[0].solve_right(BBf[k+1])
-        XX.append(xx)
-    Pf = [bz.P2field(p, Field) for p in P]
-    test_XX = [bz.X2p(XX, Field, p).is_zero() for p in Pf[:n]]
-    #f.write("test_XX = {0:s}".format(test_XX))
-    print("test_XX = {0:s}".format(test_XX))
-else:
-    print("rank deficiency ! Change finite field !")
-
+test_XX = bz.Y_test(BBN, n, Field, P)
+print("test_XX = {0:s}".format(test_XX))
 
 """
-Numerical compation of the roots
+Numerical computation of the roots
 """
+import numpy as np
+bb = [np.array(BBN[k]) for k in range(n+1)]
+
 t = time.clock()
-bb = []
-for k in range(n+1):
-    bb.append(np.array(KBBN[k], dtype=float))
-roots = bz.BB2roots(bb)
+roots = bz.qz_BB2roots(bb)
 compute_roots_time = time.clock() - t
+
 with open(TEX_DIR+'/compute_roots_time.txt', 'w') as f:
     f.write("{0:.4f}".format(compute_roots_time))
-test_roots = bz.roots_test(P, x, roots)
 
+test_roots = bz.roots_test(P, x, roots)
 hist, bin_edges = np.histogram(np.log10(test_roots + 1e-16), bins='scott')
 with open(TEX_DIR+'/histogram.txt', 'w') as f:
     for k in range(len(hist)):
@@ -160,7 +112,7 @@ with open(TEX_DIR+'/histogram.txt', 'w') as f:
                 f.write("$[{0:2.1f}, {1:2.1f}]$ & ${2:d}$\\\\\n".format(left_bin, right_bin, nb_roots))
             else:
                 f.write("$[{0:2.1f}, {1:2.1f}]$ & ${2:d}$\n".format(left_bin, right_bin, nb_roots))
-
+hist, bin_edges
 
 """
 Grobner computations 
