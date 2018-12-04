@@ -235,9 +235,9 @@ def find_Y(BB, B0Y, Field, n):
         Y = matrix(Field, 0, nc)
         for k in range(1, n+1):
             Yk = K*BB[k]
-            Y = block_matrix(2, 1, [Y, Yk]).LLL()
-            nzr = nzrows(Y) 
-            Y = Y[nzr, :]
+            Y = block_matrix(2, 1, [Y, Yk]).row_space().basis_matrix()
+            #~ nzr = nzrows(Y) 
+            #~ Y = Y[nzr, :]
         B0Y = block_matrix(2, 1, [BB[0], Y])
         if B0Y.nrows() == old_nbr:
             break
@@ -245,18 +245,21 @@ def find_Y(BB, B0Y, Field, n):
 
 def Y_reduct(BB, Field, n):
     Y = find_Y(BB, BB[0], Field, n)
-    print "-"*10
-    BBt = [BB[k].transpose() for k in range(n+1)]
-    X = find_Y(BBt, BBt[0], Field, n)
-    Y_ortho = Y.right_kernel_matrix()
-    X_ortho = X.right_kernel_matrix()
-    xbb0y = X_ortho*BB[0]*Y_ortho.transpose()
-    bezout_exact_dim = rank(xbb0y)
-    print("bezout_exact_dim = {0:d}".format(bezout_exact_dim))
-    XBBY = [X_ortho*BB[k]*Y_ortho.transpose() for k in range(n+1)]
-    N_ortho = XBBY[0].right_kernel_matrix().right_kernel_matrix()
-    BBN = [XBBY[k]*N_ortho.transpose() for k in range(n+1)]
-    return BBN, bezout_exact_dim
+    E = Y.T.extended_echelon_form(subdivide=True)
+    J = E[:, Y.nrows():]
+    BJ = [BB[k]*J.T[:, Y.nrows():] for k in range(n+1)]
+    K = BJ[0].kernel().basis_matrix()
+    p = K.nonpivots()
+    BJp = [BJ[k][p, :] for k in range(n+1)]
+    return BJp
+
+def XY_reduct(BB, Field, n):
+    BJp = Y_reduct(BB, Field, n)
+    BJpt = [b.T for b in BJp]
+    BJpp = Y_reduct(BJpt, Field, n)
+    BJppt = [b.T for b in BJpp]
+    return BJppt
+
     
 def P2field(p, Field):
     coeffs, monoms = p.coefficients(), p.monomials()

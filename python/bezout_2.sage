@@ -5,7 +5,7 @@ import bezout_2 as bz
 
 TEX_DIR = '../tex/txt'
 
-deg = [2, 2, 2, 2]
+deg = [4, 3, 5]
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
     
@@ -76,7 +76,8 @@ numpy_rank = np.linalg.matrix_rank(b0)
 print("numpy_rank = {0:d}".format(numpy_rank))
 
 t = time.clock()
-BBN, bezout_exact_dim = bz.Y_reduct(BB, Field, n)
+BBN = bz.XY_reduct(BB, Field, n)
+bezout_exact_dim = rank(BBN[0])
 reductions_time = time.clock() - t
 
 with open(TEX_DIR+'/reductions_time.txt', 'w') as f:
@@ -129,3 +130,5 @@ with open(TEX_DIR+'/grobner_time.txt', 'w') as f:
     f.write("{0:.4f}".format(grobner_time))
 with open(TEX_DIR+'/grobner_size.txt', 'w') as f:
     f.write("{0:.4f}".format(grobner_size/1000000))
+    
+
