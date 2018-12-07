@@ -5,7 +5,7 @@ import bezout_2 as bz
 
 TEX_DIR = '../tex/txt'
 
-deg = [4, 3, 5]
+deg = [2, 2, 2, 2]
 with open(TEX_DIR+'/deg.txt', 'w') as f:
     f.write(str(deg))
     
@@ -24,6 +24,7 @@ dy = [(n-i)*deg[i] for i in range(n)]
 fn, Dx, Dy = factorial(n), prod(dx), prod(dy)
 with open(TEX_DIR+'/Dx.txt', 'w') as f:
     f.write("{0:d}".format(Dx))
+
 
 P = load('P_'+''.join(str(e) for e in deg)+'.sobj')
 #~ P = [bz.rand_poly(n-1, m, deg, t, x) for i in range(n)] + xx
@@ -46,21 +47,14 @@ BB = []
 for k in range(n+1):
         Bk = matrix(Field, B[k])
         BB.append(Bk)
-    
-bezout_size = sum([float(os.path.getsize(TEX_DIR+'/BB/'+f)) \
-                   for f in os.listdir(TEX_DIR+'/BB')])
-
-with open(TEX_DIR+'/bezout_size.txt', 'w') as f:
-    f.write("{0:.4f}".format(float(bezout_size)/1000000))
 
 
 """
-computing rank of B0
+Computing rank of B0
 """
 t = time.clock()
 r0 = rank(BB[0])
 rank_B0_time = time.clock() - t
-
 with open(TEX_DIR+'/rank_B0.txt', 'w') as f:
     f.write("{0:d}".format(r0))
 with open(TEX_DIR+'/rank_B0_time.txt', 'w') as f:
@@ -70,23 +64,33 @@ print("sage_rank = {0:d}".format(r0))
 bb = []
 for k in range(n+1):
     bb.append(np.array(BB[k], dtype=float))
-
 b0 = bb[0]
 numpy_rank = np.linalg.matrix_rank(b0)
 print("numpy_rank = {0:d}".format(numpy_rank))
 
+"""
+Reduction of the Bezout matrices
+"""
 t = time.clock()
 BBN = bz.XY_reduct(BB, Field, n)
 bezout_exact_dim = rank(BBN[0])
 reductions_time = time.clock() - t
-
-with open(TEX_DIR+'/reductions_time.txt', 'w') as f:
-    f.write("{0:.4f}".format(reductions_time))
 with open(TEX_DIR+'/bezout_exact_dim.txt', 'w') as f:
     f.write("{0:d}".format(bezout_exact_dim))
+with open(TEX_DIR+'/reductions_time.txt', 'w') as f:
+    f.write("{0:.4f}".format(reductions_time))
 
+bz.bz2txt(n, TEX_DIR, BBN)
+bezout_size = sum([float(os.path.getsize(TEX_DIR+'/BB/'+f)) for f in os.listdir(TEX_DIR+'/BB')])
+with open(TEX_DIR+'/bezout_size.txt', 'w') as f:
+    f.write("{0:.4f}".format(float(bezout_size)/1000000))
+
+
+"""
+Testing the reduced Bezout matrices with finite field arithmetic
+"""
 Field = GF(next_prime(2000))
-test_XX = bz.Y_test(BBN, n, Field, P)
+XX, test_XX = bz.Y_test(BBN, n, Field, P)
 print("test_XX = {0:s}".format(test_XX))
 
 """
@@ -118,6 +122,7 @@ hist, bin_edges
 """
 Grobner computations 
 """
+
 t = time.clock()
 GB, grobner_dim = bz.compute_grobner(R, P, n)
 print("grobner_dim = {0}".format(grobner_dim))
@@ -130,5 +135,4 @@ with open(TEX_DIR+'/grobner_time.txt', 'w') as f:
     f.write("{0:.4f}".format(grobner_time))
 with open(TEX_DIR+'/grobner_size.txt', 'w') as f:
     f.write("{0:.4f}".format(grobner_size/1000000))
-    
 

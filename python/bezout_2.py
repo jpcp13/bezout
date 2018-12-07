@@ -193,7 +193,7 @@ def Y_test(BBN, n, Field, P):
         XX = [BBf(0).solve_right(BBf(k+1)) for k in range(n)]
         Pf = [P2field(p, Field) for p in P]
         test_XX = [X2p(XX, Field, p).is_zero() for p in Pf[:n]]
-        return test_XX
+        return XX, test_XX
     else:
         print("rank deficiency ! Change finite field !")
         return None
